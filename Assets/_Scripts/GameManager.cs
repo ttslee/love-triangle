@@ -53,4 +53,8 @@ public class GameManager : MonoBehaviour
     {
 
     }
+    public void ActionListComplete(int player)
+    {
+
+    }
 }

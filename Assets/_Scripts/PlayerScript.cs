@@ -98,12 +98,20 @@ public class PlayerScript : MonoBehaviour
                 {
                     history.Push(action);
                     actionList.RemoveFirst();
+                    CheckActionListComplete();
                 }
                 else
                 {
                     actionList.AddFirst(history.Pop());
                 }
                 break;
+        }
+    }
+    private void CheckActionListComplete()
+    {
+        if(actionList.Count == 0)
+        {
+            GameManager.Instance.ActionListComplete(player);
         }
     }
 }
