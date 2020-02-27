@@ -276,12 +276,12 @@ PrefabInstance:
     - target: {fileID: 6484939819240770745, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -14.19
+      value: 0.93
       objectReference: {fileID: 0}
     - target: {fileID: 6484939819240770745, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 66.21
+      value: 96.45
       objectReference: {fileID: 0}
     - target: {fileID: 6484939819240770746, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
@@ -298,32 +298,37 @@ PrefabInstance:
     - target: {fileID: 6484939819240770746, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
       propertyPath: m_text
-      value: New Text
+      value: abcdefghijklmnopqurstuvwxyzABCEFGHIJKLMNOPQURSTUVWXYZ
       objectReference: {fileID: 0}
     - target: {fileID: 6484939819240770746, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 7
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 6484939819240770746, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6484939819240770746, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6484939819240770746, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6484939819240770746, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6484939819240770746, guid: 6b287ff5be89a0f4fa219b37da3072e4,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: 6484939819692011536, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
