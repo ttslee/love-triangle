@@ -1,12 +1,12 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!28 &-2068296425103315885
+--- !u!28 &-1625678792386553992
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Font_Dialogue Atlas
+  m_Name: Dialogue Atlas
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
@@ -50,9 +50,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Dialogue
+  m_Name: Name
   m_EditorClassIdentifier: 
-  hashCode: 2664555
+  hashCode: -1956060584
   material: {fileID: 7464375984766591767}
   materialHashCode: 482379679
   m_Version: 1.1.0
@@ -1667,7 +1667,7 @@ MonoBehaviour:
     m_GlyphIndex: 88
     m_Scale: 1
   m_AtlasTextures:
-  - {fileID: -2068296425103315885}
+  - {fileID: -1625678792386553992}
   m_AtlasTextureIndex: 0
   m_UsedGlyphRects:
   - m_X: 0
@@ -2362,7 +2362,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: -2068296425103315885}
+        m_Texture: {fileID: -1625678792386553992}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
