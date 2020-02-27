@@ -6,7 +6,7 @@ public class PlayerScript : MonoBehaviour
 {
     public GameManager gm;
     // PlayerControls
-    PlayerControls controls;
+    //PlayerControls controls;
     // Input stream and String Info
     private string currentString;
     private Stack<char> history;
@@ -40,7 +40,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        controls = new PlayerControls();
+        //controls = new PlayerControls();
+        print("IMA ALIZER");
     }
 
     // Update is called once per frame
