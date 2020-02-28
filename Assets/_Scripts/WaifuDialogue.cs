@@ -12,7 +12,7 @@ public class WaifuDialogue : MonoBehaviour
     List<string> texts = new List<string>(); //Each line of texts
     private float timer = 0f;
     public float textSpeed = 0.05f;
-    public int charsPerLine = 28; //Configurable WIDTH
+    public int charsPerLine = 18; //Configurable WIDTH
     public int totalLines = 6; //Configurable HEIGHT
     private int topLine = 0;
     private int botLine = 0;
@@ -44,7 +44,7 @@ public class WaifuDialogue : MonoBehaviour
     {
         int recordingInt = 0;
         string textCopy = text; 
-        string line = " "; 
+        string line = ""; 
 
         while (textCopy.Length > charsPerLine)
         {
@@ -69,7 +69,7 @@ public class WaifuDialogue : MonoBehaviour
             texts.Add(line);
             textCopy = textCopy.PadLeft(recordingInt + 1).Remove(0, recordingInt + 1);
             recordingInt = 0;
-            line = " ";
+            line = "";
         }
         line = textCopy;
         texts.Add(line);

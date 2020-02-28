@@ -11,7 +11,7 @@ public class Dialog : MonoBehaviour
     #region Constant
     private string text1 = "task1: Say() function in Dialogue script. difficulty: a rank. need to be done asap but due end of next week task1: Say() function in Dialogue script. difficulty: a rank. need to be done asap but due end of next week";
     private string text2 = "ABC";
-    int charsperline = 28;
+    int charsperline = 19;
     int totalline = 6;
     private float delay = 0.05f;
     #endregion
@@ -31,6 +31,10 @@ public class Dialog : MonoBehaviour
         Gtext = gameObject.GetComponent<TextMeshProUGUI>();
         Gtext.text = "";
         updateTexts(text1);
+        for (int i = 0; i < texts.Count; i++)
+        {
+            Debug.Log(texts[i]);
+        }
     }
 
     // Update is called once per frame
@@ -92,7 +96,7 @@ public class Dialog : MonoBehaviour
     {
         int recordingInt = 0;
         string copyT = input;
-        string line = " ";
+        string line = "";
 
         while (copyT.Length > charsperline) 
         {
@@ -120,7 +124,7 @@ public class Dialog : MonoBehaviour
             texts.Add(line);
             copyT = copyT.PadLeft(recordingInt+1).Remove(0, recordingInt+1);
             recordingInt = 0;
-            line = " ";
+            line = "";
         }
         line = copyT;
         texts.Add(line);
