@@ -7,16 +7,33 @@ public class PlayerScript : MonoBehaviour
 {
     // InputImagesList
     public GameObject inputImageList;
-    private bool waitingForList = true;
+    private bool hasImageList = false;
+
     // Player
     private int player = 0;
+
     // PlayerControls
     PlayerControls controls;
+
     // Input stream and String Info
+    private bool correctInput = false;
     private string currentString;
     private Stack<string> history;
-    private LinkedList<string> actionList;
-    public LinkedList<string> ActionList
+
+    private bool hasActionList = false;
+    public bool HasActionList
+    {
+        get
+        {
+            return hasActionList;
+        }
+        set
+        {
+            hasActionList = value;
+        }
+    }
+    private List<string> actionList;
+    public List<string> ActionList
     {
         get
         {
@@ -57,17 +74,21 @@ public class PlayerScript : MonoBehaviour
     void Start()
     {
         history = new Stack<string>();
-        actionList = new LinkedList<string>();
-        controls = new PlayerControls();
+        actionList = new List<string>();
         GameManager.Instance.NotifyGM(gameObject);
-        print("IMA ALIZER");
     }
-
+    private void Awake()
+    {
+        controls = new PlayerControls();
+        InputControlBindings();
+    }
     // Update is called once per frame
     void Update()
     {
-        CheckForInputImageList();
-        print(player);
+        if(hasImageList)
+            SetActionImages();
+        if(!hasImageList)
+            CheckForInputImageList();
     }
 
     public void SetPlayer(int i)
@@ -76,21 +97,21 @@ public class PlayerScript : MonoBehaviour
     }
     private void InputControlBindings()
     {
-        controls.Gameplay.X.performed += ctx => PlayerAction("X");      // X button
-        controls.Gameplay.O.performed += ctx => PlayerAction("O");      // circle
-        controls.Gameplay.S.performed += ctx => PlayerAction("S");      // square
-        controls.Gameplay.T.performed += ctx => PlayerAction("T");      // triangle
-        controls.Gameplay.Down.performed += ctx => PlayerAction("Down");
-        controls.Gameplay.Left.performed += ctx => PlayerAction("Left");      // triangle
-        controls.Gameplay.Right.performed += ctx => PlayerAction("Right");      // triangle
-        controls.Gameplay.Up.performed += ctx => PlayerAction("UP");      // triangle
-        controls.Gameplay.LeftJoy.performed += ctx => PlayerAction("LeftJoy");      // triangle
-        controls.Gameplay.RightJoy.performed += ctx => PlayerAction("RightJoy");      // triangle
-        controls.Gameplay.Start.performed += ctx => PlayerAction("Start");      // triangle
-        controls.Gameplay.RT.performed += ctx => PlayerAction("RT");      // triangle
-        controls.Gameplay.RB.performed += ctx => PlayerAction("RB");      // triangle
-        controls.Gameplay.LT.performed += ctx => PlayerAction("LT");      // triangle
-        controls.Gameplay.LB.performed += ctx => PlayerAction("LB");      // triangle
+        controls.Gameplay.X.performed += ctx => PlayerAction("X");              // X button
+        controls.Gameplay.O.performed += ctx => PlayerAction("O");              // circle
+        controls.Gameplay.S.performed += ctx => PlayerAction("S");              // square
+        controls.Gameplay.T.performed += ctx => PlayerAction("T");              // triangle
+        controls.Gameplay.Down.performed += ctx => PlayerAction("Down");        // Down D-PAD
+        controls.Gameplay.Left.performed += ctx => PlayerAction("Left");        // Left D-PAD
+        controls.Gameplay.Right.performed += ctx => PlayerAction("Right");      // Right D-PAD
+        controls.Gameplay.Up.performed += ctx => PlayerAction("UP");            // UP D-PAD
+        controls.Gameplay.LeftJoy.performed += ctx => PlayerAction("LeftJoy");  // LeftJoy
+        controls.Gameplay.RightJoy.performed += ctx => PlayerAction("RightJoy");// RightJoy
+        controls.Gameplay.Start.performed += ctx => PlayerAction("Start");      // Options/Start
+        controls.Gameplay.RT.performed += ctx => PlayerAction("RT");            // Right trigger
+        controls.Gameplay.RB.performed += ctx => PlayerAction("RB");            // Right Bumper
+        controls.Gameplay.LT.performed += ctx => PlayerAction("LT");            // Left Trigger
+        controls.Gameplay.LB.performed += ctx => PlayerAction("LB");            // Left Bumper
     }
 
     private void PlayerAction(string action)
@@ -101,6 +122,7 @@ public class PlayerScript : MonoBehaviour
             case "RB":
             case "LT":
             case "LB":
+                print("ability");
                 if(abilityBar >= 100f)
                     GameManager.Instance.AbilityCast(player);
                 break;
@@ -111,17 +133,19 @@ public class PlayerScript : MonoBehaviour
             case "RightJoy":
                 break;
             default:
-                if (!waitingForList)
+                print("action" + player.ToString());
+                if (!hasActionList)
                     break;
-                if (action == actionList.First.Value)
+                if (action == actionList[0])
                 {
+                    correctInput = true;
                     history.Push(action);
-                    actionList.RemoveFirst();
+                    actionList.RemoveAt(0);
                     CheckActionListComplete();
                 }
                 else
                 {
-                    actionList.AddFirst(history.Pop());
+                    actionList.Insert(0, history.Pop());
                 }
                 break;
         }
@@ -141,6 +165,7 @@ public class PlayerScript : MonoBehaviour
         {
             case 1:
                 list = GameObject.Find("InputListLeft");
+                //print(list);
                 break;
             case 2:
                 list = GameObject.Find("InputListRight");
@@ -148,6 +173,25 @@ public class PlayerScript : MonoBehaviour
         }
         if (list)
             inputImageList = list;
+        print(inputImageList);
+        hasImageList = true;
     }
 
+    private void OnEnable()
+    {
+        controls.Gameplay.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Gameplay.Disable();
+    }
+
+    private void SetActionImages()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            inputImageList.transform.GetChild(i).gameObject.GetComponent<InputInfo>().SetSprite(GameManager.Instance.playerActionDictionary[ActionList[i]]);
+        }
+    }
 }

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4855c567757677141a09bd47754e98af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gm: {fileID: 4880004145193882039, guid: 8c1ad0dbbe5f5354298f2dd49021cbec, type: 3}
+  inputImageList: {fileID: 0}
 --- !u!114 &2883108617184909317
 MonoBehaviour:
   m_ObjectHideFlags: 0

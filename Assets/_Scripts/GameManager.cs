@@ -8,11 +8,19 @@ using UnityEngine.SceneManagement;
 // XBOX        : { 6, 4, 7, 5, 17, 19, 16, 18 }
 public class GameManager : MonoBehaviour
 {
+    // player and waifu messages && data
+    private int currentMessage = 0;
+    List<string> playerMessages = new List<string>
+    {
+        "This is the test message...",
+    }; 
     // Singleton
     public static GameManager Instance = null;
     // PlayerControls
 
     // Player Info
+    private bool hasPlayer1 = false;
+    private bool hasPlayer2 = false;
     private GameObject player1;
     private GameObject player2;
 
@@ -52,8 +60,7 @@ public class GameManager : MonoBehaviour
             "Right",
         };
 
-    //[System.Serializable]
-    //public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
+    //[System.Serializable] public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
     //{
     //    [SerializeField]
     //    private List<TKey> keys = new List<TKey>();
@@ -90,8 +97,8 @@ public class GameManager : MonoBehaviour
 
     //public PlayerActionDictionary pActionDict;
 
-    public Dictionary<string, Sprite> playerActionDictionary;
-    //
+
+    // Prior Sprite loading attempt.... Did not work
     // Turns out I shouldnt have tried this. It was fked... It was a nice idea, but I over complicated the problem.
 
     //string[] ps4Val = { "_3", "_0", "_2", "_1", "_17", "_19", "_16", "_18" };
@@ -105,18 +112,18 @@ public class GameManager : MonoBehaviour
     //    Sprite spt = Sprite.Create(texture, rec, new Vector2(0.5f, 0.5f), 100);
     //    playerActionDictionary.Add(inputOptions[ps4Keys[i]], spt);
     //}
+
+    public Dictionary<string, Sprite> playerActionDictionary;
     public void Start()
     {
-        
+
+        // Setup the Dictionary <Input, Sprite>
         playerActionDictionary = new Dictionary<string, Sprite>();
-        int[] ps4Keys = { 0, 1, 2, 3, 11, 12, 13, 14 };
-        for (int i = 0; i < ps4Keys.Length; i++)    
+        for (int i = 0; i < 8; i++)    
         {
-            playerActionDictionary.Add(inputOptions[ps4Keys[i]], playerActionSprites[i]);
-            print(playerActionDictionary[inputOptions[ps4Keys[i]]]);
+            playerActionDictionary.Add(playerActionInputList[i], playerActionSprites[i]);
         }
-        
-        
+        ShuffleList<string>(playerMessages);
     }
     private void Awake()
     {
@@ -139,18 +146,31 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             QuitGame();
-        print((player1 != null) ? "HAHAHAHA" : "YOYOYOYO");
+        //print((player1 != null) ? "HAHAHAHA" : "YOYOYOYO");
     }
-
+    public static void ShuffleList<T>(List<T> ts)
+    {
+        var count = ts.Count;
+        var last = count - 1;
+        for (var i = 0; i < last; ++i)
+        {
+            var r = Random.Range(i, count);
+            var tmp = ts[i];
+            ts[i] = ts[r];
+            ts[r] = tmp;
+        }
+    }
     public void NotifyGM(GameObject player)
     {
         if (player1 == null)
         {
+            hasPlayer1 = true;
             player1 = player;
             player.GetComponent<PlayerScript>().SetPlayer(1);
         }
         else
         {
+            hasPlayer2 = true;
             player2 = player;
             player.GetComponent<PlayerScript>().SetPlayer(2);
         }
@@ -169,14 +189,25 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         if(player1)
-            player1.GetComponent<PlayerScript>().ActionList = GenerateInputList();
+        {
+            player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
+            player1.GetComponent<PlayerScript>().HasActionList = true;
+        }
+            
         if(player2)
-            player2.GetComponent<PlayerScript>().ActionList = GenerateInputList();
+        {
+            player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
+            player2.GetComponent<PlayerScript>().HasActionList = true;
+        }
     }
-    private LinkedList<string> GenerateInputList()
+    public List<string> GenerateActionList(string msg)
     {
-        LinkedList<string> temp = new LinkedList<string>();
-
+        List<string> temp = new List<string>();
+        for (int i = 0; i < msg.Length; i++)
+        {
+            temp.Add(playerActionInputList[Random.Range(0,9)]);
+        }
+        currentMessage++;
         return temp;
     }
     public void QuitGame()
