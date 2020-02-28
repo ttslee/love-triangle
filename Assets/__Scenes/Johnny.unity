@@ -453,36 +453,21 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4449954096064953876, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: charsPerLine
+      value: 23
+      objectReference: {fileID: 0}
     - target: {fileID: 4702316776730818853, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 3990232968014175993, guid: a8c529b355edf7a42865a968672b11be,
         type: 3}
-    - target: {fileID: 7212715248725691371, guid: f5c52384d76597c488cb195f36f0c230,
+    - target: {fileID: 7212715247517176100, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
-      propertyPath: m_text
-      value: New Text sadsad. Difficulty
-      objectReference: {fileID: 0}
-    - target: {fileID: 7212715248725691371, guid: f5c52384d76597c488cb195f36f0c230,
-        type: 3}
-      propertyPath: m_textInfo.characterCount
-      value: 27
-      objectReference: {fileID: 0}
-    - target: {fileID: 7212715248725691371, guid: f5c52384d76597c488cb195f36f0c230,
-        type: 3}
-      propertyPath: m_textInfo.spaceCount
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7212715248725691371, guid: f5c52384d76597c488cb195f36f0c230,
-        type: 3}
-      propertyPath: m_textInfo.wordCount
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7212715248725691371, guid: f5c52384d76597c488cb195f36f0c230,
-        type: 3}
-      propertyPath: m_textInfo.lineCount
-      value: 2
+      propertyPath: m_Type
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7212715249247064773, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
