@@ -203,7 +203,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1329033280
+--- !u!1001 &1652115176
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -343,12 +343,12 @@ PrefabInstance:
     - target: {fileID: 6484939819692011536, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 500
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 6484939819692011536, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 300
+      value: 225
       objectReference: {fileID: 0}
     - target: {fileID: 6484939819692011536, guid: 6b287ff5be89a0f4fa219b37da3072e4,
         type: 3}
@@ -385,11 +385,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 6484939819692011543, guid: 6b287ff5be89a0f4fa219b37da3072e4,
-        type: 3}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 153937546}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b287ff5be89a0f4fa219b37da3072e4, type: 3}
 --- !u!1001 &2625352088754338415

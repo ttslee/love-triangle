@@ -85,9 +85,9 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         if(player1)
-        {
             player1.GetComponent<PlayerScript>().ActionList = GenerateInputList();
-        }
+        if(player2)
+            player2.GetComponent<PlayerScript>().ActionList = GenerateInputList();
     }
     private LinkedList<string> GenerateInputList()
     {
