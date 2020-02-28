@@ -361,6 +361,70 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: cameras.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_UpscaleRT
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_RefResolutionY
+      value: 225
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_CropFrameX
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_CropFrameY
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_StretchFill
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_PixelSnapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: letterBoxCameraColor.r
+      value: 0.41176474
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: letterBoxCameraColor.g
+      value: 0.41176474
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: letterBoxCameraColor.b
+      value: 0.41176474
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: findCamerasAutomatically
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: createCameraForLetterBoxRendering
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: ratio.x
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 2720796254099973461, guid: df1fe63617f6b354681ca4dfbb6c6dac,
         type: 3}
       propertyPath: m_Name
@@ -471,66 +535,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2720796254099973465, guid: df1fe63617f6b354681ca4dfbb6c6dac,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_UpscaleRT
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_RefResolutionY
-      value: 225
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_CropFrameX
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_CropFrameY
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_StretchFill
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_PixelSnapping
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 0}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690811277313064514, guid: df1fe63617f6b354681ca4dfbb6c6dac,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690811277313064514, guid: df1fe63617f6b354681ca4dfbb6c6dac,
-        type: 3}
-      propertyPath: letterBoxCameraColor.r
-      value: 0.41176474
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690811277313064514, guid: df1fe63617f6b354681ca4dfbb6c6dac,
-        type: 3}
-      propertyPath: letterBoxCameraColor.g
-      value: 0.41176474
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690811277313064514, guid: df1fe63617f6b354681ca4dfbb6c6dac,
-        type: 3}
-      propertyPath: letterBoxCameraColor.b
-      value: 0.41176474
-      objectReference: {fileID: 0}
-    - target: {fileID: 4690811277313064514, guid: df1fe63617f6b354681ca4dfbb6c6dac,
-        type: 3}
-      propertyPath: findCamerasAutomatically
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df1fe63617f6b354681ca4dfbb6c6dac, type: 3}
 --- !u!1001 &7212715247813381609
 PrefabInstance:
