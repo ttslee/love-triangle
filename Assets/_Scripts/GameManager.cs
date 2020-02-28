@@ -12,6 +12,28 @@ public class GameManager : MonoBehaviour
     private GameObject player1;
     private GameObject player2;
 
+    // Input Options
+    private List<string> inputOptions = 
+        new List<string>
+        {
+            "X",
+            "O",
+            "S",
+            "T",
+            "LT",
+            "LB",
+            "RT",
+            "RB",
+            "LeftJoy",
+            "RightJoy",
+            "Start",
+            "Up",
+            "Down",
+            "Left",
+            "Right",
+        };
+
+
     private void Awake()
     {
         // If there is not already an instance of SoundManager, set it to this.
@@ -31,6 +53,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            QuitGame();
         print((player1 != null) ? "HAHAHAHA" : "YOYOYOYO");
     }
 
@@ -56,5 +80,30 @@ public class GameManager : MonoBehaviour
     public void ActionListComplete(int player)
     {
 
+    }
+
+    public void NewGame()
+    {
+        if(player1)
+        {
+            player1.GetComponent<PlayerScript>().ActionList = GenerateInputList();
+        }
+    }
+    private LinkedList<string> GenerateInputList()
+    {
+        LinkedList<string> temp = new LinkedList<string>();
+
+        return temp;
+    }
+    public void QuitGame()
+    {
+        // save any game data here
+        #if UNITY_EDITOR
+        // Application.Quit() does not work in the editor so
+        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 }

@@ -13,6 +13,17 @@ public class PlayerScript : MonoBehaviour
     private string currentString;
     private Stack<string> history;
     private LinkedList<string> actionList;
+    public LinkedList<string> ActionList
+    {
+        get
+        {
+            return actionList;
+        }
+        set
+        {
+            actionList = value;
+        }
+    }
     // Ability and Affection Bar Info
     private float affectionBar = 0f;
     private float abilityBar = 0f;
@@ -42,6 +53,8 @@ public class PlayerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        history = new Stack<string>();
+        actionList = new LinkedList<string>();
         controls = new PlayerControls();
         GameManager.Instance.NotifyGM(gameObject);
         print("IMA ALIZER");
