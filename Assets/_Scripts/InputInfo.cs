@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class InputInfo : MonoBehaviour
 {
-    [SerializeField]
     private SpriteRenderer image;
 
     private string action;
@@ -22,6 +21,7 @@ public class InputInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        image = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame

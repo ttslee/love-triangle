@@ -33,7 +33,65 @@ public class GameManager : MonoBehaviour
             "Right",
         };
 
+    private List<string> playerActionInputList =
+        new List<string>
+        {
+            "X",
+            "O",
+            "S",
+            "T",
+            "Up",
+            "Down",
+            "Left",
+            "Right",
+        };
 
+
+    //[System.Serializable]
+    //public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
+    //{
+    //    [SerializeField]
+    //    private List<TKey> keys = new List<TKey>();
+
+    //    [SerializeField]
+    //    private List<TValue> values = new List<TValue>();
+
+    //    // save the dictionary to lists
+    //    public void OnBeforeSerialize()
+    //    {
+    //        keys.Clear();
+    //        values.Clear();
+    //        foreach (KeyValuePair<TKey, TValue> pair in this)
+    //        {
+    //            keys.Add(pair.Key);
+    //            values.Add(pair.Value);
+    //        }
+    //    }
+
+    //    // load dictionary from lists
+    //    public void OnAfterDeserialize()
+    //    {
+    //        this.Clear();
+
+    //        if (keys.Count != values.Count)
+    //            throw new System.Exception(string.Format("there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable."));
+
+    //        for (int i = 0; i < keys.Count; i++)
+    //            this.Add(keys[i], values[i]);
+    //    }
+    //}
+    //[System.Serializable]
+    //public class PlayerActionDictionary : SerializableDictionary<string, Sprite> { };
+
+    //public PlayerActionDictionary pActionDict;
+    public void Start()
+    {
+        Sprite[] Font_Inputs = Resources.LoadAll<Sprite>("_Textures/Font_Inputs");
+        foreach(var s in Font_Inputs)
+        {
+            print(s.name);
+        }
+    }
     private void Awake()
     {
         // If there is not already an instance of SoundManager, set it to this.
