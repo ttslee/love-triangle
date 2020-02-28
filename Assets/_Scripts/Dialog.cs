@@ -8,108 +8,144 @@ using TMPro;
 public class Dialog : MonoBehaviour
 
 {
-
-    private string text1 = "task1: Say() function in Dialogue script. difficulty: a rank. need to be done asap but due end of next week";
+    #region Constant
+    private string text1 = "task1: Say() function in Dialogue script. difficulty: a rank. need to be done asap but due end of next week task1: Say() function in Dialogue script. difficulty: a rank. need to be done asap but due end of next week";
     private string text2 = "ABC";
     int charsperline = 28;
-    int totalline = 10;
-    private float delay = 0.02f;
+    int totalline = 6;
+    private float delay = 0.05f;
+    #endregion
 
+    #region variable
     private float timer = 0f;
-    int typing = 0;
-    int linecount = 0;
-    int typed = 0;
+    int topline = 0;
+    int botline = 0;
+    int typecount = 0;
+    List<string> texts = new List<string>();
     TextMeshProUGUI Gtext;
+    #endregion
 
     // Start is called before the first frame update
     void Start()
     {
         Gtext = gameObject.GetComponent<TextMeshProUGUI>();
         Gtext.text = "";
+        updateTexts(text1);
     }
 
     // Update is called once per frame
 
     void Update()
     {
-        Say(text1);
+        Say(texts);
     }
-
-    private void Say(string Text)
+    #region function
+    private void Say(List<string> texts) //type out texts with type writer effect.
     {
-        int textlength = Text.Length;
-
         timer += Time.deltaTime;
-        if (typing <= textlength - 1)
+ 
+        if (timer >= delay)
         {
-            if (timer >= delay)
+            if (botline<=texts.Count-1)
             {
-
-                Gtext.text += Text[typing];
-                typed += 1;
-
-
-
-                if (Text[typing] == ' ')
+                if (botline - topline >= totalline)
                 {
-                    if (WordRemind(Text, typed, typing) == false)
+                    topline++;
+                    Gtext.text = "";
+                    for (int i = topline; i <= botline-1; i++)
                     {
+                        Gtext.text += texts[i];
                         Gtext.text += "\n";
+                    }
+                }
+                else 
+                {
+                    if (typecount <= texts[botline].Length - 1)
+                    {
+                        Gtext.text += texts[botline][typecount];
+                        typecount++;
                         timer = 0;
-                        typing++;
-                        typed = 0;
                     }
                     else
                     {
-                        typing++;
-                        timer = 0;
-                        if (typed == charsperline)
-                        {
-                            Gtext.text += "\n";
-                            typed = 0;
-                        }
-                    }
-                }
-                else
-                {
-                    typing++;
-                    timer = 0;
-                    if (typed == charsperline)
-                    {
                         Gtext.text += "\n";
-                        typed = 0;
+                        botline += 1;
+                        typecount = 0;
+                        timer = 0;
+                    }
+                }
+                
+            }
+            
+            
+            
+
+        }
+
+
+    }
+        
+        
+
+
+    private void updateTexts(string input)
+    {
+        int recordingInt = 0;
+        string copyT = input;
+        string line = " ";
+
+        while (copyT.Length > charsperline) 
+        {
+            for (int i = 0; i <= charsperline; i++)
+            {
+                if (copyT[i] != ' ')
+                {
+                    line += copyT[i];
+                    recordingInt += 1;
+                }
+                else 
+                {
+                    if (CheckSpace(i, line.Length, copyT) == true)
+                    {
+                        line += copyT[i];
+                        recordingInt += 1;
+                    }
+
+                    else 
+                    {
+                        break;
                     }
                 }
             }
-
+            texts.Add(line);
+            copyT = copyT.PadLeft(recordingInt+1).Remove(0, recordingInt+1);
+            recordingInt = 0;
+            line = " ";
         }
-    }
-    private bool WordRemind(string text, int typed_line, int typing)
+        line = copyT;
+        texts.Add(line);
+    }//Load text and seperate them in line and store in a list.
+
+    private bool CheckSpace(int number, int Used,string text) 
     {
-        int char_remained = charsperline - typed_line;
-        int checking_int = typing + 1;
+        int left_num = charsperline - Used;
         int count = 0;
-        while (checking_int < text.Length - 1)
+        int current = number+1;
+        while (text[current] != ' ') 
         {
-            if (text[checking_int] != ' ')
-            {
-                count += 1;
-                checking_int += 1;
-            }
-            else
-            {
-                break;
-            }
-
+            count += 1;
+            current += 1;
         }
 
-        if (count <= char_remained)
+        if (count <= left_num)
         {
             return true;
         }
-        else
+
+        else 
         {
             return false;
         }
-    }
+    }//check if left spaces enough for next word.
+    #endregion
 }
