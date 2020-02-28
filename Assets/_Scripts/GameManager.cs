@@ -16,7 +16,9 @@ public class GameManager : MonoBehaviour
     private GameObject player1;
     private GameObject player2;
 
+
     // Input Options
+    public List<Sprite> playerActionSprites;
     private List<string> inputOptions = 
         new List<string>
         {
@@ -49,7 +51,6 @@ public class GameManager : MonoBehaviour
             "Left",
             "Right",
         };
-
 
     //[System.Serializable]
     //public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
@@ -89,25 +90,33 @@ public class GameManager : MonoBehaviour
 
     //public PlayerActionDictionary pActionDict;
 
-    Dictionary<string, Sprite> playerActionDictionary;
+    public Dictionary<string, Sprite> playerActionDictionary;
+    //
+    // Turns out I shouldnt have tried this. It was fked... It was a nice idea, but I over complicated the problem.
+
+    //string[] ps4Val = { "_3", "_0", "_2", "_1", "_17", "_19", "_16", "_18" };
+    //for (int i = 0; i < ps4Keys.Length; i++)
+    //{
+    //    string temp = "Font_Inputs" + ps4Val[i];
+    //    Texture2D texture = Resources.Load<Texture2D>(temp);
+    //    print(texture);
+    //    Rect rec = new Rect(0, 0, 8, 9);
+
+    //    Sprite spt = Sprite.Create(texture, rec, new Vector2(0.5f, 0.5f), 100);
+    //    playerActionDictionary.Add(inputOptions[ps4Keys[i]], spt);
+    //}
     public void Start()
     {
+        
         playerActionDictionary = new Dictionary<string, Sprite>();
-        // THIS IS A BIT COMPLICATED, AND IM SURE I COULDA DONE IT DIFFERENTLY. BUT FUCKEM.
         int[] ps4Keys = { 0, 1, 2, 3, 11, 12, 13, 14 };
-        string[] ps4Val = { "_3", "_0", "_2", "_1", "_17", "_19", "_16", "_18" };
-        for (int i = 0; i < ps4Keys.Length; i++)
+        for (int i = 0; i < ps4Keys.Length; i++)    
         {
-            string temp = "Font_Inputs" + ps4Val[i];
-            Sprite spt = Resources.Load<Sprite>(temp);
-            print(spt);
-            playerActionDictionary.Add(inputOptions[ps4Keys[i]], spt);
+            playerActionDictionary.Add(inputOptions[ps4Keys[i]], playerActionSprites[i]);
+            print(playerActionDictionary[inputOptions[ps4Keys[i]]]);
         }
-        foreach(var e in playerActionDictionary)
-        {
-            print(e.Key);
-            print(e.Value);
-        }
+        
+        
     }
     private void Awake()
     {

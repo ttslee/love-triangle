@@ -689,5 +689,58 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4880004145193882039, guid: 8c1ad0dbbe5f5354298f2dd49021cbec,
+        type: 3}
+      propertyPath: playerActionSprites.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4880004145193882039, guid: 8c1ad0dbbe5f5354298f2dd49021cbec,
+        type: 3}
+      propertyPath: playerActionSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 6799014943801064777, guid: 8b5b9eb10f16159468fc7e659ff700f4,
+        type: 3}
+    - target: {fileID: 4880004145193882039, guid: 8c1ad0dbbe5f5354298f2dd49021cbec,
+        type: 3}
+      propertyPath: playerActionSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -7537952596609793397, guid: 8b5b9eb10f16159468fc7e659ff700f4,
+        type: 3}
+    - target: {fileID: 4880004145193882039, guid: 8c1ad0dbbe5f5354298f2dd49021cbec,
+        type: 3}
+      propertyPath: playerActionSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 7780654894508763292, guid: 8b5b9eb10f16159468fc7e659ff700f4,
+        type: 3}
+    - target: {fileID: 4880004145193882039, guid: 8c1ad0dbbe5f5354298f2dd49021cbec,
+        type: 3}
+      propertyPath: playerActionSprites.Array.data[3]
+      value: 
+      objectReference: {fileID: -5586813096960088191, guid: 8b5b9eb10f16159468fc7e659ff700f4,
+        type: 3}
+    - target: {fileID: 4880004145193882039, guid: 8c1ad0dbbe5f5354298f2dd49021cbec,
+        type: 3}
+      propertyPath: playerActionSprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 2932455126943631157, guid: 8b5b9eb10f16159468fc7e659ff700f4,
+        type: 3}
+    - target: {fileID: 4880004145193882039, guid: 8c1ad0dbbe5f5354298f2dd49021cbec,
+        type: 3}
+      propertyPath: playerActionSprites.Array.data[5]
+      value: 
+      objectReference: {fileID: -3798976328583524545, guid: 8b5b9eb10f16159468fc7e659ff700f4,
+        type: 3}
+    - target: {fileID: 4880004145193882039, guid: 8c1ad0dbbe5f5354298f2dd49021cbec,
+        type: 3}
+      propertyPath: playerActionSprites.Array.data[6]
+      value: 
+      objectReference: {fileID: 4117222899307613109, guid: 8b5b9eb10f16159468fc7e659ff700f4,
+        type: 3}
+    - target: {fileID: 4880004145193882039, guid: 8c1ad0dbbe5f5354298f2dd49021cbec,
+        type: 3}
+      propertyPath: playerActionSprites.Array.data[7]
+      value: 
+      objectReference: {fileID: -7823877747082229569, guid: 8b5b9eb10f16159468fc7e659ff700f4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8c1ad0dbbe5f5354298f2dd49021cbec, type: 3}

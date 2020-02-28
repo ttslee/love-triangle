@@ -43,5 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d627c2243f2ea5498c8426c543bff91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player1: {fileID: 8393488904086563302, guid: 6a2d4f528d6491f4f86005c5d59c0a63, type: 3}
-  player2: {fileID: 8393488904086563302, guid: 6a2d4f528d6491f4f86005c5d59c0a63, type: 3}
+  playerActionSprites:
+  - {fileID: 6799014943801064777, guid: 8b5b9eb10f16159468fc7e659ff700f4, type: 3}
+  - {fileID: -7537952596609793397, guid: 8b5b9eb10f16159468fc7e659ff700f4, type: 3}
+  - {fileID: 7780654894508763292, guid: 8b5b9eb10f16159468fc7e659ff700f4, type: 3}
+  - {fileID: -5586813096960088191, guid: 8b5b9eb10f16159468fc7e659ff700f4, type: 3}
+  - {fileID: 2932455126943631157, guid: 8b5b9eb10f16159468fc7e659ff700f4, type: 3}
+  - {fileID: -3798976328583524545, guid: 8b5b9eb10f16159468fc7e659ff700f4, type: 3}
+  - {fileID: 4117222899307613109, guid: 8b5b9eb10f16159468fc7e659ff700f4, type: 3}
+  - {fileID: -7823877747082229569, guid: 8b5b9eb10f16159468fc7e659ff700f4, type: 3}
