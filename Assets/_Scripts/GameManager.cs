@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+// Font_Input subscripts. Order matters! It matches InputOptions list so that loading the dictionary works properly. 
+// Playstation : { 3, 0, 2, 1, 17, 19, 16, 18 }
+// XBOX        : { 6, 4, 7, 5, 17, 19, 16, 18 }
 public class GameManager : MonoBehaviour
 {
     // Singleton
@@ -84,12 +88,25 @@ public class GameManager : MonoBehaviour
     //public class PlayerActionDictionary : SerializableDictionary<string, Sprite> { };
 
     //public PlayerActionDictionary pActionDict;
+
+    Dictionary<string, Sprite> playerActionDictionary;
     public void Start()
     {
-        Sprite[] Font_Inputs = Resources.LoadAll<Sprite>("_Textures/Font_Inputs");
-        foreach(var s in Font_Inputs)
+        playerActionDictionary = new Dictionary<string, Sprite>();
+        // THIS IS A BIT COMPLICATED, AND IM SURE I COULDA DONE IT DIFFERENTLY. BUT FUCKEM.
+        int[] ps4Keys = { 0, 1, 2, 3, 11, 12, 13, 14 };
+        string[] ps4Val = { "_3", "_0", "_2", "_1", "_17", "_19", "_16", "_18" };
+        for (int i = 0; i < ps4Keys.Length; i++)
         {
-            print(s.name);
+            string temp = "Font_Inputs" + ps4Val[i];
+            Sprite spt = Resources.Load<Sprite>(temp);
+            print(spt);
+            playerActionDictionary.Add(inputOptions[ps4Keys[i]], spt);
+        }
+        foreach(var e in playerActionDictionary)
+        {
+            print(e.Key);
+            print(e.Value);
         }
     }
     private void Awake()
