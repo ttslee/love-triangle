@@ -5,8 +5,11 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
+    // InputImagesList
+    public GameObject inputImageList;
+    private bool waitingForList = true;
     // Player
-    private int player = 1;
+    private int player = 0;
     // PlayerControls
     PlayerControls controls;
     // Input stream and String Info
@@ -63,6 +66,7 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckForInputImageList();
         print(player);
     }
 
@@ -107,6 +111,8 @@ public class PlayerScript : MonoBehaviour
             case "RightJoy":
                 break;
             default:
+                if (!waitingForList)
+                    break;
                 if (action == actionList.First.Value)
                 {
                     history.Push(action);
@@ -127,4 +133,21 @@ public class PlayerScript : MonoBehaviour
             GameManager.Instance.ActionListComplete(player);
         }
     }
+
+    private void CheckForInputImageList()
+    {
+        GameObject list = null; 
+        switch (player)
+        {
+            case 1:
+                list = GameObject.Find("InputListLeft");
+                break;
+            case 2:
+                list = GameObject.Find("InputListRight");
+                break;
+        }
+        if (list)
+            inputImageList = list;
+    }
+
 }
