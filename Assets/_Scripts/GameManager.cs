@@ -1,7 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
+// Font_Input subscripts. Order matters! It matches InputOptions list so that loading the dictionary works properly. 
+// Playstation : { 3, 0, 2, 1, 17, 19, 16, 18 }
+// XBOX        : { 6, 4, 7, 5, 17, 19, 16, 18 }
 public class GameManager : MonoBehaviour
 {
     // Singleton
@@ -33,7 +37,78 @@ public class GameManager : MonoBehaviour
             "Right",
         };
 
+    private List<string> playerActionInputList =
+        new List<string>
+        {
+            "X",
+            "O",
+            "S",
+            "T",
+            "Up",
+            "Down",
+            "Left",
+            "Right",
+        };
 
+
+    //[System.Serializable]
+    //public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
+    //{
+    //    [SerializeField]
+    //    private List<TKey> keys = new List<TKey>();
+
+    //    [SerializeField]
+    //    private List<TValue> values = new List<TValue>();
+
+    //    // save the dictionary to lists
+    //    public void OnBeforeSerialize()
+    //    {
+    //        keys.Clear();
+    //        values.Clear();
+    //        foreach (KeyValuePair<TKey, TValue> pair in this)
+    //        {
+    //            keys.Add(pair.Key);
+    //            values.Add(pair.Value);
+    //        }
+    //    }
+
+    //    // load dictionary from lists
+    //    public void OnAfterDeserialize()
+    //    {
+    //        this.Clear();
+
+    //        if (keys.Count != values.Count)
+    //            throw new System.Exception(string.Format("there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable."));
+
+    //        for (int i = 0; i < keys.Count; i++)
+    //            this.Add(keys[i], values[i]);
+    //    }
+    //}
+    //[System.Serializable]
+    //public class PlayerActionDictionary : SerializableDictionary<string, Sprite> { };
+
+    //public PlayerActionDictionary pActionDict;
+
+    Dictionary<string, Sprite> playerActionDictionary;
+    public void Start()
+    {
+        playerActionDictionary = new Dictionary<string, Sprite>();
+        // THIS IS A BIT COMPLICATED, AND IM SURE I COULDA DONE IT DIFFERENTLY. BUT FUCKEM.
+        int[] ps4Keys = { 0, 1, 2, 3, 11, 12, 13, 14 };
+        string[] ps4Val = { "_3", "_0", "_2", "_1", "_17", "_19", "_16", "_18" };
+        for (int i = 0; i < ps4Keys.Length; i++)
+        {
+            string temp = "Font_Inputs" + ps4Val[i];
+            Sprite spt = Resources.Load<Sprite>(temp);
+            print(spt);
+            playerActionDictionary.Add(inputOptions[ps4Keys[i]], spt);
+        }
+        foreach(var e in playerActionDictionary)
+        {
+            print(e.Key);
+            print(e.Value);
+        }
+    }
     private void Awake()
     {
         // If there is not already an instance of SoundManager, set it to this.
@@ -85,9 +160,9 @@ public class GameManager : MonoBehaviour
     public void NewGame()
     {
         if(player1)
-        {
             player1.GetComponent<PlayerScript>().ActionList = GenerateInputList();
-        }
+        if(player2)
+            player2.GetComponent<PlayerScript>().ActionList = GenerateInputList();
     }
     private LinkedList<string> GenerateInputList()
     {
@@ -105,5 +180,9 @@ public class GameManager : MonoBehaviour
         #else
             Application.Quit();
         #endif
+    }
+    public void StartGame()
+    {
+        SceneManager.LoadScene("Teo"); // *************************************
     }
 }
