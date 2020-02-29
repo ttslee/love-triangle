@@ -44,7 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4855c567757677141a09bd47754e98af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputImageList: {fileID: 0}
+  gameOn: 0
+  inputImageListLeft: {fileID: 1920042561224475836, guid: 9d1d92dbc3177d64c8322445abdd47ba,
+    type: 3}
+  inputImageListRight: {fileID: 1920042561224475836, guid: 5901587724a78c44ab16fe0e5e69b4ee,
+    type: 3}
 --- !u!114 &2883108617184909317
 MonoBehaviour:
   m_ObjectHideFlags: 0

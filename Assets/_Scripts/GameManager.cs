@@ -21,8 +21,8 @@ public class GameManager : MonoBehaviour
     // Player Info
     private bool hasPlayer1 = false;
     private bool hasPlayer2 = false;
-    private GameObject player1;
-    private GameObject player2;
+    private GameObject player1 = null;
+    private GameObject player2 = null;
 
 
     // Input Options
@@ -167,10 +167,12 @@ public class GameManager : MonoBehaviour
             print("ALIVE");
             hasPlayer1 = true;
             player1 = player;
+            player1.name = "Player1";
             player.GetComponent<PlayerScript>().SetPlayer(1);
         }
         else
         {
+            player2.name = "Player2";
             hasPlayer2 = true;
             player2 = player;
             player.GetComponent<PlayerScript>().SetPlayer(2);
@@ -191,6 +193,7 @@ public class GameManager : MonoBehaviour
     {
         if(player1 && hasPlayer1)
         {
+            player1.GetComponent<PlayerScript>().SetImageList(1);
             player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
             player1.GetComponent<PlayerScript>().HasActionList = true;
             hasPlayer1 = true;
@@ -198,6 +201,7 @@ public class GameManager : MonoBehaviour
             
         if(player2 && hasPlayer2)
         {
+            player2.GetComponent<PlayerScript>().SetImageList(2);
             player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
             player2.GetComponent<PlayerScript>().HasActionList = true;
             hasPlayer2 = true;
@@ -210,7 +214,6 @@ public class GameManager : MonoBehaviour
         {
             temp.Add(playerActionInputList[Random.Range(0,8)]);
         }
-        print(temp);
         currentMessage++;
         return temp;
     }
