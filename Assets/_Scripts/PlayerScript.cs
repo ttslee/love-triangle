@@ -8,7 +8,7 @@ public class PlayerScript : MonoBehaviour
     // GAME ON BOOL
     public bool gameOn = false;
     // InputImagesList
-    public GameObject inputImageList;
+    private GameObject inputImageList;
     private bool hasImageList = false;
 
     // Player
@@ -78,6 +78,7 @@ public class PlayerScript : MonoBehaviour
         history = new Stack<string>();
         actionList = new List<string>();
         GameManager.Instance.NotifyGM(gameObject);
+        GameManager.Instance.NewGame();
     }
     private void Awake()
     {
@@ -87,11 +88,8 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (hasActionList)
-            SetActionImages();
+        SetActionImages();
         keyBoardInput();
-        if (!hasImageList)
-            CheckForInputImageList();
     }
     private void keyBoardInput()
     {
@@ -111,7 +109,7 @@ public class PlayerScript : MonoBehaviour
         controls.Gameplay.Down.performed += ctx => PlayerAction("Down");        // Down D-PAD
         controls.Gameplay.Left.performed += ctx => PlayerAction("Left");        // Left D-PAD
         controls.Gameplay.Right.performed += ctx => PlayerAction("Right");      // Right D-PAD
-        controls.Gameplay.Up.performed += ctx => PlayerAction("UP");            // UP D-PAD
+        controls.Gameplay.Up.performed += ctx => PlayerAction("Up");            // UP D-PAD
         controls.Gameplay.LeftJoy.performed += ctx => PlayerAction("LeftJoy");  // LeftJoy
         controls.Gameplay.RightJoy.performed += ctx => PlayerAction("RightJoy");// RightJoy
         controls.Gameplay.Start.performed += ctx => PlayerAction("Start");      // Options/Start
@@ -123,6 +121,7 @@ public class PlayerScript : MonoBehaviour
 
     private void PlayerAction(string action)
     {
+        print(player);
         switch(action)
         {
             case "RT":
@@ -144,16 +143,16 @@ public class PlayerScript : MonoBehaviour
                     break;
                 if (action == actionList[0])
                 {
+                    print("COORECT");
                     correctInput = true;
                     history.Push(action);
                     actionList.RemoveAt(0);
                     CheckActionListComplete();
-                    if (hasActionList)
-                        SetActionImages();
                 }
                 else
                 {
-                    actionList.Insert(0, history.Pop());
+                    if(history.Count != 0)
+                        actionList.Insert(0, history.Pop());
                 }
                 break;
         }
@@ -162,26 +161,24 @@ public class PlayerScript : MonoBehaviour
     {
         if(actionList.Count == 0)
         {
+            print("WHYYYY");
             GameManager.Instance.ActionListComplete(player);
             hasActionList = false;
         }
     }
 
-    private void CheckForInputImageList()
+    public void SetImageList(int p)
     {
-        GameObject list = null; 
-        switch (player)
+        switch (p)
         {
             case 1:
-                list = GameObject.Find("InputListLeft");
+                inputImageList = GameObject.Find("InputListLeft");
                 //print(list);
                 break;
             case 2:
-                list = GameObject.Find("InputListRight");
+                inputImageList = GameObject.Find("InputListRight");
                 break;
         }
-        if (list)
-            inputImageList = list;
         hasImageList = true;
     }
 
@@ -197,11 +194,15 @@ public class PlayerScript : MonoBehaviour
 
     private void SetActionImages()
     {
-        for (int i = 0; i < 5; i++)
-        {
-            //print(inputImageList.transform.GetChild(i));
-            //inputImageList.transform.GetChild(i).gameObject.GetComponent<InputInfo>().SetSprite(GameManager.Instance.playerActionDictionary[ActionList[i]]);
-            inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = GameManager.Instance.playerActionDictionary[ActionList[i]];
-        }
+        if(hasImageList)
+            for (int i = 0; i < 5; i++)
+            {
+                if(actionList.Count <= i)
+                {
+                    inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
+                }
+                else
+                    inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = GameManager.Instance.playerActionDictionary[ActionList[i]];
+            }
     }
 }
