@@ -22,7 +22,7 @@ public class WaifuDialogue : MonoBehaviour
     #endregion
 
     //Delete this later on
-    private string exampleText = "task1: Say() function in Dialogue script. difficulty: a rank. need to be done asap but due end of next week task1: Say() function in Dialogue script. difficulty: a rank. need to be done asap but due end of next week";
+    private string exampleText = "task1: Say() function in Dialogue script. difficulty: a rank. aaa<color=#005500>name</color> need to be done asap but due end of next week task1: Say() function in Dialogue script. difficulty: a rank. need to be done asap but due end of next week";
 
     void Start() 
     {
