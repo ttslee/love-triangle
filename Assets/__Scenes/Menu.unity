@@ -178,7 +178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: <color=#ff515d>Love</color> Triangle
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e63ef81a5308173439c2d67082d30d8d, type: 2}
   m_sharedMaterial: {fileID: 7464375984766591767, guid: e63ef81a5308173439c2d67082d30d8d,
@@ -248,13 +248,13 @@ MonoBehaviour:
   m_margin: {x: 0.258, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 425524074}
-    characterCount: 0
+    characterCount: 13
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -337,6 +337,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d758b443b387fc640aef2ab304c6bf7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startDelay: 1
   textSpeed: 0.05
 --- !u!1 &536320865
 GameObject:
