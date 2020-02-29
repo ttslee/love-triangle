@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 6ebed0af67f50d94a8f2514325429d26
+guid: 671f0bad2cea11140b072c11f7ddbbdd
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 102054854523909920
-    second: Portait_Player_0
+      213: 9054410218423804136
+    second: Nameplate_Mask_0
   - first:
-      213: -8570985371898721890
-    second: Portait_Player_1
+      213: -7698949160874218305
+    second: Nameplate_Mask_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Portait_Player_0
+      name: Nameplate_Mask_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 73
-        height: 72
+        y: 54
+        width: 222
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a40f3559de579b241ba9d4e84fc1209b
-      internalID: 102054854523909920
+      spriteID: 383ac173889c37b479db2f09e3e679cd
+      internalID: 9054410218423804136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Portait_Player_1
+      name: Nameplate_Mask_1
       rect:
         serializedVersion: 2
-        x: 73
+        x: 0
         y: 0
-        width: 73
-        height: 72
+        width: 222
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cef110d35e150784a88f7bde4af40ba1
-      internalID: -8570985371898721890
+      spriteID: e26936d45a229414893f4e29f35dfbb5
+      internalID: -7698949160874218305
       vertices: []
       indices: 
       edges: []
