@@ -1,13 +1,13 @@
 fileFormatVersion: 2
-guid: 6ebed0af67f50d94a8f2514325429d26
+guid: 60f39c60655424541ac3a236973ce54d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 102054854523909920
-    second: Portait_Player_0
+      213: 2286076258093193499
+    second: Nameplate_Effect_0
   - first:
-      213: -8570985371898721890
-    second: Portait_Player_1
+      213: -1700466417370550182
+    second: Nameplate_Effect_1
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -104,13 +104,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Portait_Player_0
+      name: Nameplate_Effect_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 73
-        height: 72
+        y: 54
+        width: 222
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +118,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a40f3559de579b241ba9d4e84fc1209b
-      internalID: 102054854523909920
+      spriteID: 575b3729dbefceb419be1cbf31d8297c
+      internalID: 2286076258093193499
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Portait_Player_1
+      name: Nameplate_Effect_1
       rect:
         serializedVersion: 2
-        x: 73
+        x: 0
         y: 0
-        width: 73
-        height: 72
+        width: 222
+        height: 54
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +139,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cef110d35e150784a88f7bde4af40ba1
-      internalID: -8570985371898721890
+      spriteID: 561cc4d81ffe675459c63ba708d7c0a9
+      internalID: -1700466417370550182
       vertices: []
       indices: 
       edges: []
