@@ -92,7 +92,32 @@ public class WaifuDialogue : MonoBehaviour
             return false;
     }
     #endregion
-
+    private List<string> CheckColorString(string texts,int typecount) 
+    {
+        List<string> list = new List<string>();
+        string temp = "";
+        int countright = 0;
+        for (int i = typecount; i < texts.Length; i++)
+        {
+            if (texts[i] == '>')
+            {
+                countright++;
+                temp += texts[i];
+                if (countright == 2)
+                {
+                    break;
+                }
+            }
+            else 
+            {
+                temp += texts[i];
+            }
+        }
+        string a = temp.Length.ToString();
+        list.Add(temp);
+        list.Add(a);
+        return list;
+    }
     private void Say(List<string> texts) //type out texts with type writer effect.
     {
         timer += Time.deltaTime;
@@ -115,9 +140,22 @@ public class WaifuDialogue : MonoBehaviour
                 {
                     if (typeCount <= texts[botLine].Length - 1)
                     {
-                        tmpText.text += texts[botLine][typeCount];
-                        typeCount++;
-                        timer = 0;
+                        if (texts[botLine][typeCount] == '<')
+                        {
+                            List<string> list = CheckColorString(texts[botLine],typeCount);
+                            string a = list[0];
+                            int b = int.Parse(list[1]);
+                            tmpText.text += a;
+                            typeCount += b;
+                            timer = 0;
+                        }
+                        else 
+                        {
+                            tmpText.text += texts[botLine][typeCount];
+                            typeCount++;
+                            timer = 0;
+                        }
+                        
                     }
                     else
                     {
