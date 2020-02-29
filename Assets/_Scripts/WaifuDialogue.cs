@@ -12,7 +12,7 @@ public class WaifuDialogue : MonoBehaviour
     List<string> texts = new List<string>(); //Each line of texts
     private float timer = 0f;
     public float textSpeed = 0.05f;
-    public int charsPerLine = 18; //Configurable WIDTH
+    public int charsPerLine = 28; //Configurable WIDTH
     public int totalLines = 6; //Configurable HEIGHT
     private int topLine = 0;
     private int botLine = 0;
@@ -32,6 +32,10 @@ public class WaifuDialogue : MonoBehaviour
 
         //Example of Queuing Text. Delete this later on
         QueueText(exampleText);
+        for (int i = 0; i < texts.Count; i++)//delete later
+        {
+      
+        }
     }
 
     private void Update()
@@ -50,16 +54,30 @@ public class WaifuDialogue : MonoBehaviour
         {
             for (int i = 0; i <= charsPerLine; i++)
             {
-                if (textCopy[i] != ' ')
+
+                if (textCopy[recordingInt] == '<')
                 {
-                    line += textCopy[i];
+                    List<string> list = CheckColorString(textCopy, recordingInt);
+                    string a = list[0];
+                    int b = int.Parse(list[1]);
+                    List<string> listStrings = SeprateString(a);
+                    for (int j = 0; j < listStrings.Count; j++)
+                    {
+                        line += listStrings[j]; 
+                    }
+                    recordingInt += b;
+                    i += listStrings.Count;
+                }
+                else if (textCopy[recordingInt] != ' ')
+                {
+                    line += textCopy[recordingInt];
                     recordingInt += 1;
                 }
                 else
                 {
-                    if (CheckSpace(i, line.Length, textCopy) == true)
+                    if (CheckSpace(recordingInt, i, textCopy) == true)
                     {
-                        line += textCopy[i];
+                        line += textCopy[recordingInt];
                         recordingInt += 1;
                     }
                     else
@@ -78,18 +96,86 @@ public class WaifuDialogue : MonoBehaviour
     #region QueueText Helper Functions
     private bool CheckSpace(int number, int used, string text) //Checks if there's enough spaces for the next word
     {
+        Debug.Log(used);
         int numLeft = charsPerLine - used;
         int count = 0;
         int current = number + 1;
-        while (text[current] != ' ')
+        if (text[current] == '<')
         {
-            count += 1;
-            current += 1;
+            string temp = CheckColorString(text, current)[0];
+            count = SeprateString(temp).Count;
+        }
+        else 
+        {
+            while (text[current] != ' ')
+            {
+                count += 1;
+                current += 1;
+            }
+            
+
         }
         if (count <= numLeft)
             return true;
         else
             return false;
+    }
+    private List<string> SeprateString(string a)
+    {
+        List<string> list = new List<string>();
+        string begin = "";
+        string target = "";
+        string end = "";
+        int leftcount = 0;
+        int rightcount = 0;
+        for (int i = 0; i < a.Length; i++)
+        {
+            if (a[i] == '<')
+            {
+                if (leftcount == 0)
+                {
+                    begin += a[i];
+                }
+                if (leftcount == 1)
+                {
+                    end += a[i];
+                }
+                leftcount += 1;
+            }
+            else if (a[i] == '>')
+            {
+                if (rightcount == 0)
+                {
+                    begin += a[i];
+                }
+                if (rightcount == 1)
+                {
+                    end += a[i];
+                }
+                rightcount += 1;
+
+            }
+            else
+            {
+                if (leftcount == 1 && rightcount == 0)
+                {
+                    begin += a[i];
+                }
+                if (leftcount == 1 && rightcount == 1)
+                {
+                    target += a[i];
+                }
+                if (leftcount == 2 && rightcount == 1)
+                {
+                    end += a[i];
+                }
+            }
+        }
+        for (int i = 0; i < target.Length; i++)
+        {
+            list.Add(begin + target[i] + end);
+        }
+        return list;
     }
     #endregion
     private List<string> CheckColorString(string texts,int typecount) 
