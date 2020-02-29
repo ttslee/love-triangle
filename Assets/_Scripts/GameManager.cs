@@ -116,7 +116,6 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, Sprite> playerActionDictionary;
     public void Start()
     {
-
         // Setup the Dictionary <Input, Sprite>
         playerActionDictionary = new Dictionary<string, Sprite>();
         for (int i = 0; i < 8; i++)    
@@ -231,5 +230,6 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         SceneManager.LoadScene("Teo"); // *************************************
+        NewGame();
     }
 }

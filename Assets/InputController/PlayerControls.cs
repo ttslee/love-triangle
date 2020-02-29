@@ -24,7 +24,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""9258e6ba-d262-4a95-8783-61bc5a6404ee"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Tap""
                 },
                 {
                     ""name"": ""T"",
@@ -32,7 +32,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""1e2b0127-4216-40e4-9472-3b1157664740"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""O"",
@@ -40,7 +40,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""5f74578c-f129-4411-95b4-e3fc3f041caf"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""S"",
@@ -48,7 +48,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""a84c13e0-508f-472b-a00d-949859b58e3e"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Up"",
@@ -56,7 +56,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""83dfc872-f2e2-4c04-a7c8-45ee923dad9e"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Down"",
@@ -64,7 +64,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""15825e90-6ca1-4cc6-817b-55ab8dc4682d"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Left"",
@@ -72,7 +72,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""025cb2d8-19df-461a-9495-5380f1babfb9"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Right"",
@@ -80,7 +80,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""1fbb3b13-7f6b-4034-89d1-8cde6d43f613"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""Start"",
@@ -88,7 +88,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""3403b7d0-8eed-4517-904f-6d59e41ec487"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""LT"",
@@ -96,7 +96,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""c8561312-cbe7-4f83-88ff-9a9ced138821"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""LB"",
@@ -104,7 +104,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""3f43583d-471a-42e1-82cf-4baaccccca2b"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""RT"",
@@ -112,7 +112,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""c5face2b-b758-477b-9fcd-4a284648f028"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""RB"",
@@ -120,7 +120,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""fc36a780-b714-4e46-94a7-9a2a44c03dae"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""LeftJoy"",
@@ -128,7 +128,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""f8cad211-d6c6-45f1-ba0d-6fd966146ebb"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Press""
                 },
                 {
                     ""name"": ""RightJoy"",

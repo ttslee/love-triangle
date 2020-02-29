@@ -5,6 +5,10 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
+    // Mouse Object Info
+    public GameObject mouse;
+    public Color32 mouseColor1;
+    public Color32 mouseColor2;
     // GAME ON BOOL
     public bool gameOn = false;
     // InputImagesList
@@ -78,7 +82,7 @@ public class PlayerScript : MonoBehaviour
         history = new Stack<string>();
         actionList = new List<string>();
         GameManager.Instance.NotifyGM(gameObject);
-        GameManager.Instance.NewGame();
+        
     }
     private void Awake()
     {
@@ -194,7 +198,7 @@ public class PlayerScript : MonoBehaviour
 
     private void SetActionImages()
     {
-        if(hasImageList)
+        if(hasImageList && gameOn)
             for (int i = 0; i < 5; i++)
             {
                 if(actionList.Count <= i)
