@@ -1,13 +1,19 @@
 fileFormatVersion: 2
-guid: 60f39c60655424541ac3a236973ce54d
+guid: a2657182d1bde10458f85456cac69b5e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 2286076258093193499
-    second: Nameplate_Effect_0
+      213: -8000295653852476466
+    second: Button_Arrow_0
   - first:
-      213: -1700466417370550182
-    second: Nameplate_Effect_1
+      213: -2393504549486348108
+    second: Button_Arrow_1
+  - first:
+      213: -79623197629457591
+    second: Button_Arrow_2
+  - first:
+      213: 2664068730876258218
+    second: Button_Arrow_3
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -104,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Nameplate_Effect_0
+      name: Button_Arrow_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 47
-        width: 220
-        height: 47
+        y: 9
+        width: 10
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -118,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d46a9fca7c7b2f7479f69afc197cf683
-      internalID: 2286076258093193499
+      spriteID: f554b28bdb491814693a8f4cd6573892
+      internalID: -8000295653852476466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Nameplate_Effect_1
+      name: Button_Arrow_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 220
-        height: 47
+        x: 10
+        y: 9
+        width: 10
+        height: 9
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -139,8 +145,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c51bb754d391e6649b3546846889ac91
-      internalID: -1700466417370550182
+      spriteID: 6f49d9d6b1d6b0445a33d4da54cde8a5
+      internalID: -2393504549486348108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Arrow_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6853b4b50b73ae4c8c04075d5d74c39
+      internalID: -79623197629457591
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Button_Arrow_3
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 0
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 238c5286ea9d1e34e8abb3e6f83d60a0
+      internalID: 2664068730876258218
       vertices: []
       indices: 
       edges: []

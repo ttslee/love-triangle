@@ -96,7 +96,6 @@ public class WaifuDialogue : MonoBehaviour
     #region QueueText Helper Functions
     private bool CheckSpace(int number, int used, string text) //Checks if there's enough spaces for the next word
     {
-        Debug.Log(used);
         int numLeft = charsPerLine - used;
         int count = 0;
         int current = number + 1;
