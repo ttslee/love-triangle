@@ -5,6 +5,8 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 public class PlayerScript : MonoBehaviour
 {
+    // GAME ON BOOL
+    public bool gameOn = false;
     // InputImagesList
     public GameObject inputImageList;
     private bool hasImageList = false;
@@ -85,12 +87,17 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(hasImageList)
+        if (hasActionList)
             SetActionImages();
-        if(!hasImageList)
+        keyBoardInput();
+        if (!hasImageList)
             CheckForInputImageList();
     }
-
+    private void keyBoardInput()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+            GameManager.Instance.NewGame();
+    }
     public void SetPlayer(int i)
     {
         player = i;
@@ -133,7 +140,6 @@ public class PlayerScript : MonoBehaviour
             case "RightJoy":
                 break;
             default:
-                print("action" + player.ToString());
                 if (!hasActionList)
                     break;
                 if (action == actionList[0])
@@ -142,6 +148,8 @@ public class PlayerScript : MonoBehaviour
                     history.Push(action);
                     actionList.RemoveAt(0);
                     CheckActionListComplete();
+                    if (hasActionList)
+                        SetActionImages();
                 }
                 else
                 {
@@ -155,6 +163,7 @@ public class PlayerScript : MonoBehaviour
         if(actionList.Count == 0)
         {
             GameManager.Instance.ActionListComplete(player);
+            hasActionList = false;
         }
     }
 
@@ -173,7 +182,6 @@ public class PlayerScript : MonoBehaviour
         }
         if (list)
             inputImageList = list;
-        print(inputImageList);
         hasImageList = true;
     }
 
@@ -191,7 +199,9 @@ public class PlayerScript : MonoBehaviour
     {
         for (int i = 0; i < 5; i++)
         {
-            inputImageList.transform.GetChild(i).gameObject.GetComponent<InputInfo>().SetSprite(GameManager.Instance.playerActionDictionary[ActionList[i]]);
+            //print(inputImageList.transform.GetChild(i));
+            //inputImageList.transform.GetChild(i).gameObject.GetComponent<InputInfo>().SetSprite(GameManager.Instance.playerActionDictionary[ActionList[i]]);
+            inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = GameManager.Instance.playerActionDictionary[ActionList[i]];
         }
     }
 }

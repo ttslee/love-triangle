@@ -164,6 +164,7 @@ public class GameManager : MonoBehaviour
     {
         if (player1 == null)
         {
+            print("ALIVE");
             hasPlayer1 = true;
             player1 = player;
             player.GetComponent<PlayerScript>().SetPlayer(1);
@@ -188,16 +189,18 @@ public class GameManager : MonoBehaviour
 
     public void NewGame()
     {
-        if(player1)
+        if(player1 && hasPlayer1)
         {
             player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
             player1.GetComponent<PlayerScript>().HasActionList = true;
+            hasPlayer1 = true;
         }
             
-        if(player2)
+        if(player2 && hasPlayer2)
         {
             player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
             player2.GetComponent<PlayerScript>().HasActionList = true;
+            hasPlayer2 = true;
         }
     }
     public List<string> GenerateActionList(string msg)
@@ -205,8 +208,9 @@ public class GameManager : MonoBehaviour
         List<string> temp = new List<string>();
         for (int i = 0; i < msg.Length; i++)
         {
-            temp.Add(playerActionInputList[Random.Range(0,9)]);
+            temp.Add(playerActionInputList[Random.Range(0,8)]);
         }
+        print(temp);
         currentMessage++;
         return temp;
     }
