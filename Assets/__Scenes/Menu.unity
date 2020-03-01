@@ -256,6 +256,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2625352088363718092, guid: 041a252fb5f2835428f5066a97df0a30,
+        type: 3}
+      propertyPath: m_MaxPlayerCount
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 2625352088363718093, guid: 041a252fb5f2835428f5066a97df0a30,
         type: 3}
       propertyPath: m_Name
@@ -1392,6 +1397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254114b9331ec254498030d69ddcb5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tmpText: {fileID: 0}
 --- !u!61 &1022466379
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1554,6 +1560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 254114b9331ec254498030d69ddcb5a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tmpText: {fileID: 0}
 --- !u!61 &1048776565
 BoxCollider2D:
   m_ObjectHideFlags: 0
