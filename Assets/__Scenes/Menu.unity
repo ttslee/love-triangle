@@ -1033,7 +1033,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 60}
+  m_AnchoredPosition: {x: 0, y: 67}
   m_SizeDelta: {x: 220, y: 47}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &838136204
@@ -1975,8 +1975,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: <color=#ff515d>Love</color> <color=#faf9f9>Triangle</color>
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: e63ef81a5308173439c2d67082d30d8d, type: 2}
-  m_sharedMaterial: {fileID: 7464375984766591767, guid: e63ef81a5308173439c2d67082d30d8d,
+  m_fontAsset: {fileID: 11400000, guid: 8c84d20ab27d43f40b774a1c1380092b, type: 2}
+  m_sharedMaterial: {fileID: 1018267622288530728, guid: 8c84d20ab27d43f40b774a1c1380092b,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -7459,7 +7459,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 158, y: 60}
+  m_AnchoredPosition: {x: 158, y: 66}
   m_SizeDelta: {x: 42, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1835178311
@@ -7534,7 +7534,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -158, y: 60}
+  m_AnchoredPosition: {x: -158, y: 66}
   m_SizeDelta: {x: 42, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1854475363
