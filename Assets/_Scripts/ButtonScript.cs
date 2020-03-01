@@ -44,7 +44,7 @@ public class ButtonScript : MonoBehaviour
                 p2Inside = false;
                 break;
         }
-        if(HoveringMice())
+        if(!HoveringMice())
             GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(null);
     }
 
