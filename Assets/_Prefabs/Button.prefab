@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player1Allowed: 1
   player2Allowed: 1
+  button: {fileID: 7813119235350745275}
 --- !u!1 &7813119236737454184
 GameObject:
   m_ObjectHideFlags: 0

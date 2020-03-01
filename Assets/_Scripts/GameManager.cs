@@ -8,6 +8,10 @@ using UnityEngine.SceneManagement;
 // XBOX        : { 6, 4, 7, 5, 17, 19, 16, 18 }
 public class GameManager : MonoBehaviour
 {
+    // GAME ON BOOL
+    private bool gameOn = false;
+    public bool GameOn { get; set; }
+
     // player and waifu messages && data
     private int currentMessage = 0;
     List<string> playerMessages = new List<string>
@@ -145,6 +149,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
             QuitGame();
+        if (Input.GetKeyDown(KeyCode.Return))
+            StartGame();
         //print((player1 != null) ? "HAHAHAHA" : "YOYOYOYO");
     }
     public static void ShuffleList<T>(List<T> ts)
@@ -163,7 +169,6 @@ public class GameManager : MonoBehaviour
     {
         if (player1 == null)
         {
-            print("ALIVE");
             hasPlayer1 = true;
             player1 = player;
             player1.name = "Player1";
@@ -176,7 +181,6 @@ public class GameManager : MonoBehaviour
             player2 = player;
             player.GetComponent<PlayerScript>().SetPlayer(2);
         }
-            
     }
     
     public void AbilityCast(int player)
@@ -188,31 +192,34 @@ public class GameManager : MonoBehaviour
 
     }
 
-    public void NewGame()
+    public void SetActionList(int p)
     {
-        if(player1 && hasPlayer1)
+        switch(p)
         {
-            player1.GetComponent<PlayerScript>().SetImageList(1);
-            player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
-            player1.GetComponent<PlayerScript>().HasActionList = true;
-            hasPlayer1 = true;
+            case 1:
+                print(currentMessage);
+                player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
+                player1.GetComponent<PlayerScript>().HasActionList = true;
+                hasPlayer1 = true;
+                break;
+            case 2:
+                player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
+                player2.GetComponent<PlayerScript>().HasActionList = true;
+                hasPlayer2 = true;
+                break;
         }
-            
-        if(player2 && hasPlayer2)
-        {
-            player2.GetComponent<PlayerScript>().SetImageList(2);
-            player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
-            player2.GetComponent<PlayerScript>().HasActionList = true;
-            hasPlayer2 = true;
-        }
+        
     }
     public List<string> GenerateActionList(string msg)
     {
+        print("ACTION");
         List<string> temp = new List<string>();
         for (int i = 0; i < msg.Length; i++)
         {
             temp.Add(playerActionInputList[Random.Range(0,8)]);
+            print(temp[i]);
         }
+        
         currentMessage++;
         return temp;
     }
@@ -227,9 +234,25 @@ public class GameManager : MonoBehaviour
             Application.Quit();
         #endif
     }
+    IEnumerator LoadAsync()
+    {
+        // The Application loads the Scene in the background as the current Scene runs.
+        // This is particularly good for creating loading screens.
+        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
+        // a sceneBuildIndex of 1 as shown in Build Settings.
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Teo");
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+    }
+
     public void StartGame()
     {
-        SceneManager.LoadScene("Teo"); // *************************************
-        NewGame();
+        StartCoroutine(LoadAsync()); // *************************************
+        GameOn = true;
     }
 }

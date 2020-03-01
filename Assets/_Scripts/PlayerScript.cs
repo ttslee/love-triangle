@@ -9,15 +9,15 @@ public class PlayerScript : MonoBehaviour
     public GameObject mouse;
     public Color32 mouseColor1;
     public Color32 mouseColor2;
-    // GAME ON BOOL
-    public bool gameOn = false;
+
+    
     // InputImagesList
     private GameObject inputImageList;
     private bool hasImageList = false;
 
     // Player
     private int player = 0;
-
+    public int Player { get; set; }
     // PlayerControls
     PlayerControls controls;
 
@@ -50,7 +50,6 @@ public class PlayerScript : MonoBehaviour
             actionList = value;
         }
     }
-    // Ability and Affection Bar Info
     private float affectionBar = 0f;
     private float abilityBar = 0f;
     public float AffectionBar
@@ -64,9 +63,8 @@ public class PlayerScript : MonoBehaviour
             affectionBar = value;
         }
     }
-
     public float AbilityBar
-    { 
+    {
         get
         {
             return abilityBar;
@@ -82,23 +80,32 @@ public class PlayerScript : MonoBehaviour
         history = new Stack<string>();
         actionList = new List<string>();
         GameManager.Instance.NotifyGM(gameObject);
-        
     }
     private void Awake()
     {
         controls = new PlayerControls();
         InputControlBindings();
+        DontDestroyOnLoad(gameObject);
     }
     // Update is called once per frame
     void Update()
     {
-        SetActionImages();
+        if (SceneManager.GetActiveScene().name == "Teo")
+        {
+            if(!hasImageList)
+                SetImageList(player);
+            if (!hasActionList && GameManager.Instance.GameOn)
+                GameManager.Instance.SetActionList(player);
+        }
         keyBoardInput();
+        foreach (var a in actionList)
+            print(a);
+        print(inputImageList);
     }
     private void keyBoardInput()
     {
-        if (Input.GetKeyDown(KeyCode.Return))
-            GameManager.Instance.NewGame();
+        //if (Input.GetKeyDown(KeyCode.Return))
+        //    GameManager.Instance.NewGame();
     }
     public void SetPlayer(int i)
     {
@@ -125,7 +132,6 @@ public class PlayerScript : MonoBehaviour
 
     private void PlayerAction(string action)
     {
-        print(player);
         switch(action)
         {
             case "RT":
@@ -137,7 +143,7 @@ public class PlayerScript : MonoBehaviour
                     GameManager.Instance.AbilityCast(player);
                 break;
             case "Start":
-                SceneManager.LoadScene("Teo");  // *********************************************************************
+                GameManager.Instance.StartGame();  // *********************************************************************
                 break;
             case "LeftJoy":
             case "RightJoy":
@@ -147,25 +153,26 @@ public class PlayerScript : MonoBehaviour
                     break;
                 if (action == actionList[0])
                 {
-                    print("COORECT");
                     correctInput = true;
                     history.Push(action);
                     actionList.RemoveAt(0);
-                    CheckActionListComplete();
                 }
                 else
                 {
                     if(history.Count != 0)
                         actionList.Insert(0, history.Pop());
                 }
+                SetActionImages();
+                CheckActionListComplete();
                 break;
         }
     }
     private void CheckActionListComplete()
     {
+        
         if(actionList.Count == 0)
         {
-            print("WHYYYY");
+            history.Clear();
             GameManager.Instance.ActionListComplete(player);
             hasActionList = false;
         }
@@ -183,7 +190,8 @@ public class PlayerScript : MonoBehaviour
                 inputImageList = GameObject.Find("InputListRight");
                 break;
         }
-        hasImageList = true;
+        if(inputImageList != null)
+            hasImageList = true;
     }
 
     private void OnEnable()
@@ -198,7 +206,7 @@ public class PlayerScript : MonoBehaviour
 
     private void SetActionImages()
     {
-        if(hasImageList && gameOn)
+        if(hasActionList && GameManager.Instance.GameOn)
             for (int i = 0; i < 5; i++)
             {
                 if(actionList.Count <= i)
