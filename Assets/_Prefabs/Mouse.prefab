@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8190973872170360054}
   - component: {fileID: 8190973872170360053}
   - component: {fileID: 9157179481836107212}
+  - component: {fileID: 3363426531438041704}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: Mouse
@@ -69,7 +70,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: fde4cfd1cf96b44429b0ff7d251f822e, type: 3}
   m_Color: {r: 0.9294118, g: 0.73333335, b: 0.4784314, a: 1}
   m_FlipX: 0
@@ -107,3 +108,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.041398764, y: 0.045873657}
   m_EdgeRadius: 0
+--- !u!114 &3363426531438041704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8190973872170360052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba7e7e2e86ef54b449b55d423341c577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parent: {fileID: 0}

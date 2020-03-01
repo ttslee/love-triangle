@@ -1,44 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!61 &6317699691934196237
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72230737105063590}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.061168432, y: 0.054864787}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.16, y: 0.15}
-    newSize: {x: 0.16, y: 0.15}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.041398764, y: 0.045873657}
-  m_EdgeRadius: 0
---- !u!114 &797403980718659554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 72230737105063590}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba7e7e2e86ef54b449b55d423341c577, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parent: {fileID: 1422399835445241862}
 --- !u!1 &1422399835445241862
 GameObject:
   m_ObjectHideFlags: 0
@@ -50,7 +11,7 @@ GameObject:
   - component: {fileID: 1693365096161089936}
   - component: {fileID: 4609203268735445907}
   - component: {fileID: 6757867800807153733}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 1422399835445241862}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 0.67}
   m_Children:
   - {fileID: 72230737105063588}
   m_Father: {fileID: 0}
@@ -91,7 +52,6 @@ MonoBehaviour:
   mouseColor2:
     serializedVersion: 2
     rgba: 4286233581
-  gameOn: 0
 --- !u!114 &6757867800807153733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,10 +90,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1693365096161089936}
     m_Modifications:
+    - target: {fileID: 3363426531438041704, guid: 17c7d3eb24111c941b1b26a38847365f,
+        type: 3}
+      propertyPath: parent
+      value: 
+      objectReference: {fileID: 1422399835445241862}
     - target: {fileID: 8190973872170360052, guid: 17c7d3eb24111c941b1b26a38847365f,
         type: 3}
       propertyPath: m_Name
       value: Mouse
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190973872170360052, guid: 17c7d3eb24111c941b1b26a38847365f,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8190973872170360053, guid: 17c7d3eb24111c941b1b26a38847365f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8190973872170360054, guid: 17c7d3eb24111c941b1b26a38847365f,
         type: 3}
@@ -190,8 +165,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9157179481836107212, guid: 17c7d3eb24111c941b1b26a38847365f, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17c7d3eb24111c941b1b26a38847365f, type: 3}
 --- !u!1 &72230737105063590 stripped
 GameObject:

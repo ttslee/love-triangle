@@ -17,6 +17,18 @@ public class GameManager : MonoBehaviour
     List<string> playerMessages = new List<string>
     {
         "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
+        "This is the test message...",
     }; 
     // Singleton
     public static GameManager Instance = null;
@@ -197,7 +209,6 @@ public class GameManager : MonoBehaviour
         switch(p)
         {
             case 1:
-                print(currentMessage);
                 player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
                 player1.GetComponent<PlayerScript>().HasActionList = true;
                 hasPlayer1 = true;
@@ -217,9 +228,7 @@ public class GameManager : MonoBehaviour
         for (int i = 0; i < msg.Length; i++)
         {
             temp.Add(playerActionInputList[Random.Range(0,8)]);
-            print(temp[i]);
         }
-        
         currentMessage++;
         return temp;
     }
@@ -253,6 +262,10 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         StartCoroutine(LoadAsync()); // *************************************
+        if (player1)
+            player1.GetComponent<PlayerScript>().DisableJoysticks();
+        if(player2)
+            player2.GetComponent<PlayerScript>().DisableJoysticks();
         GameOn = true;
     }
 }

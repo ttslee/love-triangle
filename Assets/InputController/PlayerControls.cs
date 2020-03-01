@@ -124,11 +124,11 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": ""LeftJoy"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""f8cad211-d6c6-45f1-ba0d-6fd966146ebb"",
-                    ""expectedControlType"": """",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": """"
                 },
                 {
                     ""name"": ""RightJoy"",

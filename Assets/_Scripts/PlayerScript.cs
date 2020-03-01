@@ -18,9 +18,10 @@ public class PlayerScript : MonoBehaviour
     // Player
     private int player = 0;
     public int Player { get; set; }
+    Vector2 move;
     // PlayerControls
-    PlayerControls controls;
-
+    public PlayerControls controls { get; set; }
+    
     // Input stream and String Info
     private bool correctInput = false;
     private string currentString;
@@ -98,9 +99,9 @@ public class PlayerScript : MonoBehaviour
                 GameManager.Instance.SetActionList(player);
         }
         keyBoardInput();
-        foreach (var a in actionList)
-            print(a);
-        print(inputImageList);
+        SetActionImages();
+        CheckActionListComplete();
+        MoveMouse();
     }
     private void keyBoardInput()
     {
@@ -121,13 +122,16 @@ public class PlayerScript : MonoBehaviour
         controls.Gameplay.Left.performed += ctx => PlayerAction("Left");        // Left D-PAD
         controls.Gameplay.Right.performed += ctx => PlayerAction("Right");      // Right D-PAD
         controls.Gameplay.Up.performed += ctx => PlayerAction("Up");            // UP D-PAD
-        controls.Gameplay.LeftJoy.performed += ctx => PlayerAction("LeftJoy");  // LeftJoy
-        controls.Gameplay.RightJoy.performed += ctx => PlayerAction("RightJoy");// RightJoy
         controls.Gameplay.Start.performed += ctx => PlayerAction("Start");      // Options/Start
         controls.Gameplay.RT.performed += ctx => PlayerAction("RT");            // Right trigger
         controls.Gameplay.RB.performed += ctx => PlayerAction("RB");            // Right Bumper
         controls.Gameplay.LT.performed += ctx => PlayerAction("LT");            // Left Trigger
         controls.Gameplay.LB.performed += ctx => PlayerAction("LB");            // Left Bumper
+
+        controls.Gameplay.LeftJoy.performed += ctx => move = ctx.ReadValue<Vector2>();  // LeftJoy
+        controls.Gameplay.LeftJoy.canceled += ctx => move = Vector2.zero;// RightJoy
+        //controls.Gameplay.RightJoy.performed += ctx => move = ctx.ReadValue<Vector2>();  // LeftJoy
+        //controls.Gameplay.RightJoy.canceled += ctx => move = Vector2.zero;// RightJoy
     }
 
     private void PlayerAction(string action)
@@ -143,10 +147,8 @@ public class PlayerScript : MonoBehaviour
                     GameManager.Instance.AbilityCast(player);
                 break;
             case "Start":
-                GameManager.Instance.StartGame();  // *********************************************************************
-                break;
-            case "LeftJoy":
-            case "RightJoy":
+                if(!GameManager.Instance.GameOn)
+                    GameManager.Instance.StartGame();  // *********************************************************************
                 break;
             default:
                 if (!hasActionList)
@@ -162,8 +164,7 @@ public class PlayerScript : MonoBehaviour
                     if(history.Count != 0)
                         actionList.Insert(0, history.Pop());
                 }
-                SetActionImages();
-                CheckActionListComplete();
+                
                 break;
         }
     }
@@ -194,6 +195,23 @@ public class PlayerScript : MonoBehaviour
             hasImageList = true;
     }
 
+    public void EnableJoysticks()
+    {
+        transform.Find("Mouse").gameObject.SetActive(true);
+        controls.Gameplay.LeftJoy.Enable();
+        controls.Gameplay.RightJoy.Enable();
+    }
+    public void DisableJoysticks()
+    {
+        transform.Find("Mouse").gameObject.SetActive(false);
+        controls.Gameplay.LeftJoy.Disable();
+        controls.Gameplay.RightJoy.Disable();
+    }
+    private void MoveMouse()
+    {
+        Vector2 m = new Vector2(move.x, move.y) * Time.deltaTime;
+        transform.Translate(m, Space.World);
+    }
     private void OnEnable()
     {
         controls.Gameplay.Enable();
