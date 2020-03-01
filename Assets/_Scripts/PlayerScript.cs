@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour
 
     // Player
     private int player = 0;
-    public int Player { get; set; }
+    public int Player { get { return player; } set { player = value; } }
     Vector2 move;
     // PlayerControls
     public PlayerControls controls { get; set; }

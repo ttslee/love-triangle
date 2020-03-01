@@ -213,12 +213,12 @@ PrefabInstance:
     - target: {fileID: 7813119235350745252, guid: 279b89764873b06419ac87b7ca490cb0,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7813119235350745252, guid: 279b89764873b06419ac87b7ca490cb0,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7813119235350745252, guid: 279b89764873b06419ac87b7ca490cb0,
         type: 3}
@@ -258,6 +258,11 @@ PrefabInstance:
     - target: {fileID: 7813119235350745252, guid: 279b89764873b06419ac87b7ca490cb0,
         type: 3}
       propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813119235350745273, guid: 279b89764873b06419ac87b7ca490cb0,
+        type: 3}
+      propertyPath: hasText
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813119235350745275, guid: 279b89764873b06419ac87b7ca490cb0,
@@ -966,12 +971,12 @@ PrefabInstance:
     - target: {fileID: 7813119235350745252, guid: 279b89764873b06419ac87b7ca490cb0,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 100
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 7813119235350745252, guid: 279b89764873b06419ac87b7ca490cb0,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 7813119235350745252, guid: 279b89764873b06419ac87b7ca490cb0,
         type: 3}
@@ -1011,6 +1016,11 @@ PrefabInstance:
     - target: {fileID: 7813119235350745252, guid: 279b89764873b06419ac87b7ca490cb0,
         type: 3}
       propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7813119235350745273, guid: 279b89764873b06419ac87b7ca490cb0,
+        type: 3}
+      propertyPath: hasText
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7813119235350745278, guid: 279b89764873b06419ac87b7ca490cb0,
