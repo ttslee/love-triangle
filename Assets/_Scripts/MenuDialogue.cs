@@ -8,7 +8,7 @@ public class MenuDialogue : MonoBehaviour
     #region Variables
 
     //Variables used in Say() Function
-    TextMeshPro tmpText; //TextMeshPro Text Component
+    TextMeshProUGUI tmpText; //TextMeshPro Text Component
     private float timer = 0f;
     public float startDelay = 0.0f;
     private bool start = false;
@@ -19,7 +19,7 @@ public class MenuDialogue : MonoBehaviour
     IEnumerator Start()
     {
         //Initialization
-        tmpText = gameObject.GetComponent<TextMeshPro>();
+        tmpText = gameObject.GetComponent<TextMeshProUGUI>();
         tmpText.maxVisibleCharacters = 0;
         yield return new WaitForSeconds(startDelay);
         start = true;
