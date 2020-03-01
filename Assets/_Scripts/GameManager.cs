@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     public bool GameOn { get; set; }
 
     // player and waifu messages && data
+    public GameObject DialogueBoxP1 { get; set; } = null;
+    public GameObject DialogueBoxP2 { get; set; } = null;
     private int currentMessage = 0;
     List<string> playerMessages = new List<string>
     {
@@ -177,6 +179,8 @@ public class GameManager : MonoBehaviour
             ts[r] = tmp;
         }
     }
+
+    // PLAYER MANAGEMENT-------------------------------------------------
     public void NotifyGM(GameObject player)
     {
         if (player1 == null)
@@ -201,7 +205,7 @@ public class GameManager : MonoBehaviour
     }
     public void ActionListComplete(int player)
     {
-
+        SetActionList(player);
     }
 
     public void SetActionList(int p)
@@ -209,28 +213,51 @@ public class GameManager : MonoBehaviour
         switch(p)
         {
             case 1:
-                player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
+                player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 1);
                 player1.GetComponent<PlayerScript>().HasActionList = true;
                 hasPlayer1 = true;
                 break;
             case 2:
-                player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage]);
+                player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 2);
                 player2.GetComponent<PlayerScript>().HasActionList = true;
                 hasPlayer2 = true;
                 break;
         }
         
     }
-    public List<string> GenerateActionList(string msg)
+    public List<string> GenerateActionList(string msg, int p)
     {
-        print("ACTION");
+        currentMessage++;
         List<string> temp = new List<string>();
         for (int i = 0; i < msg.Length; i++)
         {
             temp.Add(playerActionInputList[Random.Range(0,8)]);
         }
-        currentMessage++;
+        switch(p)
+        {
+            case 1:
+                DialogueBoxP1.GetComponent<PlayerDialogueScript>().SetText(msg);
+                break;
+            case 2:
+                DialogueBoxP2.GetComponent<PlayerDialogueScript>().SetText(msg);
+                break;
+        }
         return temp;
+    }
+    // --------------------------------------------------------------------
+
+    //Player Dialogue Management
+    public void AssignDialogueBox(GameObject g, int p)
+    {
+        switch(p)
+        {
+            case 1:
+                DialogueBoxP1 = g;
+                break;
+            case 2:
+                DialogueBoxP2 = g;
+                break;
+        }
     }
     public void QuitGame()
     {
@@ -245,11 +272,7 @@ public class GameManager : MonoBehaviour
     }
     IEnumerator LoadAsync()
     {
-        // The Application loads the Scene in the background as the current Scene runs.
-        // This is particularly good for creating loading screens.
-        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
-        // a sceneBuildIndex of 1 as shown in Build Settings.
-
+        // Loads scene in background
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Teo");
 
         // Wait until the asynchronous scene fully loads

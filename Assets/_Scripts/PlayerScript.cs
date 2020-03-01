@@ -23,8 +23,6 @@ public class PlayerScript : MonoBehaviour
     public PlayerControls controls { get; set; }
     
     // Input stream and String Info
-    private bool correctInput = false;
-    private string currentString;
     private Stack<string> history;
 
     private bool hasActionList = false;
@@ -96,11 +94,17 @@ public class PlayerScript : MonoBehaviour
             if(!hasImageList)
                 SetImageList(player);
             if (!hasActionList && GameManager.Instance.GameOn)
+            {
                 GameManager.Instance.SetActionList(player);
+                
+            }
+            else if(GameManager.Instance.GameOn)
+            {
+                CheckActionListComplete();
+                SetActionImages();
+            }
         }
         keyBoardInput();
-        SetActionImages();
-        CheckActionListComplete();
         MoveMouse();
     }
     private void keyBoardInput()
@@ -155,14 +159,34 @@ public class PlayerScript : MonoBehaviour
                     break;
                 if (action == actionList[0])
                 {
-                    correctInput = true;
+                    switch(player)
+                    {
+                        case 1:
+                            GameManager.Instance.DialogueBoxP1.GetComponent<PlayerDialogueScript>().CorrectInput();
+                            break;
+                        case 2:
+                            GameManager.Instance.DialogueBoxP2.GetComponent<PlayerDialogueScript>().CorrectInput();
+                            break;
+                    }
                     history.Push(action);
                     actionList.RemoveAt(0);
                 }
                 else
                 {
                     if(history.Count != 0)
+                    {
+                        switch (player)
+                        {
+                            case 1:
+                                GameManager.Instance.DialogueBoxP1.GetComponent<PlayerDialogueScript>().IncorrectInput();
+                                break;
+                            case 2:
+                                GameManager.Instance.DialogueBoxP2.GetComponent<PlayerDialogueScript>().IncorrectInput();
+                                break;
+                        }
                         actionList.Insert(0, history.Pop());
+                    }
+                        
                 }
                 
                 break;
@@ -174,8 +198,9 @@ public class PlayerScript : MonoBehaviour
         if(actionList.Count == 0)
         {
             history.Clear();
-            GameManager.Instance.ActionListComplete(player);
             hasActionList = false;
+            GameManager.Instance.ActionListComplete(player);
+            
         }
     }
 
