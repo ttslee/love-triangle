@@ -8,8 +8,8 @@ public class ButtonScript : MonoBehaviour
     public bool player1Allowed = true;
     public bool player2Allowed = true;
 
-    private bool p1Inside = false;
-    private bool p2Inside = false;
+    public bool p1Inside = false;
+    public bool p2Inside = false;
 
     private bool HoveringMice()
     {
@@ -20,15 +20,32 @@ public class ButtonScript : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Mouse"))
         {
-            button.Select();
+            switch(other.gameObject.GetComponent<MouseScript>().Player)
+            {
+                case 1:
+                    print("yo");
+                    p1Inside = true;
+                    break;
+                case 2:
+                    p2Inside = true;
+                    break;
+            }
+            GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(gameObject);
         }
     }
     public void OnTriggerExit2D(Collider2D other)
     {
-        if(!HoveringMice())
+        switch(other.gameObject.GetComponent<MouseScript>().Player)
         {
-            GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(null);
+            case 1:
+                p1Inside = false;
+                break;
+            case 2:
+                p2Inside = false;
+                break;
         }
+        if(HoveringMice())
+            GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(null);
     }
 
     public void Clicked()
