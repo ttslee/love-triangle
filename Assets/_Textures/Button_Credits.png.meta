@@ -1,25 +1,16 @@
 fileFormatVersion: 2
-guid: a2657182d1bde10458f85456cac69b5e
+guid: c4d14bd6e2cb8b54b8ab7434a660122e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8000295653852476466
-    second: Button_Arrow_0
+      213: 6173600089414988959
+    second: Button_Credits_0
   - first:
-      213: -2393504549486348108
-    second: Button_Arrow_1
+      213: -1378750502739454260
+    second: Button_Credits_1
   - first:
-      213: -79623197629457591
-    second: Button_Arrow_2
-  - first:
-      213: 2664068730876258218
-    second: Button_Arrow_3
-  - first:
-      213: 3792359051818322807
-    second: Button_Arrow_4
-  - first:
-      213: -5950024867958616218
-    second: Button_Arrow_5
+      213: -7963258086342658041
+    second: Button_Credits_2
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -116,76 +107,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Button_Arrow_0
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 9
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7930df63b348ea24da42a75767859de2
-      internalID: -8000295653852476466
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Arrow_1
-      rect:
-        serializedVersion: 2
-        x: 10
-        y: 9
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fb93b06aa532ecf46bb816656dc778e6
-      internalID: -2393504549486348108
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Arrow_2
-      rect:
-        serializedVersion: 2
-        x: 20
-        y: 9
-        width: 10
-        height: 9
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e181849058eadba45a1bb6e00b5a4366
-      internalID: -79623197629457591
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Button_Arrow_3
+      name: Button_Credits_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 10
-        height: 9
+        width: 24
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -193,20 +121,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 488372eb61b46e5408282be4b33b46a4
-      internalID: 2664068730876258218
+      spriteID: fad35b43761cb1342a1331537a10c050
+      internalID: 6173600089414988959
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_Arrow_4
+      name: Button_Credits_1
       rect:
         serializedVersion: 2
-        x: 10
+        x: 24
         y: 0
-        width: 10
-        height: 9
+        width: 24
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -214,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4fd47c6b2f0626f47857445d04bebfbb
-      internalID: 3792359051818322807
+      spriteID: 35b78761e6b2fba408239aa5cc34916c
+      internalID: -1378750502739454260
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Button_Arrow_5
+      name: Button_Credits_2
       rect:
         serializedVersion: 2
-        x: 20
+        x: 48
         y: 0
-        width: 10
-        height: 9
+        width: 24
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -235,8 +163,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0eb5da3771d23547bfb2bf21a1a58ba
-      internalID: -5950024867958616218
+      spriteID: 7e9fccf48e1beb1439846ce784120a3b
+      internalID: -7963258086342658041
       vertices: []
       indices: 
       edges: []
