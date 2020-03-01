@@ -211,7 +211,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'nam
+  m_text: 'pika
 
 '
   m_isRightToLeft: 0
@@ -283,7 +283,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 1, w: 0}
   m_textInfo:
     textComponent: {fileID: 1819849648920274275}
-    characterCount: 4
+    characterCount: 5
     spriteCount: 0
     spaceCount: 1
     wordCount: 1
@@ -520,7 +520,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1319931129317565034, guid: 66ca459d51eeb064cbaf745fe0e06b1e,
+  m_Sprite: {fileID: 1319931129317565034, guid: 0a812155452cdea4fbac693d1a1e5a81,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 6743287597432086387, guid: 66ca459d51eeb064cbaf745fe0e06b1e,
+  m_Sprite: {fileID: -7649813414062078798, guid: 0a812155452cdea4fbac693d1a1e5a81,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -912,7 +912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'nam
+  m_text: 'pepe
 
 '
   m_isRightToLeft: 0
@@ -984,7 +984,7 @@ MonoBehaviour:
   m_margin: {x: 1, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 8564097842170490467}
-    characterCount: 4
+    characterCount: 5
     spriteCount: 0
     spaceCount: 1
     wordCount: 1
