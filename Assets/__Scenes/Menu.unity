@@ -852,7 +852,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=#ff515d>Love</color> Triangle
+  m_text: <color=#ff515d>Love</color> <color=#faf9f9>Triangle</color>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e63ef81a5308173439c2d67082d30d8d, type: 2}
   m_sharedMaterial: {fileID: 7464375984766591767, guid: e63ef81a5308173439c2d67082d30d8d,
