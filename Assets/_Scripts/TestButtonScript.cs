@@ -12,7 +12,7 @@ public class TestButtonScript : MonoBehaviour
         tmpText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         tmpText.transform.localPosition = new Vector3(0, 2, 0);
         GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(gameObject);
@@ -24,6 +24,10 @@ public class TestButtonScript : MonoBehaviour
         GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(null);
     }
 
+    private void OnMouseDown()
+    {
+        tmpText.transform.localPosition = new Vector3(0, 0, 0);
+    }
 
 
 }

@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Mouse
   layers:
   - Default
   - TransparentFX
@@ -38,8 +39,14 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: UI_Background
+    uniqueID: 593054001
+    locked: 0
   - name: UI
     uniqueID: 2502392007
+    locked: 0
+  - name: UI_Foreground
+    uniqueID: 3852909229
     locked: 0
   - name: Default
     uniqueID: 0
