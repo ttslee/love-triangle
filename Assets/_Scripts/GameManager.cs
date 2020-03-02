@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     // GAME ON BOOL
     public bool GameOn { get; set; }
     public bool MainMenuOn { get; set; } = true;
-    public bool PauseMenuOn { get; set; } = true;
+    public bool PauseMenuOn { get; set; } = false;
     // player and waifu messages && data
     public GameObject DialogueBoxP1 { get; set; } = null;
     public GameObject DialogueBoxP2 { get; set; } = null;
@@ -297,9 +297,9 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene("Teo");
         MainMenuOn = false;
         if (player1)
-            player1.GetComponent<PlayerScript>().DisableJoysticks();
+            player1.GetComponent<PlayerScript>().DisableMenuActions();
         if(player2)
-            player2.GetComponent<PlayerScript>().DisableJoysticks();
+            player2.GetComponent<PlayerScript>().DisableMenuActions();
         GameOn = true;
     }
 }

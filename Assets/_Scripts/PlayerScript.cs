@@ -146,7 +146,6 @@ public class PlayerScript : MonoBehaviour
             case "RB":
             case "LT":
             case "LB":
-                print("ability");
                 if(abilityBar >= 100f)
                     GameManager.Instance.AbilityCast(player);
                 break;
@@ -198,18 +197,20 @@ public class PlayerScript : MonoBehaviour
 
     private void Pause()
     {
-        GameObject.Find("PauseMenu").SetActive(true);
+        transform.Find("Mouse").gameObject.SetActive(true);
+        GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = 1;
         GameManager.Instance.PauseMenuOn = true;
         controls.Gameplay.Disable();
-        EnableJoysticks();
+        EnableMenuActions();
     }
     
     private void Unpause()
     {
-        GameObject.Find("PauseMenu").SetActive(false);
+        transform.Find("Mouse").gameObject.SetActive(false);
+        GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = -1;
         GameManager.Instance.PauseMenuOn = false;
         controls.Gameplay.Enable();
-        DisableJoysticks();
+        DisableMenuActions();
     }
     private void CheckActionListComplete()
     {
@@ -219,7 +220,6 @@ public class PlayerScript : MonoBehaviour
             history.Clear();
             hasActionList = false;
             GameManager.Instance.ActionListComplete(player);
-            
         }
     }
 
@@ -239,13 +239,14 @@ public class PlayerScript : MonoBehaviour
             hasImageList = true;
     }
 
-    public void EnableJoysticks()
+    public void EnableMenuActions()
     {
         transform.Find("Mouse").gameObject.SetActive(true);
         controls.Gameplay.LeftJoy.Enable();
         controls.Gameplay.RightJoy.Enable();
+        controls.Gameplay.Start.Enable();
     }
-    public void DisableJoysticks()
+    public void DisableMenuActions()
     {
         transform.Find("Mouse").gameObject.SetActive(false);
         controls.Gameplay.LeftJoy.Disable();
