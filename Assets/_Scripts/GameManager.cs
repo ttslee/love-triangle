@@ -9,9 +9,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     // GAME ON BOOL
-    private bool gameOn = false;
     public bool GameOn { get; set; }
-    public bool MenuOn { get; set; } = true;
+    public bool MainMenuOn { get; set; } = true;
+    public bool PauseMenuOn { get; set; } = true;
     // player and waifu messages && data
     public GameObject DialogueBoxP1 { get; set; } = null;
     public GameObject DialogueBoxP2 { get; set; } = null;
@@ -37,8 +37,8 @@ public class GameManager : MonoBehaviour
     // PlayerControls
 
     // Player Info
-    private bool hasPlayer1 = false;
-    private bool hasPlayer2 = false;
+    //private bool hasPlayer1 = false;
+    //private bool hasPlayer2 = false;
     private GameObject player1 = null;
     private GameObject player2 = null;
 
@@ -134,6 +134,7 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, Sprite> playerActionDictionary;
     public void Start()
     {
+
         // Setup the Dictionary <Input, Sprite>
         playerActionDictionary = new Dictionary<string, Sprite>();
         for (int i = 0; i < 8; i++)    
@@ -185,7 +186,7 @@ public class GameManager : MonoBehaviour
     {
         if (player1 == null)
         {
-            hasPlayer1 = true;
+            //hasPlayer1 = true;
             player1 = player;
             player1.name = "Player1";
             player.GetComponent<PlayerScript>().SetPlayer(1);
@@ -193,7 +194,7 @@ public class GameManager : MonoBehaviour
         else if(player2 == null)
         {
             player2.name = "Player2";
-            hasPlayer2 = true;
+            //hasPlayer2 = true;
             player2 = player;
             player.GetComponent<PlayerScript>().SetPlayer(2);
         }
@@ -294,7 +295,7 @@ public class GameManager : MonoBehaviour
     {
         //StartCoroutine(LoadAsync()); // *************************************
         SceneManager.LoadScene("Teo");
-        MenuOn = true;
+        MainMenuOn = false;
         if (player1)
             player1.GetComponent<PlayerScript>().DisableJoysticks();
         if(player2)

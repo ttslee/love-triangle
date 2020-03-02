@@ -7,29 +7,47 @@ using TMPro;
 
 public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
+    // CLICKED TIMER DELAY AND DATA
+    private bool timer = false;
+    private float delay = .1f;
+
+    // TEXT MESH DATA
     public bool hasText = false;
     TextMeshProUGUI tmpText = null;
+
+    // META
     public bool player1Allowed = true;
     public bool player2Allowed = true;
 
-    public bool p1Inside = false;
-    public bool p2Inside = false;
+    private bool p1Inside = false;
+    private bool p2Inside = false;
 
     void Start()
     {
         if(hasText)
             tmpText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
     }
+    public void Update()
+    {
+        if (delay <=0)
+        {
+            tmpText.transform.localPosition = new Vector3(0, 2, 0);
+            timer = false;
+            delay = .1f;
+        }
+        if(timer)
+            delay -= Time.deltaTime;
 
+    }
     private bool HoveringMice()
     {
         return p1Inside || p2Inside;
     }
 
     public Button button;
-    public void OnTriggerEnter2D(Collider2D other)
+    public void OnTriggerStay2D(Collider2D other)
     {
-        if (!GameManager.Instance.MenuOn)
+        if (!GameManager.Instance.MainMenuOn || !GameManager.Instance.PauseMenuOn)
             return;
         if(other.gameObject.CompareTag("Mouse"))
         {
@@ -51,7 +69,7 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
     }
     public void OnTriggerExit2D(Collider2D other)
     {
-        if (!GameManager.Instance.MenuOn)
+        if (!GameManager.Instance.MainMenuOn || !GameManager.Instance.PauseMenuOn)
             return;
         switch (other.gameObject.GetComponent<MouseScript>().Player)
         {
@@ -70,22 +88,28 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
 
     public void OnSelect(BaseEventData eventData)
     {
-        if (!GameManager.Instance.MenuOn)
+        if (!GameManager.Instance.MainMenuOn || !GameManager.Instance.PauseMenuOn)
             return;
         if (hasText)
             tmpText.transform.localPosition = new Vector3(0, 2, 0);
     }
     public void OnDeselect(BaseEventData data)
     {
-        if (!GameManager.Instance.MenuOn)
+        if (!GameManager.Instance.MainMenuOn || !GameManager.Instance.PauseMenuOn)
             return;
         if (hasText)
             tmpText.transform.localPosition = new Vector3(0, 0, 0);
     }
     public void Clicked()
     {
-        if (!GameManager.Instance.MenuOn)
-            return;
-        button.onClick.Invoke();
+        timer = true;
+        if (hasText)
+            tmpText.transform.localPosition = new Vector3(0, 0, 0);
     }
+    //public void Clicked()
+    //{
+    //    if (!GameManager.Instance.MainMenuOn && !GameManager.Instance.PauseMenuOn)
+    //        return;
+    //    button.onClick.Invoke();
+    //}
 }

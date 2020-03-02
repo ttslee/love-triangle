@@ -134,10 +134,8 @@ public class PlayerScript : MonoBehaviour
         controls.Gameplay.LT.performed += ctx => PlayerAction("LT");            // Left Trigger
         controls.Gameplay.LB.performed += ctx => PlayerAction("LB");            // Left Bumper
 
-        controls.Gameplay.LeftJoy.performed += ctx => move = ctx.ReadValue<Vector2>();  // LeftJoy
-        controls.Gameplay.LeftJoy.canceled += ctx => move = Vector2.zero;// RightJoy
-        //controls.Gameplay.RightJoy.performed += ctx => move = ctx.ReadValue<Vector2>();  // LeftJoy
-        //controls.Gameplay.RightJoy.canceled += ctx => move = Vector2.zero;// RightJoy
+        controls.Gameplay.LeftJoy.performed += ctx => move = ctx.ReadValue<Vector2>() * 1.2f;  // LeftJoy
+        controls.Gameplay.LeftJoy.canceled += ctx => move = Vector2.zero;
     }
 
     private void PlayerAction(string action)
@@ -153,8 +151,12 @@ public class PlayerScript : MonoBehaviour
                     GameManager.Instance.AbilityCast(player);
                 break;
             case "Start":
-                if(!GameManager.Instance.GameOn)
+                if (!GameManager.Instance.GameOn)
                     GameManager.Instance.StartGame();  // *********************************************************************
+                else if (GameManager.Instance.GameOn && !GameManager.Instance.PauseMenuOn)
+                    Pause();
+                else if (GameManager.Instance.GameOn && GameManager.Instance.PauseMenuOn)
+                    Unpause();
                 break;
             default:
                 if (!hasActionList)
@@ -190,9 +192,24 @@ public class PlayerScript : MonoBehaviour
                     }
                         
                 }
-                
                 break;
         }
+    }
+
+    private void Pause()
+    {
+        GameObject.Find("PauseMenu").SetActive(true);
+        GameManager.Instance.PauseMenuOn = true;
+        controls.Gameplay.Disable();
+        EnableJoysticks();
+    }
+    
+    private void Unpause()
+    {
+        GameObject.Find("PauseMenu").SetActive(false);
+        GameManager.Instance.PauseMenuOn = false;
+        controls.Gameplay.Enable();
+        DisableJoysticks();
     }
     private void CheckActionListComplete()
     {
