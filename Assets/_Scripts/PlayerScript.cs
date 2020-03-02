@@ -73,20 +73,21 @@ public class PlayerScript : MonoBehaviour
             abilityBar = value;
         }
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         history = new Stack<string>();
         actionList = new List<string>();
         GameManager.Instance.NotifyGM(gameObject);
     }
+
     private void Awake()
     {
         controls = new PlayerControls();
         InputControlBindings();
         DontDestroyOnLoad(gameObject);
     }
-    // Update is called once per frame
+
     void Update()
     {
         if (SceneManager.GetActiveScene().name == "Teo")

@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     // GAME ON BOOL
     private bool gameOn = false;
     public bool GameOn { get; set; }
-
+    public bool MenuOn { get; set; } = true;
     // player and waifu messages && data
     public GameObject DialogueBoxP1 { get; set; } = null;
     public GameObject DialogueBoxP2 { get; set; } = null;
@@ -215,21 +215,27 @@ public class GameManager : MonoBehaviour
             case 1:
                 player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 1);
                 player1.GetComponent<PlayerScript>().HasActionList = true;
-                hasPlayer1 = true;
                 break;
             case 2:
                 player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 2);
                 player2.GetComponent<PlayerScript>().HasActionList = true;
-                hasPlayer2 = true;
                 break;
         }
         
     }
+    private int FindSpaces(string msg)
+    {
+        int temp = 0;
+        foreach (var c in msg)
+            temp += (c == ' ') ? 1 : 0;
+        return temp;
+    }
     public List<string> GenerateActionList(string msg, int p)
     {
+        int spaces = FindSpaces(msg);
         currentMessage++;
         List<string> temp = new List<string>();
-        for (int i = 0; i < msg.Length; i++)
+        for (int i = 0; i < msg.Length - spaces; i++)
         {
             temp.Add(playerActionInputList[Random.Range(0,8)]);
         }
@@ -284,7 +290,9 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        StartCoroutine(LoadAsync()); // *************************************
+        //StartCoroutine(LoadAsync()); // *************************************
+        SceneManager.LoadScene("Teo");
+        MenuOn = true;
         if (player1)
             player1.GetComponent<PlayerScript>().DisableJoysticks();
         if(player2)

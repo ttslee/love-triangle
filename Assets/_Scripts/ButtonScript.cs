@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
-public class ButtonScript : MonoBehaviour
+
+public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
     public bool hasText = false;
     TextMeshProUGUI tmpText = null;
@@ -28,6 +29,8 @@ public class ButtonScript : MonoBehaviour
     public Button button;
     public void OnTriggerEnter2D(Collider2D other)
     {
+        if (!GameManager.Instance.MenuOn)
+            return;
         if(other.gameObject.CompareTag("Mouse"))
         {
             switch(other.gameObject.GetComponent<MouseScript>().Player)
@@ -43,14 +46,14 @@ public class ButtonScript : MonoBehaviour
                     p2Inside = true;
                     break;
             }
-            if(hasText)
-                tmpText.transform.localPosition = new Vector3(0, 2, 0);
             GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(gameObject);
         }
     }
     public void OnTriggerExit2D(Collider2D other)
     {
-        switch(other.gameObject.GetComponent<MouseScript>().Player)
+        if (!GameManager.Instance.MenuOn)
+            return;
+        switch (other.gameObject.GetComponent<MouseScript>().Player)
         {
             case 1:
                 p1Inside = false;
@@ -61,14 +64,28 @@ public class ButtonScript : MonoBehaviour
         }
         if (!HoveringMice())
         {
-            if (hasText)
-                tmpText.transform.localPosition = new Vector3(0, 0, 0);
             GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(null);
         }
     }
 
+    public void OnSelect(BaseEventData eventData)
+    {
+        if (!GameManager.Instance.MenuOn)
+            return;
+        if (hasText)
+            tmpText.transform.localPosition = new Vector3(0, 2, 0);
+    }
+    public void OnDeselect(BaseEventData data)
+    {
+        if (!GameManager.Instance.MenuOn)
+            return;
+        if (hasText)
+            tmpText.transform.localPosition = new Vector3(0, 0, 0);
+    }
     public void Clicked()
     {
+        if (!GameManager.Instance.MenuOn)
+            return;
         button.onClick.Invoke();
     }
 }
