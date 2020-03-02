@@ -10,7 +10,6 @@ public class PlayerDialogueScript : MonoBehaviour
 
     private int currentIndex = 0;
     public TextMeshProUGUI textMesh;
-    // Start is called before the first frame update
     void Start()
     {
         if (GameObject.Find("GameManager") != null)
@@ -23,20 +22,19 @@ public class PlayerDialogueScript : MonoBehaviour
         txt = txt.Insert(0, alpha);
         textMesh.text = txt;
     }
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
     public void CorrectInput()
     {
         textMesh.text = textMesh.text.Remove(currentIndex, len);
+        if (textMesh.text[currentIndex] == ' ')
+            currentIndex++;
         currentIndex++;
         textMesh.text = textMesh.text.Insert(currentIndex, alpha);
     }
     public void IncorrectInput()
     {
         textMesh.text = textMesh.text.Remove(currentIndex, len);
+        if (textMesh.text[currentIndex-1] == ' ')
+            currentIndex--;
         currentIndex--;
         textMesh.text = textMesh.text.Insert(currentIndex, alpha);
     }
