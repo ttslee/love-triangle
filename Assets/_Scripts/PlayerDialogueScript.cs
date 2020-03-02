@@ -13,7 +13,8 @@ public class PlayerDialogueScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GameManager.Instance.AssignDialogueBox(gameObject, parent);
+        if (GameObject.Find("GameController") != null)
+            GameManager.Instance.AssignDialogueBox(gameObject, parent);
     }
 
     public void SetText(string txt)
