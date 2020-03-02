@@ -270,25 +270,26 @@ public class GameManager : MonoBehaviour
             Application.Quit();
         #endif
     }
-    IEnumerator LoadAsync()
-    {
-        // Loads scene in background
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Teo");
+    //IEnumerator LoadAsync()
+    //{
+    //    // Loads scene in background
+    //    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Teo");
 
-        // Wait until the asynchronous scene fully loads
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-    }
+    //    // Wait until the asynchronous scene fully loads
+    //    while (!asyncLoad.isDone)
+    //    {
+    //        yield return null;
+    //    }
+    //}
 
     public void StartGame()
     {
-        StartCoroutine(LoadAsync()); // *************************************
+         // *************************************
         if (player1)
             player1.GetComponent<PlayerScript>().DisableJoysticks();
         if(player2)
             player2.GetComponent<PlayerScript>().DisableJoysticks();
         GameOn = true;
+        SceneManager.LoadScene("Teo");
     }
 }
