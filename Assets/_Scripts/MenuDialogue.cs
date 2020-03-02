@@ -13,21 +13,29 @@ public class MenuDialogue : MonoBehaviour
     public float startDelay = 0.0f;
     private bool start = false;
     public float textSpeed = 0.05f;
+    public bool autoStart = false;
 
     #endregion
 
-    IEnumerator Start()
+    void Start()
     {
-        //Initialization
         tmpText = gameObject.GetComponent<TextMeshProUGUI>();
-        tmpText.maxVisibleCharacters = 0;
-        yield return new WaitForSeconds(startDelay);
-        start = true;
+        if (autoStart)
+            StartCoroutine(ResetMessage(tmpText));
     }
 
     private void Update()
     {
         Say(); //If she has something to say [IN TEXT BOX], she outright does it!
+    }
+
+    public IEnumerator ResetMessage(TextMeshProUGUI text)
+    {
+        if (start == true)
+            start = false;
+        text.maxVisibleCharacters = 0;
+        yield return new WaitForSeconds(startDelay);
+        start = true;
     }
 
     private void Say() //Types out text with type writer effect.

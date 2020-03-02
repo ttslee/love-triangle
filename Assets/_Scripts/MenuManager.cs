@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class MenuManager : MonoBehaviour
 {
@@ -11,12 +12,31 @@ public class MenuManager : MonoBehaviour
     private int indexLeft = 0;
     private int indexRight = 1;
     public GameObject dialogueBox;
+    private TextMeshProUGUI textBox;
 
     void Start()
     {
         foreach (Sprite s in Resources.LoadAll<Sprite>("Player_Icon"))
             playerIcons.Add(s); //Loads playerIcons into List
         playerLeft.sprite = playerIcons[indexLeft];
+        textBox = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
+    }
+
+    public void OpenControls()
+    {
+        OpenDialogueBox("You baffoon! Make the Controls yourself");
+    }
+
+    public void OpenCredits()
+    {
+        OpenDialogueBox("Damn Pepega! Do the Credits yourself");
+    }
+
+    private void OpenDialogueBox(string text)
+    {
+        textBox.text = text;
+        dialogueBox.SetActive(true);
+        StartCoroutine(dialogueBox.GetComponentInChildren<MenuDialogue>().ResetMessage(textBox));
     }
 
     public void ChangeLeftIcon(int dir)
@@ -35,9 +55,9 @@ public class MenuManager : MonoBehaviour
             playerRight.sprite = playerIcons[(++indexRight % playerIcons.Count)];
     }
 
-    public void DisableDialog()
+    public void CloseDialog()
     {
-
+        dialogueBox.SetActive(false);
     }
 
     public void QuitGame()
