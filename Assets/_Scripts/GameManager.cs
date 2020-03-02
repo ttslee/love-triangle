@@ -213,10 +213,12 @@ public class GameManager : MonoBehaviour
         switch(p)
         {
             case 1:
+                player1.GetComponent<PlayerScript>().MessageIndex = currentMessage;
                 player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 1);
                 player1.GetComponent<PlayerScript>().HasActionList = true;
                 break;
             case 2:
+                player2.GetComponent<PlayerScript>().MessageIndex = currentMessage;
                 player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 2);
                 player2.GetComponent<PlayerScript>().HasActionList = true;
                 break;

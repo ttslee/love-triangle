@@ -22,8 +22,7 @@ public class WaifuDialogue : MonoBehaviour
     #endregion
 
     //Delete this later on
-    private string exampleText = "task1: Say() function in Dialogue script. difficulty: a rank. aaa <color=#005500>name</color> need to be done asap but due end of next week task1: Say() function in Dialogue script. difficulty: a rank. need to be done asap but due end of next week";
-
+    
     void Start() 
     {
         //Initialization
@@ -31,11 +30,6 @@ public class WaifuDialogue : MonoBehaviour
         tmpText.text = "";
 
         //Example of Queuing Text. Delete this later on
-        QueueText(exampleText);
-        for (int i = 0; i < texts.Count; i++)//delete later
-        {
-      
-        }
     }
 
     private void Update()
@@ -256,7 +250,7 @@ public class WaifuDialogue : MonoBehaviour
 
     #endregion
 
-    public void Reply(int player, int sent, int expr) //Access this scripts list of replies according to int sent and say it
+    public void Reply(int player, int msg, int expr) //Access this scripts list of replies according to int sent and say it
     {
 
     }

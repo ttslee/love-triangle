@@ -10,7 +10,8 @@ public class PlayerScript : MonoBehaviour
     public Color32 mouseColor1;
     public Color32 mouseColor2;
 
-    
+    // Message Info
+    public int MessageIndex { get; set; }
     // InputImagesList
     private GameObject inputImageList;
     private bool hasImageList = false;

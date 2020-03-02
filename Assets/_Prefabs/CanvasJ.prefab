@@ -1320,7 +1320,7 @@ GameObject:
   - component: {fileID: 7212715247517176103}
   - component: {fileID: 7212715247517176100}
   m_Layer: 5
-  m_Name: DialogueBox_Main
+  m_Name: DialogueBox_Waifu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1551,7 +1551,7 @@ GameObject:
   - component: {fileID: 7212715248725691371}
   - component: {fileID: 4449954096064953876}
   m_Layer: 5
-  m_Name: SampleText
+  m_Name: WaifuText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
