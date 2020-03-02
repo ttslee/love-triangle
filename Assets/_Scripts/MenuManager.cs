@@ -10,6 +10,7 @@ public class MenuManager : MonoBehaviour
     public Image playerRight;
     private int indexLeft = 0;
     private int indexRight = 1;
+    public GameObject dialogueBox;
 
     void Start()
     {
@@ -21,7 +22,7 @@ public class MenuManager : MonoBehaviour
     public void ChangeLeftIcon(int dir)
     {
         if (dir == -1)
-            playerLeft.sprite = playerIcons[(++indexLeft%playerIcons.Count)];
+            playerLeft.sprite = playerIcons[(++indexLeft % playerIcons.Count)];
         else
             playerLeft.sprite = playerIcons[(++indexLeft % playerIcons.Count)];
     }
@@ -32,6 +33,11 @@ public class MenuManager : MonoBehaviour
             playerRight.sprite = playerIcons[(++indexRight % playerIcons.Count)];
         else
             playerRight.sprite = playerIcons[(++indexRight % playerIcons.Count)];
+    }
+
+    public void DisableDialog()
+    {
+
     }
 
     public void QuitGame()
