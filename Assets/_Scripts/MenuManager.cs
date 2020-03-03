@@ -33,7 +33,8 @@ public class MenuManager : MonoBehaviour
 
     public void OpenCredits()
     {
-        OpenDialogueBox("Teo Lee - Programming, Design, Sound\nJohnny Ngo - Programming, Design, Art");
+        OpenDialogueBox("Teo Lee - Programming, Design, Sound\nJohnny Ngo - Programming, Design, Art\nJing Hu - Programming, Design\n" +
+            "Nam-giao Nguyen - Programming, Design\nAdrienne Caparaz - Design");
     }
 
     private void OpenDialogueBox(string text)
