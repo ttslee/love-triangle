@@ -3201,7 +3201,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21cec4d142ce8a54c8324a4421c9a921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  PauseMenu: 0
+  PauseMenu: 1
   playerLeft: {fileID: 0}
   playerRight: {fileID: 0}
   dialogueBox: {fileID: 7548097716709381555}

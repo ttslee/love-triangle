@@ -11,13 +11,13 @@ public class MenuManager : MonoBehaviour
     public Image playerLeft;
     public Image playerRight;
     private int indexLeft = 0;
-    private int indexRight = 1;
+    private int indexRight = 2;
     public GameObject dialogueBox;
     private TextMeshProUGUI textBox;
 
     void Start()
     {
-        if(PauseMenu)
+        if (!PauseMenu)
         {
             foreach (Sprite s in Resources.LoadAll<Sprite>("Player_Icon"))
                 playerIcons.Add(s); //Loads playerIcons into List
@@ -28,6 +28,7 @@ public class MenuManager : MonoBehaviour
 
     public void OpenControls()
     {
+
         OpenDialogueBox("You baffoon! Make the Controls yourself");
     }
 
