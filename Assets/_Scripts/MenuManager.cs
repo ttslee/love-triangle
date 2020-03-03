@@ -33,7 +33,7 @@ public class MenuManager : MonoBehaviour
 
     public void OpenCredits()
     {
-        OpenDialogueBox("Damn Pepega! Do the Credits yourself");
+        OpenDialogueBox("Teo Lee - Programming, Design, Sound\nJohnny Ngo - Programming, Design, Art");
     }
 
     private void OpenDialogueBox(string text)
