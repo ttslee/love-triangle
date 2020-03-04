@@ -7,9 +7,6 @@ using TMPro;
 
 public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
-    // CLICKED TIMER DELAY AND DATA
-    private bool timer = false;
-    private float delay = .1f;
 
     // TEXT MESH DATA
     public bool hasText = false;
@@ -27,19 +24,7 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
         if(hasText)
             tmpText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
     }
-    public void Update()
-    {
-        if (delay <=0)
-        {
-            if (hasText)
-                tmpText.transform.localPosition = new Vector3(0, 2, 0);
-            timer = false;
-            delay = .1f;
-        }
-        if(timer)
-            delay -= Time.deltaTime;
 
-    }
     private bool HoveringMice()
     {
         return p1Inside || p2Inside;
@@ -83,7 +68,7 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
             }
             if (!HoveringMice())
             {
-                GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(null);
+                EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             }
         }
     }
@@ -107,17 +92,16 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
     }
     public void Clicked()
     {
-        timer = true;
-        if (hasText)
-            tmpText.transform.localPosition = new Vector3(0, 0, 0);
+        StartCoroutine(Delay());
     }
 
-    //public Button button;
+    private IEnumerator Delay()
+    {
+        if (hasText)
+            tmpText.transform.localPosition = new Vector3(0, 0, 0);
+        yield return new WaitForSeconds(.1f);
+        if (hasText)
+            tmpText.transform.localPosition = new Vector3(0, 2, 0);
+    }
 
-    //public void Clicked()
-    //{
-    //    if (!GameManager.Instance.MainMenuOn && !GameManager.Instance.PauseMenuOn)
-    //        return;
-    //    button.onClick.Invoke();
-    //}
 }

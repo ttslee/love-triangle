@@ -32,6 +32,16 @@ public class MenuManager : MonoBehaviour
         Debug.Log("Start!");
     }
 
+    public void ResumeGame()
+    {
+
+    }
+
+    public void ReturnToMenu()
+    {
+
+    }
+
     public void OpenControls()
     {
 
