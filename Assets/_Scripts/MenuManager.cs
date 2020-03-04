@@ -13,6 +13,7 @@ public class MenuManager : MonoBehaviour
     private int indexLeft = 0;
     private int indexRight = 2;
     public GameObject dialogueBox;
+    public GameObject buttons;
     private TextMeshProUGUI textBox;
 
     void Start()
@@ -47,6 +48,7 @@ public class MenuManager : MonoBehaviour
     {
         textBox.text = text;
         dialogueBox.SetActive(true);
+        buttons.SetActive(false);
         StartCoroutine(dialogueBox.GetComponentInChildren<MenuDialogue>().ResetMessage(textBox));
     }
 
@@ -68,6 +70,7 @@ public class MenuManager : MonoBehaviour
 
     public void CloseDialog()
     {
+        buttons.SetActive(true);
         dialogueBox.SetActive(false);
     }
 
