@@ -31,7 +31,8 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
         if (delay <=0)
         {
-            tmpText.transform.localPosition = new Vector3(0, 2, 0);
+            if (hasText)
+                tmpText.transform.localPosition = new Vector3(0, 2, 0);
             timer = false;
             delay = .1f;
         }
@@ -44,7 +45,6 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
         return p1Inside || p2Inside;
     }
 
-    public Button button;
     public void OnTriggerStay2D(Collider2D other)
     {
         if (GameManager.Instance.MainMenuOn || GameManager.Instance.PauseMenuOn)
@@ -111,6 +111,9 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
         if (hasText)
             tmpText.transform.localPosition = new Vector3(0, 0, 0);
     }
+
+    //public Button button;
+
     //public void Clicked()
     //{
     //    if (!GameManager.Instance.MainMenuOn && !GameManager.Instance.PauseMenuOn)

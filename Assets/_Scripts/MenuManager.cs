@@ -26,6 +26,11 @@ public class MenuManager : MonoBehaviour
         textBox = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
     }
 
+    public void StartGame()
+    {
+        Debug.Log("Start!");
+    }
+
     public void OpenControls()
     {
 
