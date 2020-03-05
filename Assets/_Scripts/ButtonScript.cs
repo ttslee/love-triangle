@@ -49,7 +49,7 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
                         p2Inside = true;
                         break;
                 }
-                GameObject.Find("EventSystem").GetComponent<EventSystem>().SetSelectedGameObject(gameObject);
+                EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(gameObject);
             }
         }
     }
@@ -82,6 +82,7 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
         }
         
     }
+
     public void OnDeselect(BaseEventData data)
     {
         if (GameManager.Instance.MainMenuOn || GameManager.Instance.PauseMenuOn)
