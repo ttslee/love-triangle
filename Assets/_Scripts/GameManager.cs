@@ -236,7 +236,6 @@ public class GameManager : MonoBehaviour
     public List<string> GenerateActionList(string msg, int p)
     {
         int spaces = FindSpaces(msg);
-        currentMessage++;
         List<string> temp = new List<string>();
         for (int i = 0; i < msg.Length - spaces; i++)
         {
@@ -251,6 +250,7 @@ public class GameManager : MonoBehaviour
                 DialogueBoxP2.GetComponent<PlayerDialogueScript>().SetText(msg);
                 break;
         }
+        currentMessage++;
         return temp;
     }
     // --------------------------------------------------------------------
