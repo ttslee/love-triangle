@@ -34,12 +34,12 @@ public class MenuManager : MonoBehaviour
 
     public void ResumeGame()
     {
-
+        GameManager.Instance.Unpause();
     }
 
     public void ReturnToMenu()
     {
-
+        GameManager.Instance.NewGame();
     }
 
     public void OpenControls()

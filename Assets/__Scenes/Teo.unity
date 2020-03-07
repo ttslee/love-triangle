@@ -342,6 +342,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 909837600916140713, guid: cb485b86fdca60942acd8bc9d0babc69,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 2145709022}
     - target: {fileID: 909837600916140715, guid: cb485b86fdca60942acd8bc9d0babc69,
         type: 3}
       propertyPath: m_Name
@@ -502,7 +507,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2060528783
 PrefabInstance:
@@ -649,7 +654,7 @@ PrefabInstance:
     - target: {fileID: 7212715249247064773, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_Name
-      value: CanvasJ
+      value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7212715249247064774, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
