@@ -57,8 +57,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance = null;
 
     // Player Info
-    private GameObject player1 = null;
-    private GameObject player2 = null;
+    public GameObject player1 { get; set; } = null;
+    public GameObject player2 { get; set; } = null;
 
     //-----------------Input Options------------------
     public List<Sprite> playerActionSprites;

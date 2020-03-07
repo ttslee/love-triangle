@@ -25,15 +25,14 @@ public class PlayerScript : MonoBehaviour
     
     // Input stream and String Info
     private Stack<string> history;
-
     private bool hasActionList = false;
     public bool HasActionList{ get{ return hasActionList; } set{ hasActionList = value; } }
     private List<string> actionList;
     public List<string> ActionList{ get{ return actionList; }   set{ actionList = value; }}
-    private float affectionBar = 0f;
-    private float abilityBar = 0f;
-    public float AffectionBar { get { return affectionBar; } set { affectionBar = value; } }
-    public float AbilityBar { get { return abilityBar; } set { abilityBar = value; } }
+    private int loveBar = 0;
+    private int abilityBar = 0;
+    public int LoveBar { get { return loveBar; } set { loveBar = value; } }
+    public int AbilityBar { get { return abilityBar; } set { abilityBar = value; } }
 
     void Start()
     {
@@ -93,7 +92,6 @@ public class PlayerScript : MonoBehaviour
         controls.Gameplay.RB.performed += ctx => PlayerAction("RB");            // Right Bumper
         controls.Gameplay.LT.performed += ctx => PlayerAction("LT");            // Left Trigger
         controls.Gameplay.LB.performed += ctx => PlayerAction("LB");            // Left Bumper
-
         controls.Gameplay.LeftJoy.performed += ctx => move = ctx.ReadValue<Vector2>() * 1.2f;  // LeftJoy
         controls.Gameplay.LeftJoy.canceled += ctx => move = Vector2.zero;
     }
@@ -138,6 +136,7 @@ public class PlayerScript : MonoBehaviour
                 {
                     if(history.Count != 0)
                     {
+                        AbilityBar += 1;
                         switch (player)
                         {
                             case 1:
@@ -164,6 +163,7 @@ public class PlayerScript : MonoBehaviour
         {
             history.Clear();
             hasActionList = false;
+            LoveBar += 1;
             GameManager.Instance.ActionListComplete(player, Message);
         }
     }
@@ -232,7 +232,7 @@ public class PlayerScript : MonoBehaviour
     {
         HasActionList = false;
         actionList.Clear();
-        AffectionBar = 0f;
-        AbilityBar = 0f;
+        LoveBar = 0;
+        AbilityBar = 0;
     }
 }
