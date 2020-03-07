@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using System;
 public class MenuManager : MonoBehaviour
 {
     public bool PauseMenu = false;
-    List<Sprite> playerIcons = new List<Sprite>();
+    List<Tuple<Sprite, string>> playerIcons = new List<Tuple<Sprite, string>>();
     public Image playerLeft;
     public Image playerRight;
     private int indexLeft = 0;
@@ -20,15 +20,19 @@ public class MenuManager : MonoBehaviour
     {
         if (!PauseMenu)
         {
-            foreach (Sprite s in Resources.LoadAll<Sprite>("Player_Icon"))
-                playerIcons.Add(s); //Loads playerIcons into List
-            playerLeft.sprite = playerIcons[indexLeft];
+            Sprite[] s = Resources.LoadAll<Sprite>("Player_Icon");
+            playerIcons.Add(new Tuple<Sprite,string>(s[0],"Pika"));
+            playerIcons.Add(new Tuple<Sprite, string>(s[1], "Sanic"));
+            playerIcons.Add(new Tuple<Sprite, string>(s[2], "Pepe"));
+            playerLeft.sprite = playerIcons[indexLeft].Item1;
         }
         textBox = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void StartGame()
     {
+        GameManager.Instance.player1Character = playerIcons[indexLeft];
+        GameManager.Instance.player2Character = playerIcons[indexRight];
         GameManager.Instance.StartGame();
     }
 
@@ -65,17 +69,17 @@ public class MenuManager : MonoBehaviour
     public void ChangeLeftIcon(int dir)
     {
         if (dir == -1)
-            playerLeft.sprite = playerIcons[(++indexLeft % playerIcons.Count)];
+            playerLeft.sprite = playerIcons[(++indexLeft % playerIcons.Count)].Item1;
         else
-            playerLeft.sprite = playerIcons[(++indexLeft % playerIcons.Count)];
+            playerLeft.sprite = playerIcons[(++indexLeft % playerIcons.Count)].Item1;
     }
 
     public void ChangeRightIcon(int dir)
     {
         if (dir == -1)
-            playerRight.sprite = playerIcons[(++indexRight % playerIcons.Count)];
+            playerRight.sprite = playerIcons[(++indexRight % playerIcons.Count)].Item1;
         else
-            playerRight.sprite = playerIcons[(++indexRight % playerIcons.Count)];
+            playerRight.sprite = playerIcons[(++indexRight % playerIcons.Count)].Item1;
     }
 
     public void CloseDialog()

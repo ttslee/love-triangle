@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System;
 // Font_Input subscripts. Order matters! It matches InputOptions list so that loading the dictionary works properly. 
 // Playstation : { 3, 0, 2, 1, 17, 19, 16, 18 }
 // XBOX        : { 6, 4, 7, 5, 17, 19, 16, 18 }
@@ -13,6 +14,8 @@ public class GameManager : MonoBehaviour
     public bool PauseMenuOn { get; set; } = false;
 
     //-------------------Player messages & data--------------------
+    public Tuple<Sprite, string> player1Character { get; set; } = null;
+    public Tuple<Sprite, string> player2Character { get; set; } = null;
     public GameObject DialogueBoxP1 { get; set; } = null;
     public GameObject DialogueBoxP2 { get; set; } = null;
     private int currentMessage = 0;
@@ -275,25 +278,11 @@ public class GameManager : MonoBehaviour
     //---------------------------Menu Options---------------------------------------
     public void QuitGame()
     {
-        // save any game data here
         #if UNITY_EDITOR
-        // Application.Quit() does not work in the editor so
-        // UnityEditor.EditorApplication.isPlaying need to be set to false to end the game
             UnityEditor.EditorApplication.isPlaying = false;
         #else
             Application.Quit();
         #endif
-    }
-    IEnumerator LoadAsync()
-    {
-        // Loads scene in background
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Teo");
-
-        // Wait until the asynchronous scene fully loads
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
     }
 
     public void StartGame()

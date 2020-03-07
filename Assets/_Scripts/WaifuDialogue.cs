@@ -20,7 +20,7 @@ public class WaifuDialogue : MonoBehaviour
     //int faceExpression = 0; //For future UI effect
 
     #endregion
-
+    public List<Sprite> waifuSprites;
     //Delete this later on
     List<string> waifuResponses = new List<string>
     {
