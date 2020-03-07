@@ -29,7 +29,7 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        Debug.Log("Start!");
+        GameManager.Instance.StartGame();
     }
 
     public void ResumeGame()
