@@ -95,59 +95,6 @@ public class GameManager : MonoBehaviour
             "Right",
         };
     // -----------------Input Options End-----------------
-    //Original attempt at getting sprites from assets
-    //[System.Serializable] public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
-    //{
-    //    [SerializeField]
-    //    private List<TKey> keys = new List<TKey>();
-
-    //    [SerializeField]
-    //    private List<TValue> values = new List<TValue>();
-
-    //    // save the dictionary to lists
-    //    public void OnBeforeSerialize()
-    //    {
-    //        keys.Clear();
-    //        values.Clear();
-    //        foreach (KeyValuePair<TKey, TValue> pair in this)
-    //        {
-    //            keys.Add(pair.Key);
-    //            values.Add(pair.Value);
-    //        }
-    //    }
-
-    //    // load dictionary from lists
-    //    public void OnAfterDeserialize()
-    //    {
-    //        this.Clear();
-
-    //        if (keys.Count != values.Count)
-    //            throw new System.Exception(string.Format("there are {0} keys and {1} values after deserialization. Make sure that both key and value types are serializable."));
-
-    //        for (int i = 0; i < keys.Count; i++)
-    //            this.Add(keys[i], values[i]);
-    //    }
-    //}
-    //[System.Serializable]
-    //public class PlayerActionDictionary : SerializableDictionary<string, Sprite> { };
-
-    //public PlayerActionDictionary pActionDict;
-
-
-    // Prior Sprite loading attempt.... Did not work
-    // Turns out I shouldnt have tried this. It was fked... It was a nice idea, but I over complicated the problem.
-
-    //string[] ps4Val = { "_3", "_0", "_2", "_1", "_17", "_19", "_16", "_18" };
-    //for (int i = 0; i < ps4Keys.Length; i++)
-    //{
-    //    string temp = "Font_Inputs" + ps4Val[i];
-    //    Texture2D texture = Resources.Load<Texture2D>(temp);
-    //    print(texture);
-    //    Rect rec = new Rect(0, 0, 8, 9);
-
-    //    Sprite spt = Sprite.Create(texture, rec, new Vector2(0.5f, 0.5f), 100);
-    //    playerActionDictionary.Add(inputOptions[ps4Keys[i]], spt);
-    //}
 
     public Dictionary<string, Sprite> playerActionDictionary;
     public void Start()
@@ -328,6 +275,7 @@ public class GameManager : MonoBehaviour
             player1.GetComponent<PlayerScript>().NewGame();
         if (player2)
             player2.GetComponent<PlayerScript>().NewGame();
+        SceneManager.LoadScene("Menu");
     }
 
     //----------------------------Menu Options End-------------------------------

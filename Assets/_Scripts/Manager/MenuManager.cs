@@ -25,14 +25,17 @@ public class MenuManager : MonoBehaviour
             playerIcons.Add(new Tuple<Sprite, string>(s[1], "Sanic"));
             playerIcons.Add(new Tuple<Sprite, string>(s[2], "Pepe"));
             playerLeft.sprite = playerIcons[indexLeft].Item1;
+            playerRight.sprite = playerIcons[indexRight].Item1;
         }
         textBox = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void StartGame()
     {
-        GameManager.Instance.player1Character = playerIcons[indexLeft];
-        GameManager.Instance.player2Character = playerIcons[indexRight];
+        GameManager.Instance.player1Character = playerIcons[(indexLeft % playerIcons.Count)];
+        GameManager.Instance.player2Character = playerIcons[(indexRight % playerIcons.Count)];
+        print(GameManager.Instance.player1Character);
+        print(GameManager.Instance.player2Character);
         GameManager.Instance.StartGame();
     }
 
