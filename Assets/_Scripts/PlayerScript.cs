@@ -11,7 +11,7 @@ public class PlayerScript : MonoBehaviour
     public Color32 mouseColor2;
 
     // Message Info
-    public int MessageIndex { get; set; }
+    public string Message { get; set; }
     // InputImagesList
     private GameObject inputImageList;
     private bool hasImageList = false;
@@ -27,53 +27,13 @@ public class PlayerScript : MonoBehaviour
     private Stack<string> history;
 
     private bool hasActionList = false;
-    public bool HasActionList
-    {
-        get
-        {
-            return hasActionList;
-        }
-        set
-        {
-            hasActionList = value;
-        }
-    }
+    public bool HasActionList{ get{ return hasActionList; } set{ hasActionList = value; } }
     private List<string> actionList;
-    public List<string> ActionList
-    {
-        get
-        {
-            return actionList;
-        }
-        set
-        {
-            actionList = value;
-        }
-    }
+    public List<string> ActionList{ get{ return actionList; }   set{ actionList = value; }}
     private float affectionBar = 0f;
     private float abilityBar = 0f;
-    public float AffectionBar
-    {
-        get
-        {
-            return affectionBar;
-        }
-        set
-        {
-            affectionBar = value;
-        }
-    }
-    public float AbilityBar
-    {
-        get
-        {
-            return abilityBar;
-        }
-        set
-        {
-            abilityBar = value;
-        }
-    }
+    public float AffectionBar { get { return affectionBar; } set { affectionBar = value; } }
+    public float AbilityBar { get { return abilityBar; } set { abilityBar = value; } }
 
     void Start()
     {
@@ -153,9 +113,9 @@ public class PlayerScript : MonoBehaviour
                 if (!GameManager.Instance.GameOn)
                     GameManager.Instance.StartGame();  // *********************************************************************
                 else if (GameManager.Instance.GameOn && !GameManager.Instance.PauseMenuOn)
-                    Pause();
+                    GameManager.Instance.Pause();
                 else if (GameManager.Instance.GameOn && GameManager.Instance.PauseMenuOn)
-                    Unpause();
+                    GameManager.Instance.Unpause();
                 break;
             default:
                 if (!hasActionList)
@@ -195,31 +155,16 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    private void Pause()
-    {
-        transform.Find("Mouse").gameObject.SetActive(true);
-        GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = 1;
-        GameManager.Instance.PauseMenuOn = true;
-        controls.Gameplay.Disable();
-        EnableMenuActions();
-    }
     
-    private void Unpause()
-    {
-        transform.Find("Mouse").gameObject.SetActive(false);
-        GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = -1;
-        GameManager.Instance.PauseMenuOn = false;
-        controls.Gameplay.Enable();
-        DisableMenuActions();
-    }
+    
+    
     private void CheckActionListComplete()
     {
-        
         if(actionList.Count == 0)
         {
             history.Clear();
             hasActionList = false;
-            GameManager.Instance.ActionListComplete(player);
+            GameManager.Instance.ActionListComplete(player, Message);
         }
     }
 
@@ -241,6 +186,7 @@ public class PlayerScript : MonoBehaviour
 
     public void EnableMenuActions()
     {
+        controls.Gameplay.Disable();
         transform.Find("Mouse").gameObject.SetActive(true);
         controls.Gameplay.LeftJoy.Enable();
         controls.Gameplay.RightJoy.Enable();
@@ -248,6 +194,7 @@ public class PlayerScript : MonoBehaviour
     }
     public void DisableMenuActions()
     {
+        controls.Gameplay.Enable();
         transform.Find("Mouse").gameObject.SetActive(false);
         controls.Gameplay.LeftJoy.Disable();
         controls.Gameplay.RightJoy.Disable();
@@ -279,5 +226,13 @@ public class PlayerScript : MonoBehaviour
                 else
                     inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = GameManager.Instance.playerActionDictionary[ActionList[i]];
             }
+    }
+
+    public void NewGame()
+    {
+        HasActionList = false;
+        actionList.Clear();
+        AffectionBar = 0f;
+        AbilityBar = 0f;
     }
 }

@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
 // Font_Input subscripts. Order matters! It matches InputOptions list so that loading the dictionary works properly. 
 // Playstation : { 3, 0, 2, 1, 17, 19, 16, 18 }
 // XBOX        : { 6, 4, 7, 5, 17, 19, 16, 18 }
 public class GameManager : MonoBehaviour
 {
-    // GAME ON BOOL
+    // Global Bools
     public bool GameOn { get; set; }
     public bool MainMenuOn { get; set; } = true;
     public bool PauseMenuOn { get; set; } = false;
-    // player and waifu messages && data
+
+    //-------------------Player messages & data--------------------
     public GameObject DialogueBoxP1 { get; set; } = null;
     public GameObject DialogueBoxP2 { get; set; } = null;
     private int currentMessage = 0;
@@ -31,19 +31,33 @@ public class GameManager : MonoBehaviour
         "This is the test message...",
         "This is the test message...",
         "This is the test message...",
-    }; 
+    };
+    Dictionary<string, int> playerMessageDictionary = new Dictionary<string, int>
+    {
+        { "This is the test message...",0 },
+        { "This is the test message...",1 },
+        { "This is the test message...",2 },
+        { "This is the test message...",3 },
+        { "This is the test message...",4 },
+        { "This is the test message...",5 },
+        { "This is the test message...",6 },
+        { "This is the test message...",7 },
+        { "This is the test message...",8 },
+        { "This is the test message...",9 },
+        { "This is the test message...",10 },
+        { "This is the test message...",11 },
+        { "This is the test message...",12 },
+    };
+    //--------------------Player Message Data End----------------------
+    
     // Singleton
     public static GameManager Instance = null;
-    // PlayerControls
 
     // Player Info
-    //private bool hasPlayer1 = false;
-    //private bool hasPlayer2 = false;
     private GameObject player1 = null;
     private GameObject player2 = null;
 
-
-    // Input Options
+    //-----------------Input Options------------------
     public List<Sprite> playerActionSprites;
     private List<string> inputOptions = 
         new List<string>
@@ -77,7 +91,8 @@ public class GameManager : MonoBehaviour
             "Left",
             "Right",
         };
-
+    // -----------------Input Options End-----------------
+    //Original attempt at getting sprites from assets
     //[System.Serializable] public class SerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
     //{
     //    [SerializeField]
@@ -134,29 +149,17 @@ public class GameManager : MonoBehaviour
     public Dictionary<string, Sprite> playerActionDictionary;
     public void Start()
     {
-
-        // Setup the Dictionary <Input, Sprite>
         playerActionDictionary = new Dictionary<string, Sprite>();
         for (int i = 0; i < 8; i++)    
-        {
             playerActionDictionary.Add(playerActionInputList[i], playerActionSprites[i]);
-        }
         ShuffleList<string>(playerMessages);
     }
     private void Awake()
     {
-        // If there is not already an instance of SoundManager, set it to this.
         if (Instance == null)
-        {
             Instance = this;
-        }
-        //If an instance already exists, destroy whatever this object is to enforce the singleton.
         else if (Instance != this)
-        {
             Destroy(gameObject);
-        }
-
-        //Set SoundManager to DontDestroyOnLoad so that it won't be destroyed when reloading our scene.
         DontDestroyOnLoad(gameObject);
     }
     // Update is called once per frame
@@ -166,22 +169,22 @@ public class GameManager : MonoBehaviour
             QuitGame();
         if (Input.GetKeyDown(KeyCode.Return))
             StartGame();
-        //print((player1 != null) ? "HAHAHAHA" : "YOYOYOYO");
     }
+    // List Shuffler
     public static void ShuffleList<T>(List<T> ts)
     {
         var count = ts.Count;
         var last = count - 1;
         for (var i = 0; i < last; ++i)
         {
-            var r = Random.Range(i, count);
+            var r = UnityEngine.Random.Range(i, count);
             var tmp = ts[i];
             ts[i] = ts[r];
             ts[r] = tmp;
         }
     }
 
-    // PLAYER MANAGEMENT-------------------------------------------------
+    //----------------------------PLAYER MANAGEMENT----------------------------
     public void NotifyGM(GameObject player)
     {
         if (player1 == null)
@@ -204,8 +207,9 @@ public class GameManager : MonoBehaviour
     {
 
     }
-    public void ActionListComplete(int player)
+    public void ActionListComplete(int player, string message)
     {
+        GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, playerMessageDictionary[message]);
         SetActionList(player);
     }
 
@@ -214,12 +218,12 @@ public class GameManager : MonoBehaviour
         switch(p)
         {
             case 1:
-                player1.GetComponent<PlayerScript>().MessageIndex = currentMessage;
+                player1.GetComponent<PlayerScript>().Message = playerMessages[currentMessage];
                 player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 1);
                 player1.GetComponent<PlayerScript>().HasActionList = true;
                 break;
             case 2:
-                player2.GetComponent<PlayerScript>().MessageIndex = currentMessage;
+                player2.GetComponent<PlayerScript>().Message = playerMessages[currentMessage];
                 player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 2);
                 player2.GetComponent<PlayerScript>().HasActionList = true;
                 break;
@@ -239,7 +243,7 @@ public class GameManager : MonoBehaviour
         List<string> temp = new List<string>();
         for (int i = 0; i < msg.Length - spaces; i++)
         {
-            temp.Add(playerActionInputList[Random.Range(0,8)]);
+            temp.Add(playerActionInputList[UnityEngine.Random.Range(0,8)]);
         }
         switch(p)
         {
@@ -253,12 +257,10 @@ public class GameManager : MonoBehaviour
         currentMessage++;
         return temp;
     }
-    // --------------------------------------------------------------------
-
-    //Player Dialogue Management
+    
     public void AssignDialogueBox(GameObject g, int p)
     {
-        switch(p)
+        switch (p)
         {
             case 1:
                 DialogueBoxP1 = g;
@@ -268,6 +270,9 @@ public class GameManager : MonoBehaviour
                 break;
         }
     }
+    //---------------------------Player Management Done-----------------------------
+
+    //---------------------------Menu Options---------------------------------------
     public void QuitGame()
     {
         // save any game data here
@@ -302,4 +307,39 @@ public class GameManager : MonoBehaviour
             player2.GetComponent<PlayerScript>().DisableMenuActions();
         GameOn = true;
     }
+
+    public void Pause()
+    {
+        if(player1)
+            player1.GetComponent<PlayerScript>().EnableMenuActions();
+        if(player2)
+            player2.GetComponent<PlayerScript>().EnableMenuActions();
+        GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = 1;
+        PauseMenuOn = true;
+    }
+
+    public void Unpause()
+    {
+        if (player1)
+            player1.GetComponent<PlayerScript>().DisableMenuActions();
+        if (player2)
+            player2.GetComponent<PlayerScript>().DisableMenuActions();
+        GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = -1;
+        PauseMenuOn = false;
+    }
+
+    public void NewGame()
+    {
+        GameOn = false;
+        MainMenuOn = true;
+        PauseMenuOn = false;
+        ShuffleList<string>(playerMessages);
+        currentMessage = 0;
+        if (player1)
+            player1.GetComponent<PlayerScript>().NewGame();
+        if (player2)
+            player2.GetComponent<PlayerScript>().NewGame();
+    }
+
+    //----------------------------Menu Options End-------------------------------
 }

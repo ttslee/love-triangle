@@ -22,7 +22,22 @@ public class WaifuDialogue : MonoBehaviour
     #endregion
 
     //Delete this later on
-    
+    List<string> waifuResponses = new List<string>
+    {
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+        "This is the test waifu message...",
+    };
     void Start() 
     {
         //Initialization
@@ -250,7 +265,7 @@ public class WaifuDialogue : MonoBehaviour
 
     #endregion
 
-    public void Reply(int player, int msg, int expr) //Access this scripts list of replies according to int sent and say it
+    public void Reply(int player, int msg) //Access this scripts list of replies according to int sent and say it
     {
 
     }
