@@ -7,8 +7,8 @@ public class PortraitScript : MonoBehaviour
 {
     GameObject leftPortrait;
     GameObject rightPortrait;
-    Sprite[] abilitySprites;
-    Sprite[] loveSprites;
+    static private Sprite[] abilitySprites;
+    static private Sprite[] loveSprites;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,20 +20,20 @@ public class PortraitScript : MonoBehaviour
         leftPortrait.transform.Find("Icon").GetComponent<Image>().sprite = GameManager.Instance.player1Character.Item1;
         leftPortrait.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = GameManager.Instance.player1Character.Item2;
 
-        rightPortrait.transform.Find("Icon").GetComponent<Image>().sprite = GameManager.Instance.player2Character.Item1;
-        rightPortrait.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = GameManager.Instance.player2Character.Item2;
+        //rightPortrait.transform.Find("Icon").GetComponent<Image>().sprite = GameManager.Instance.player2Character.Item1;
+        //rightPortrait.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = GameManager.Instance.player2Character.Item2;
 
         leftPortrait.transform.Find("Love").GetComponent<Image>().enabled = false;
-        rightPortrait.transform.Find("Love").GetComponent<Image>().enabled = false;
+        //rightPortrait.transform.Find("Love").GetComponent<Image>().enabled = false;
 
         leftPortrait.transform.Find("Ability").GetComponent<Image>().enabled = false;
-        rightPortrait.transform.Find("Ability").GetComponent<Image>().enabled = false;
+        //rightPortrait.transform.Find("Ability").GetComponent<Image>().enabled = false;
     }
 
     private void Update()
     {
         UpdateLeftBars();
-        UpdateRightBars();
+        //UpdateRightBars();
     }
 
     private void UpdateLeftBars()
@@ -47,7 +47,7 @@ public class PortraitScript : MonoBehaviour
         else
         {
             leftPortrait.transform.Find("Love").GetComponent<Image>().enabled = true;
-            leftPortrait.transform.Find("Love").GetComponent<Image>().sprite = loveSprites[currentLove];
+            leftPortrait.transform.Find("Love").GetComponent<Image>().sprite = loveSprites[currentLove-1];
         }
         if(currentAbility == 0)
         {
@@ -56,7 +56,7 @@ public class PortraitScript : MonoBehaviour
         else
         {
             leftPortrait.transform.Find("Ability").GetComponent<Image>().enabled = true;
-            leftPortrait.transform.Find("Ability").GetComponent<Image>().sprite = abilitySprites[currentAbility];
+            leftPortrait.transform.Find("Ability").GetComponent<Image>().sprite = abilitySprites[currentAbility-1];
         }
     }
 
@@ -71,7 +71,7 @@ public class PortraitScript : MonoBehaviour
         else
         {
             rightPortrait.transform.Find("Love").GetComponent<Image>().enabled = true;
-            rightPortrait.transform.Find("Love").GetComponent<Image>().sprite = loveSprites[currentLove];
+            rightPortrait.transform.Find("Love").GetComponent<Image>().sprite = loveSprites[currentLove-1];
         }
         if (currentAbility == 0)
         {
@@ -80,7 +80,7 @@ public class PortraitScript : MonoBehaviour
         else
         {
             rightPortrait.transform.Find("Ability").GetComponent<Image>().enabled = true;
-            rightPortrait.transform.Find("Ability").GetComponent<Image>().sprite = abilitySprites[currentAbility];
+            rightPortrait.transform.Find("Ability").GetComponent<Image>().sprite = abilitySprites[currentAbility-1];
         }
     }
 }

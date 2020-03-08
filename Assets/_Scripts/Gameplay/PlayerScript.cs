@@ -136,7 +136,7 @@ public class PlayerScript : MonoBehaviour
                 {
                     if(history.Count != 0)
                     {
-                        AbilityBar += 1;
+                        AbilityBar++;
                         switch (player)
                         {
                             case 1:
@@ -163,7 +163,7 @@ public class PlayerScript : MonoBehaviour
         {
             history.Clear();
             hasActionList = false;
-            LoveBar += 1;
+            LoveBar++;
             GameManager.Instance.ActionListComplete(player, Message);
         }
     }
@@ -230,6 +230,7 @@ public class PlayerScript : MonoBehaviour
 
     public void NewGame()
     {
+        history.Clear();
         HasActionList = false;
         actionList.Clear();
         LoveBar = 0;
