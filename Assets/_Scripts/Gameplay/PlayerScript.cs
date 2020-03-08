@@ -160,9 +160,9 @@ public class PlayerScript : MonoBehaviour
                                 GameManager.Instance.DialogueBoxP2.GetComponent<PlayerDialogueScript>().IncorrectInput();
                                 break;
                         }
-                        imageListAnimator.SetTrigger("Shake");
                         actionList.Insert(0, history.Pop());
                     }
+                    imageListAnimator.SetTrigger("Shake");
                 }
                 break;
         }
