@@ -35,10 +35,9 @@ public class PlayerScript : MonoBehaviour
     public int AbilityBar { get { return abilityBar; } set { abilityBar = value; } }
 
     // Animator 
-    Animator playerAnim;
+    private Animator imageListAnimator;
     void Start()
     {
-        playerAnim = gameObject.GetComponent<Animator>();
         history = new Stack<string>();
         actionList = new List<string>();
         GameManager.Instance.NotifyGM(gameObject);
@@ -156,13 +155,12 @@ public class PlayerScript : MonoBehaviour
                         {
                             case 1:
                                 GameManager.Instance.DialogueBoxP1.GetComponent<PlayerDialogueScript>().IncorrectInput();
-                                playerAnim.SetTrigger("ShakeLeft");
                                 break;
                             case 2:
                                 GameManager.Instance.DialogueBoxP2.GetComponent<PlayerDialogueScript>().IncorrectInput();
-                                playerAnim.SetTrigger("ShakeRight");
                                 break;
                         }
+                        imageListAnimator.SetTrigger("Shake");
                         actionList.Insert(0, history.Pop());
                     }
                 }
@@ -196,7 +194,11 @@ public class PlayerScript : MonoBehaviour
                 break;
         }
         if(inputImageList != null)
+        {
+            imageListAnimator = inputImageList.GetComponent<Animator>();
             hasImageList = true;
+        }
+            
     }
 
     public void EnableMenuActions()
