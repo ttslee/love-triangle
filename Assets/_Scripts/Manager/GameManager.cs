@@ -139,7 +139,6 @@ public class GameManager : MonoBehaviour
     {
         if (player1 == null)
         {
-            //hasPlayer1 = true;
             player1 = player;
             player1.name = "Player1";
             player.GetComponent<PlayerScript>().SetPlayer(1);
@@ -147,7 +146,6 @@ public class GameManager : MonoBehaviour
         else if(player2 == null)
         {
             player2.name = "Player2";
-            //hasPlayer2 = true;
             player2 = player;
             player.GetComponent<PlayerScript>().SetPlayer(2);
         }
@@ -252,6 +250,7 @@ public class GameManager : MonoBehaviour
             player2.GetComponent<PlayerScript>().EnableMenuActions();
         GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = 1;
         PauseMenuOn = true;
+        GameOn = false;
     }
 
     public void Unpause()
@@ -262,6 +261,7 @@ public class GameManager : MonoBehaviour
             player2.GetComponent<PlayerScript>().DisableMenuActions();
         GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = -1;
         PauseMenuOn = false;
+        GameOn = true;
     }
 
     public void NewGame()

@@ -110,6 +110,8 @@ public class PlayerScript : MonoBehaviour
             case "RB":
             case "LT":
             case "LB":
+                if (!GameManager.Instance.GameOn)
+                    break;
                 if(abilityBar >= 100f)
                     GameManager.Instance.AbilityCast(player);
                 break;
@@ -122,6 +124,8 @@ public class PlayerScript : MonoBehaviour
                     GameManager.Instance.Unpause();
                 break;
             default:
+                if (!GameManager.Instance.GameOn)
+                    break;
                 if (!hasActionList)
                     break;
                 if (action == actionList[0])
@@ -192,18 +196,18 @@ public class PlayerScript : MonoBehaviour
 
     public void EnableMenuActions()
     {
-        controls.Gameplay.Disable();
+        //controls.Gameplay.Disable();
         transform.Find("Mouse").gameObject.SetActive(true);
-        controls.Gameplay.LeftJoy.Enable();
-        controls.Gameplay.RightJoy.Enable();
-        controls.Gameplay.Start.Enable();
+        //controls.Gameplay.LeftJoy.Enable();
+        //controls.Gameplay.RightJoy.Enable();
+        //controls.Gameplay.Start.Enable();
     }
     public void DisableMenuActions()
     {
-        controls.Gameplay.Enable();
+        //controls.Gameplay.Enable();
         transform.Find("Mouse").gameObject.SetActive(false);
-        controls.Gameplay.LeftJoy.Disable();
-        controls.Gameplay.RightJoy.Disable();
+        //controls.Gameplay.LeftJoy.Disable();
+        //controls.Gameplay.RightJoy.Disable();
     }
     private void MoveMouse()
     {
