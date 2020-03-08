@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6037546424242354297}
-  - component: {fileID: 7589082765383139943}
+  - component: {fileID: -4054505421395488669}
   m_Layer: 0
   m_Name: InputListLeft
   m_TagString: Untagged
@@ -131,7 +131,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!95 &7589082765383139943
+--- !u!95 &-4054505421395488669
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
