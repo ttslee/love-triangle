@@ -2200,6 +2200,7 @@ MonoBehaviour:
   textSpeed: 0.05
   charsPerLine: 22
   totalLines: 5
+  waifuSprites: []
 --- !u!1 &7212715249043708904
 GameObject:
   m_ObjectHideFlags: 0
@@ -2286,7 +2287,7 @@ GameObject:
   - component: {fileID: 7212715249247064775}
   - component: {fileID: 7212715249247064772}
   m_Layer: 5
-  m_Name: JohnnyCanvas
+  m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2472,12 +2473,12 @@ PrefabInstance:
     - target: {fileID: 6037546424242354297, guid: 5901587724a78c44ab16fe0e5e69b4ee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 115
+      value: 94
       objectReference: {fileID: 0}
     - target: {fileID: 6037546424242354297, guid: 5901587724a78c44ab16fe0e5e69b4ee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: 6037546424242354297, guid: 5901587724a78c44ab16fe0e5e69b4ee,
         type: 3}
@@ -2577,12 +2578,12 @@ PrefabInstance:
     - target: {fileID: 6037546424242354297, guid: 9d1d92dbc3177d64c8322445abdd47ba,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -115
+      value: -94
       objectReference: {fileID: 0}
     - target: {fileID: 6037546424242354297, guid: 9d1d92dbc3177d64c8322445abdd47ba,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 25
+      value: 25.5
       objectReference: {fileID: 0}
     - target: {fileID: 6037546424242354297, guid: 9d1d92dbc3177d64c8322445abdd47ba,
         type: 3}
