@@ -50,7 +50,7 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Teo")
+        if (SceneManager.GetActiveScene().name == "Teo" || SceneManager.GetActiveScene().name == "Johnny")
         {
             if(!hasImageList)
                 SetImageList(player);
