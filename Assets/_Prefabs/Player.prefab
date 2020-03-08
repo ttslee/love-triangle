@@ -32,6 +32,7 @@ GameObject:
   - component: {fileID: 1693365096161089936}
   - component: {fileID: 4609203268735445907}
   - component: {fileID: 6757867800807153733}
+  - component: {fileID: 6965554221461227991}
   m_Layer: 5
   m_Name: Player
   m_TagString: Mouse
@@ -104,6 +105,25 @@ MonoBehaviour:
   m_DefaultActionMap: Gameplay
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!95 &6965554221461227991
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422399835445241862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 772417f6afbf92e4da995148b9d9a0ef, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &8119060146601808466
 PrefabInstance:
   m_ObjectHideFlags: 0
