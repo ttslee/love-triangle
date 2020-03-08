@@ -118,11 +118,11 @@ public class PlayerScript : MonoBehaviour
                     GameManager.Instance.AbilityCast(player);
                 break;
             case "Start":
-                if (!GameManager.Instance.GameOn)
+                if (!GameManager.Instance.GameOn && GameManager.Instance.MainMenuOn)
                     GameManager.Instance.StartGame();  // *********************************************************************
                 else if (GameManager.Instance.GameOn && !GameManager.Instance.PauseMenuOn)
                     GameManager.Instance.Pause();
-                else if (GameManager.Instance.GameOn && GameManager.Instance.PauseMenuOn)
+                else if (!GameManager.Instance.GameOn && GameManager.Instance.PauseMenuOn)
                     GameManager.Instance.Unpause();
                 break;
             default:
