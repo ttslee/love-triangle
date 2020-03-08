@@ -58,8 +58,10 @@ public class PlayerScript : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "Teo" || SceneManager.GetActiveScene().name == "Johnny")
         {
-            if (!hasImageList)
+            if (!hasImageList && GameManager.Instance.GameOn)
+            {
                 SetImageList(player);
+            }
             if (!hasActionList && GameManager.Instance.GameOn)
             {
                 GameManager.Instance.SetActionList(player);
@@ -158,7 +160,6 @@ public class PlayerScript : MonoBehaviour
                         }
                         actionList.Insert(0, history.Pop());
                     }
-                        
                 }
                 break;
         }
@@ -184,7 +185,6 @@ public class PlayerScript : MonoBehaviour
         {
             case 1:
                 inputImageList = GameObject.Find("InputListLeft");
-                //print(list);
                 break;
             case 2:
                 inputImageList = GameObject.Find("InputListRight");
@@ -196,18 +196,11 @@ public class PlayerScript : MonoBehaviour
 
     public void EnableMenuActions()
     {
-        //controls.Gameplay.Disable();
         transform.Find("Mouse").gameObject.SetActive(true);
-        //controls.Gameplay.LeftJoy.Enable();
-        //controls.Gameplay.RightJoy.Enable();
-        //controls.Gameplay.Start.Enable();
     }
     public void DisableMenuActions()
     {
-        //controls.Gameplay.Enable();
         transform.Find("Mouse").gameObject.SetActive(false);
-        //controls.Gameplay.LeftJoy.Disable();
-        //controls.Gameplay.RightJoy.Disable();
     }
     private void MoveMouse()
     {
@@ -230,9 +223,7 @@ public class PlayerScript : MonoBehaviour
             for (int i = 0; i < 5; i++)
             {
                 if(actionList.Count <= i)
-                {
                     inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
-                }
                 else
                     inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = GameManager.Instance.playerActionDictionary[ActionList[i]];
             }
@@ -240,6 +231,7 @@ public class PlayerScript : MonoBehaviour
 
     public void NewGame()
     {
+        hasImageList = false;
         history.Clear();
         HasActionList = false;
         actionList.Clear();
