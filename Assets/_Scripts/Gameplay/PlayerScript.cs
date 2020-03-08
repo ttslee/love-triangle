@@ -50,9 +50,15 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Johnny")
+        {
+            GameManager.Instance.MainMenuOn = false;
+            GameManager.Instance.GameOn = true;
+        }
+
         if (SceneManager.GetActiveScene().name == "Teo" || SceneManager.GetActiveScene().name == "Johnny")
         {
-            if(!hasImageList)
+            if (!hasImageList)
                 SetImageList(player);
             if (!hasActionList && GameManager.Instance.GameOn)
             {
