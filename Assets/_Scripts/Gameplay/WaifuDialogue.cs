@@ -25,17 +25,18 @@ public class WaifuDialogue : MonoBehaviour
     {
         "What the heck? You're acting like you know me or something.",
         "I guess you do though!",
-        "This is the test waifu message...2",
+        "Oh I just love that about you player!",
         "This is the test waifu message...3",
         "This is the test waifu message...4",
         "This is the test waifu message...5",
-        "This is the test waifu message...6",
-        "This is the test waifu message...7",
+        "This is the test waifu message...player!",
+        "This is the test waifu message...player!",
         "This is the test waifu message...8",
         "This is the test waifu message...9",
-        "This is the test waifu message...10",
-        "This is the test waifu message...11",
+        "This is the test waifu message...player!",
+        "This is the test waifu message...player!",
         "This is the test waifu message...12",
+        "This is the test waifu message...13",
     };
     void Start() 
     {
@@ -266,7 +267,17 @@ public class WaifuDialogue : MonoBehaviour
 
     public void Reply(int player, int msg) //Access this scripts list of replies according to int sent and say it
     {
-        QueueText(waifuResponses[msg]);
+        string Raw_Text = waifuResponses[msg];
+        string New_Text = "";
+        if (player == 1)
+        {
+            New_Text = Raw_Text.Replace("player", GameManager.Instance.player1.name);
+        }
+        else
+        {
+            New_Text = Raw_Text.Replace("player", GameManager.Instance.player2.name);
+        }
+        QueueText(New_Text);
     }
 
 }
