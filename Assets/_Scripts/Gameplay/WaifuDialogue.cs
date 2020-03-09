@@ -17,7 +17,9 @@ public class WaifuDialogue : MonoBehaviour
     private int topLine = 0;
     private int botLine = 0;
     private int typeCount = 0; //Counts how many Letter has been iterated so far
-    int faceExpression = 0; //For future UI effect
+    int faceExpression = 0; //For future UI effect <color=#036ffc>player</color>
+
+    //"Oh I just love that about you <color=#036ffc>player</color>!"
 
     #endregion
     public List<Sprite> waifuSprites;
@@ -26,17 +28,17 @@ public class WaifuDialogue : MonoBehaviour
         "What the heck? You're acting like you know me or something.",
         "I guess you do though!",
         "Oh I just love that about you player!",
-        "This is the test waifu message...3",
-        "This is the test waifu message...4",
-        "This is the test waifu message...5",
-        "This is the test waifu message...player!",
-        "This is the test waifu message...player!",
-        "This is the test waifu message...8",
-        "This is the test waifu message...9",
-        "This is the test waifu message...player!",
-        "This is the test waifu message...player!",
-        "This is the test waifu message...12",
-        "This is the test waifu message...13",
+        "This is the test waifu message... 3",
+        "This is the test waifu message... 4",
+        "This is the test waifu message... 5",
+        "Hey player, I love how you're always so caring.",
+        "This is the test waifu message... player!",
+        "This is the test waifu message... 8",
+        "I love you with all my heart player.",
+        "This is the test waifu message... player!",
+        "This is the test waifu message... player!",
+        "This is the test waifu message... 12",
+        "This is the test waifu message... 13",
     };
     void Start() 
     {
@@ -64,7 +66,7 @@ public class WaifuDialogue : MonoBehaviour
             for (int i = 0; i <= charsPerLine; i++)
             {
 
-                if (textCopy[recordingInt] == '<')
+                if (recordingInt < textCopy.Length && textCopy[recordingInt] == '<')
                 {
                     List<string> list = CheckColorString(textCopy, recordingInt);
                     string a = list[0];
@@ -77,14 +79,14 @@ public class WaifuDialogue : MonoBehaviour
                     recordingInt += b;
                     i += listStrings.Count;
                 }
-                else if (textCopy[recordingInt] != ' ')
+                else if ( recordingInt < textCopy.Length && textCopy[recordingInt] != ' ')
                 {
                     line += textCopy[recordingInt];
                     recordingInt += 1;
                 }
                 else
                 {
-                    if (CheckSpace(recordingInt, i, textCopy) == true)
+                    if (recordingInt < textCopy.Length && CheckSpace(recordingInt, i, textCopy) == true)
                     {
                         line += textCopy[recordingInt];
                         recordingInt += 1;
@@ -108,7 +110,7 @@ public class WaifuDialogue : MonoBehaviour
         int numLeft = charsPerLine - used;
         int count = 0;
         int current = number + 1;
-        if (text[current] == '<')
+        if (current < text.Length && text[current] == '<')
         {
             string temp = CheckColorString(text, current)[0];
             count = SeprateString(temp).Count;
@@ -268,16 +270,51 @@ public class WaifuDialogue : MonoBehaviour
     public void Reply(int player, int msg) //Access this scripts list of replies according to int sent and say it
     {
         string Raw_Text = waifuResponses[msg];
-        string New_Text = "";
+        string Set_Color = "<color=#036ffc>";
+        string End_Color = "</color>";
+        string Color_Name = "";
+        string[] Array = Raw_Text.Split(' ');
+        for (int i = 0; i < Array.Length; ++i)
+        {
+            if (i == Array.Length - 1)
+            {
+                Debug.Log(i);
+                if (Array[i] == "player" || Array[i] == "player!" || Array[i] == "player." || Array[i] == "player,")
+                {
+                    Color_Name += Set_Color;
+                    Color_Name += Array[i];
+                    Color_Name += End_Color;
+                }
+                else
+                {
+                    Color_Name += Array[i];
+                }
+            }
+            else
+            {
+                if (Array[i] == "player" || Array[i] == "player!" || Array[i] == "player." || Array[i] == "player,")
+                {
+                    Color_Name += Set_Color;
+                    Color_Name += Array[i];
+                    Color_Name += End_Color;
+                    Color_Name += " ";
+                }
+                else
+                {
+                    Color_Name += Array[i];
+                    Color_Name += " ";
+                }
+            }
+        }
         if (player == 1)
         {
-            New_Text = Raw_Text.Replace("player", GameManager.Instance.player1.name);
+            Color_Name = Color_Name.Replace("player", GameManager.Instance.player1.name);
         }
         else
         {
-            New_Text = Raw_Text.Replace("player", GameManager.Instance.player2.name);
+            Color_Name = Color_Name.Replace("player", GameManager.Instance.player2.name);
         }
-        QueueText(New_Text);
+        QueueText(Color_Name);
     }
 
 }
