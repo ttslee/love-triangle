@@ -34,8 +34,6 @@ public class MenuManager : MonoBehaviour
     {
         GameManager.Instance.player1Character = playerIcons[(indexLeft % playerIcons.Count)];
         GameManager.Instance.player2Character = playerIcons[(indexRight % playerIcons.Count)];
-        print(GameManager.Instance.player1Character);
-        print(GameManager.Instance.player2Character);
         GameManager.Instance.StartGame();
     }
 
@@ -52,7 +50,8 @@ public class MenuManager : MonoBehaviour
     public void OpenControls()
     {
 
-        OpenDialogueBox("You baffoon! Make the Controls yourself");
+        OpenDialogueBox("Press the input that shows up on your side! When your blue bar fills up, Press any of the back buttons to use your ability! " +
+            "Restart anytime by pressing Start and returning to the main menu! Have Fun!");
     }
 
     public void OpenCredits()
