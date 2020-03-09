@@ -17,26 +17,25 @@ public class WaifuDialogue : MonoBehaviour
     private int topLine = 0;
     private int botLine = 0;
     private int typeCount = 0; //Counts how many Letter has been iterated so far
-    //int faceExpression = 0; //For future UI effect
+    int faceExpression = 0; //For future UI effect
 
     #endregion
     public List<Sprite> waifuSprites;
-    //Delete this later on
     List<string> waifuResponses = new List<string>
     {
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
-        "This is the test waifu message...",
+        "What the heck? You're acting like you know me or something.",
+        "I guess you do though!",
+        "This is the test waifu message...2",
+        "This is the test waifu message...3",
+        "This is the test waifu message...4",
+        "This is the test waifu message...5",
+        "This is the test waifu message...6",
+        "This is the test waifu message...7",
+        "This is the test waifu message...8",
+        "This is the test waifu message...9",
+        "This is the test waifu message...10",
+        "This is the test waifu message...11",
+        "This is the test waifu message...12",
     };
     void Start() 
     {
@@ -115,7 +114,7 @@ public class WaifuDialogue : MonoBehaviour
         }
         else 
         {
-            while (text[current] != ' ')
+            while (current < text.Length && text[current] != ' ')
             {
                 count += 1;
                 current += 1;
@@ -267,7 +266,7 @@ public class WaifuDialogue : MonoBehaviour
 
     public void Reply(int player, int msg) //Access this scripts list of replies according to int sent and say it
     {
-
+        QueueText(waifuResponses[msg]);
     }
 
 }
