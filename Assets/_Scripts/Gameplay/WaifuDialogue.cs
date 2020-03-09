@@ -17,7 +17,7 @@ public class WaifuDialogue : MonoBehaviour
     private int topLine = 0;
     private int botLine = 0;
     private int typeCount = 0; //Counts how many Letter has been iterated so far
-    int faceExpression = 0; //For future UI effect <color=#036ffc>player</color>
+    //int faceExpression = 0; //For future UI effect <color=#036ffc>player</color>
 
     //"Oh I just love that about you <color=#036ffc>player</color>!"
 

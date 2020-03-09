@@ -53,7 +53,7 @@ public class PortraitScript : MonoBehaviour
         {
             leftPortrait.transform.Find("Ability").GetComponent<Image>().enabled = false;
         }
-        else
+        else if (currentAbility <= 6)
         {
             leftPortrait.transform.Find("Ability").GetComponent<Image>().enabled = true;
             leftPortrait.transform.Find("Ability").GetComponent<Image>().sprite = abilitySprites[currentAbility-1];
@@ -77,7 +77,7 @@ public class PortraitScript : MonoBehaviour
         {
             rightPortrait.transform.Find("Ability").GetComponent<Image>().enabled = false;
         }
-        else
+        else if (currentAbility <= 6)
         {
             rightPortrait.transform.Find("Ability").GetComponent<Image>().enabled = true;
             rightPortrait.transform.Find("Ability").GetComponent<Image>().sprite = abilitySprites[currentAbility-1];
