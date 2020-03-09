@@ -116,12 +116,15 @@ public class PlayerScript : MonoBehaviour
             case "LB":
                 if (!GameManager.Instance.GameOn)
                     break;
-                if(abilityBar >= 100f)
+                if(abilityBar == 6)
+                {
                     GameManager.Instance.AbilityCast(player);
+                    AbilityBar = 0;
+                }
                 break;
             case "Start":
                 if (!GameManager.Instance.GameOn && GameManager.Instance.MainMenuOn)
-                    GameManager.Instance.StartGame();  // *********************************************************************
+                    GameManager.Instance.StartGame(); 
                 else if (GameManager.Instance.GameOn && !GameManager.Instance.PauseMenuOn)
                     GameManager.Instance.Pause();
                 else if (!GameManager.Instance.GameOn && GameManager.Instance.PauseMenuOn)
@@ -150,7 +153,8 @@ public class PlayerScript : MonoBehaviour
                 {
                     if(history.Count != 0)
                     {
-                        AbilityBar++;
+                        if(AbilityBar < 6)
+                            AbilityBar++;
                         switch (player)
                         {
                             case 1:

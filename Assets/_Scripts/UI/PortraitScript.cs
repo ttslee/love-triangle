@@ -20,20 +20,20 @@ public class PortraitScript : MonoBehaviour
         leftPortrait.transform.Find("Icon").GetComponent<Image>().sprite = GameManager.Instance.player1Character.Item1;
         leftPortrait.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = GameManager.Instance.player1Character.Item2;
 
-        //rightPortrait.transform.Find("Icon").GetComponent<Image>().sprite = GameManager.Instance.player2Character.Item1;
-        //rightPortrait.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = GameManager.Instance.player2Character.Item2;
+        rightPortrait.transform.Find("Icon").GetComponent<Image>().sprite = GameManager.Instance.player2Character.Item1;
+        rightPortrait.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = GameManager.Instance.player2Character.Item2;
 
         leftPortrait.transform.Find("Love").GetComponent<Image>().enabled = false;
-        //rightPortrait.transform.Find("Love").GetComponent<Image>().enabled = false;
+        rightPortrait.transform.Find("Love").GetComponent<Image>().enabled = false;
 
         leftPortrait.transform.Find("Ability").GetComponent<Image>().enabled = false;
-        //rightPortrait.transform.Find("Ability").GetComponent<Image>().enabled = false;
+        rightPortrait.transform.Find("Ability").GetComponent<Image>().enabled = false;
     }
 
     private void Update()
     {
         UpdateLeftBars();
-        //UpdateRightBars();
+        UpdateRightBars();
     }
 
     private void UpdateLeftBars()

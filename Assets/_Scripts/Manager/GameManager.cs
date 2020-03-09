@@ -153,7 +153,10 @@ public class GameManager : MonoBehaviour
     
     public void AbilityCast(int player)
     {
-
+        if (player == 1)
+            ShuffleList<string>(player2.GetComponent<PlayerScript>().ActionList);
+        else
+            ShuffleList<string>(player1.GetComponent<PlayerScript>().ActionList);
     }
     public void ActionListComplete(int player, string message)
     {
