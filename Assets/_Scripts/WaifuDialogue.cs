@@ -26,35 +26,35 @@ public class WaifuDialogue : MonoBehaviour
 
     List<string> waifuResponses = new List<string>
     {
-        "Oh, thank you so much! I’ve been carrying them around all day my arms were getting tired!",
+        "Oh, thank you so much! I've been carrying them around all day my arms were getting tired!",
         "Really? Wintermelon milk tea, 50% sweet, and less ice please!",
-        "Thanks! I wasn’t too sure about this shirt but I feel better about it now!",
-        "That is definitely the most original thing I’ve heard in my entire life — tell me more.",
+        "Thanks! I wasn't too sure about this shirt but I feel better about it now!",
+        "That is definitely the most original thing I've heard in my entire life — tell me more.",
         "Is that a danish? Yeah, I want it!",
         "While we what? Have a… d-date?",
-        "You’re not the first to tell me that.",
-        "Oh my god, yes please! I don’t know anyone in that class!",
-        "Depends, what kind of movie were you thinking of? I’m a big fan of horror!",
-        "God, I’ve been so busy I actually haven’t. I’m down.",
-        "Yeah? Maybe once you’re done, you can lend it to me and we can talk about it.", //#10
-        "I can’t believe you think I’m more beautiful than Miss Mother Nature herself.",
-        "You’re such a lifesaver and I’m so stupid. Thank you!",
-        "As long as you don’t mind returning the favor some other time.",
+        "You're not the first to tell me that.",
+        "Oh my god, yes please! I don't know anyone in that class!",
+        "Depends, what kind of movie were you thinking of? I'm a big fan of horror!",
+        "God, I've been so busy I actually haven’t. I'm down.",
+        "Yeah? Maybe once you're done, you can lend it to me and we can talk about it.", //#10
+        "I can't believe you think I'm more beautiful than Miss Mother Nature herself.",
+        "You're such a lifesaver and I'm so stupid. Thank you!",
+        "As long as you don't mind returning the favor some other time.",
         "A mug! Any mug will do but I would like a mug.",
-        "You did? That’s really thoughtful of you!",
-        "It’s not my first choice of fast food, but if it’s free, why not!",
-        "I barely know my plans for next week, let alone next month, but we’ll see.",
+        "You did? That's really thoughtful of you!",
+        "It's not my first choice of fast food, but if it's free, why not!",
+        "I barely know my plans for next week, let alone next month, but we'll see.",
         "Fun fact: I LOVE carne asada fries.",
-        "Thanks, it’s been exhausting lately. I’m glad you understand.",
-        "What does that have to do with anything? We can hang out and you don’t have to lose ramen. Win-win.", //#20
+        "Thanks, it's been exhausting lately. I'm glad you understand.",
+        "What does that have to do with anything? We can hang out and you don't have to lose ramen. Win-win.", //#20
         "Thanks, I tend to have that effect on people.",
-        "I think you’ve found the way to my heart, honestly.",
-        "I did, you noticed? It was only three inches off, but my hair feels way healthier now.",
-        "You really think so? There’s still so much more for me to learn about you.",
-        "It’s the middle of July, you’re so lame. But it’s cute, I guess.",
-        "Is it one of those picture-taking one? I’m so down for that.",
-        "Really? You’re a lifesaver!",
-        "Yes please, it’s freaking forty-five degrees out right now.",
+        "I think you've found the way to my heart, honestly.",
+        "I did! You noticed? It was only three inches off, but my hair feels way healthier now.",
+        "You really think so? There's still so much more for me to learn about you.",
+        "It's the middle of July, you're so lame. But it's cute, I guess.",
+        "Is it one of those picture-taking one? I'm so down for that.",
+        "Really? You're a lifesaver!",
+        "Yes please, it's freaking forty-five degrees out right now.",
         "As if you couldn’t have been any more obvious!", //#29
     };
 

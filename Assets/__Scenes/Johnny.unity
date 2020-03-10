@@ -743,22 +743,22 @@ PrefabInstance:
     - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_text
-      value: You look a little cold. Do you want to borrow my jacket?
+      value: I have a confession to make. I think I have a huge crush on you.
       objectReference: {fileID: 0}
     - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 56
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 11
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 12
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
