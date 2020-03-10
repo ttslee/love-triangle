@@ -16,7 +16,7 @@ public class WaifuDialogue : MonoBehaviour
     public int charsPerLine = 28; //Configurable WIDTH
     public int totalLines = 6; //Configurable HEIGHT
     private int topLine = 0; //The very top line, used for deleting
-    private int botLine = 0; //Current bottom line
+    private int botLine = 0; //Current line you are on
     private int typeCount = 0; //Counts how many Letters has been iterated so far per line
     private int totalChars = 0; //Total chars
     private int sayCount = 0; //Chars that have actually been said
@@ -78,7 +78,10 @@ public class WaifuDialogue : MonoBehaviour
         foreach (Sprite s in sprites)
             waifuSprites.Add(s);
 
-        //Example of Queuing Text. Delete this later on
+        //StartGame Dialogue
+        QueueText("One Two Three..........START!#9");
+
+
     }
 
     private void Update()
@@ -266,9 +269,12 @@ public class WaifuDialogue : MonoBehaviour
         if (botLine <= texts.Count - 1 && typeCount <= texts[botLine].Length - 1 && (texts[botLine][typeCount] == '0' ||
             texts[botLine][typeCount] == '1' || texts[botLine][typeCount] == '2' ||
             texts[botLine][typeCount] == '3' || texts[botLine][typeCount] == '4' ||
-            texts[botLine][typeCount] == '5'))
+            texts[botLine][typeCount] == '5' || texts[botLine][typeCount] == '9'))
         {
-            waifu.sprite = waifuSprites[texts[botLine][typeCount] - 48]; //-48 bc its an ascii value character
+            if (texts[botLine][typeCount] == '9') {
+                //GAMEMANAGER START GAME FUNCTION HERE
+            } else
+                waifu.sprite = waifuSprites[texts[botLine][typeCount] - 48]; //-48 bc its an ascii value character
             typeCount++; //Skip the number without adding it to text. We only need to check it to change expression.
         }
         if (sayCount == totalChars) //Mad Expression //If theres nothing else to say
