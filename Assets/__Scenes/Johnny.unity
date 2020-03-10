@@ -800,7 +800,7 @@ PrefabInstance:
     - target: {fileID: 7212715248725691371, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_text
-      value: "<color=#1e4d25>sample</color> <color=#3f47cc>text</color> <color=#ebeb34>testing</color>
+      value: "<color=#1e4d25>sample</color> <color=#3f47cc>text</color> <color=#fff624>testing</color>
         \ncomparison"
       objectReference: {fileID: 0}
     - target: {fileID: 7212715248725691371, guid: f5c52384d76597c488cb195f36f0c230,
