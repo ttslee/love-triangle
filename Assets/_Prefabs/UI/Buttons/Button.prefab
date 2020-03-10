@@ -170,8 +170,9 @@ GameObject:
   - component: {fileID: 1158096999869982913}
   - component: {fileID: 1158096999869982925}
   - component: {fileID: 1158096999869982922}
+  - component: {fileID: -3385139142361409838}
   m_Layer: 5
-  m_Name: Button_Play
+  m_Name: Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -302,6 +303,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: -3385139142361409838}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &1158096999869982925
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -343,3 +355,16 @@ MonoBehaviour:
   hasText: 1
   player1Allowed: 1
   player2Allowed: 1
+--- !u!114 &-3385139142361409838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158096999869982915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5874fa59011f54d9aa7a6d4a9f07f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: b797cfe299eb7fb4b908c7dd339e8d3a, type: 3}

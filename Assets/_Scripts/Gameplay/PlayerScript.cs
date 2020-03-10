@@ -103,7 +103,7 @@ public class PlayerScript : MonoBehaviour
         controls.Gameplay.RB.performed += ctx => PlayerAction("RB");            // Right Bumper
         controls.Gameplay.LT.performed += ctx => PlayerAction("LT");            // Left Trigger
         controls.Gameplay.LB.performed += ctx => PlayerAction("LB");            // Left Bumper
-        controls.Gameplay.LeftJoy.performed += ctx => move = ctx.ReadValue<Vector2>() * 1.2f;  // LeftJoy
+        controls.Gameplay.LeftJoy.performed += ctx => move = ctx.ReadValue<Vector2>() * 2f;  // LeftJoy
         controls.Gameplay.LeftJoy.canceled += ctx => move = Vector2.zero;
     }
 
