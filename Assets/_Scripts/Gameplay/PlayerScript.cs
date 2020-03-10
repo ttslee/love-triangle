@@ -35,9 +35,10 @@ public class PlayerScript : MonoBehaviour
     public int AbilityBar { get { return abilityBar; } set { abilityBar = value; } }
 
     // Animator 
-    private Animator imageListAnimator;
+    public Animator imageListAnimator { get; set; }
     void Start()
     {
+        imageListAnimator = gameObject.GetComponent<Animator>();
         history = new Stack<string>();
         actionList = new List<string>();
         GameManager.Instance.NotifyGM(gameObject);

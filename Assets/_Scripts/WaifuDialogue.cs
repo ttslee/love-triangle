@@ -272,7 +272,9 @@ public class WaifuDialogue : MonoBehaviour
             texts[botLine][typeCount] == '5' || texts[botLine][typeCount] == '9'))
         {
             if (texts[botLine][typeCount] == '9') {
-                //GAMEMANAGER START GAME FUNCTION HERE
+                GameManager.Instance.GameOn = true;
+                GameManager.Instance.player1.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Start");
+                GameManager.Instance.player2.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Start");
             } else
                 waifu.sprite = waifuSprites[texts[botLine][typeCount] - 48]; //-48 bc its an ascii value character
             typeCount++; //Skip the number without adding it to text. We only need to check it to change expression.

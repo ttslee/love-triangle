@@ -274,7 +274,6 @@ public class GameManager : MonoBehaviour
             player1.GetComponent<PlayerScript>().DisableMenuActions();
         if(player2)
             player2.GetComponent<PlayerScript>().DisableMenuActions();
-        GameOn = true;
     }
 
     public void Pause()
