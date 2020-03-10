@@ -206,6 +206,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1309864976 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4276232680972616915, guid: f5c52384d76597c488cb195f36f0c230,
+    type: 3}
+  m_PrefabInstance: {fileID: 7212715247813381609}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1697502239
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -810,6 +822,11 @@ PrefabInstance:
       propertyPath: textMesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4449954096064953876, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: waifu
+      value: 
+      objectReference: {fileID: 1309864976}
     - target: {fileID: 4702316776730818853, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_Sprite

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class WaifuDialogue : MonoBehaviour
@@ -19,8 +20,10 @@ public class WaifuDialogue : MonoBehaviour
     private int typeCount = 0; //Counts how many Letters has been iterated so far
 
     //Expressions
+    public Image waifu;
     private List<Sprite> waifuSprites = new List<Sprite>();
     int faceExpression = 0;
+    private bool canMad = true;
 
     #endregion
 
@@ -75,6 +78,7 @@ public class WaifuDialogue : MonoBehaviour
             waifuSprites.Add(s);
 
         //Example of Queuing Text. Delete this later on
+        QueueText("#1player please have my babies");
     }
 
     private void Update()
@@ -93,8 +97,12 @@ public class WaifuDialogue : MonoBehaviour
         {
             for (int i = 0; i <= charsPerLine; i++)
             {
-
-                if (recordingInt < textCopy.Length && textCopy[recordingInt] == '<')
+                if (recordingInt < textCopy.Length && textCopy[recordingInt] == '#') //added Expressions here
+                {
+                    line += textCopy[++recordingInt]; //Only adds '1' into the things to say
+                    recordingInt ++; //Skips having to calculate charsPerLine for '#1'
+                }
+                else if (recordingInt < textCopy.Length && textCopy[recordingInt] == '<')
                 {
                     List<string> list = CheckColorString(textCopy, recordingInt);
                     string a = list[0];
