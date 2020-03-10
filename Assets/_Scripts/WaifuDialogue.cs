@@ -41,9 +41,9 @@ public class WaifuDialogue : MonoBehaviour
 
     Dictionary<string, string> Character_Color = new Dictionary<string, string>
     {
-        {"Sanic", "<color=#036ffc>"},
-        {"Pika",  "<color=#ebeb34>"},
-        {"Pepe", "<color=#59eb34>" }
+        {"Sanic", "<color=#3f47cc>"},
+        {"Pika",  "<color=#fff624>"},
+        {"Pepe", "<color=#1e4d25>" }
     };
     void Start() 
     {
