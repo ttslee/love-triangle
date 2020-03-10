@@ -15,50 +15,51 @@ public class WaifuDialogue : MonoBehaviour
     public float textSpeed = 0.05f;
     public int charsPerLine = 28; //Configurable WIDTH
     public int totalLines = 6; //Configurable HEIGHT
-    private int topLine = 0;
+    private int topLine = 0; //The very top line, used for deleting
     private int botLine = 0; //Current bottom line
-    private int typeCount = 0; //Counts how many Letters has been iterated so far
+    private int typeCount = 0; //Counts how many Letters has been iterated so far per line
+    private int totalChars = 0; //Total chars
+    private int sayCount = 0; //Chars that have actually been said
 
     //Expressions
     public Image waifu;
-    private List<Sprite> waifuSprites = new List<Sprite>();
-    int faceExpression = 0;
+    private List<Sprite> waifuSprites = new List<Sprite>(); 
     private bool canMad = true;
 
     #endregion
 
     List<string> waifuResponses = new List<string>
     {
-        "Oh, thank you so much! I've been carrying them around all day my arms were getting tired!",
-        "Really? Wintermelon milk tea, 50% sweet, and less ice please!",
-        "Thanks! I wasn't too sure about this shirt but I feel better about it now!",
-        "That is definitely the most original thing I've heard in my entire life — tell me more.",
-        "Is that a danish? Yeah, I want it!",
-        "While we what? Have a… d-date?",
-        "You're not the first to tell me that.",
-        "Oh my god, yes please! I don't know anyone in that class!",
-        "Depends, what kind of movie were you thinking of? I'm a big fan of horror!",
-        "God, I've been so busy I actually haven’t. I'm down.",
-        "Yeah? Maybe once you're done, you can lend it to me and we can talk about it.", //#10
-        "I can't believe you think I'm more beautiful than Miss Mother Nature herself.",
-        "You're such a lifesaver and I'm so stupid. Thank you!",
-        "As long as you don't mind returning the favor some other time.",
-        "A mug! Any mug will do but I would like a mug.",
-        "You did? That's really thoughtful of you!",
-        "It's not my first choice of fast food, but if it's free, why not!",
-        "I barely know my plans for next week, let alone next month, but we'll see.",
-        "Fun fact: I LOVE carne asada fries.",
-        "Thanks, it's been exhausting lately. I'm glad you understand.",
-        "What does that have to do with anything? We can hang out and you don't have to lose ramen. Win-win.", //#20
-        "Thanks, I tend to have that effect on people.",
-        "I think you've found the way to my heart, honestly.",
-        "I did! You noticed? It was only three inches off, but my hair feels way healthier now.",
-        "You really think so? There's still so much more for me to learn about you.",
-        "It's the middle of July, you're so lame. But it's cute, I guess.",
-        "Is it one of those picture-taking one? I'm so down for that.",
-        "Really? You're a lifesaver!",
-        "Yes please, it's freaking forty-five degrees out right now.",
-        "As if you couldn’t have been any more obvious!", //#29
+        "#2Oh, thank you so much! I've been carrying them around all day my arms were getting tired!",
+        "#2Really? Wintermelon milk tea, 50% sweet, and less ice please!",
+        "#3Thanks! I wasn't too sure about this shirt but I feel better about it now!",
+        "#1That is definitely the most original thing I've heard in my entire life — tell me more.",
+        "#2Is that a danish? Yeah, I want it!",
+        "#3While we what? Have a… d-date?",
+        "#5You're not the first to tell me that.",
+        "#1Oh my god, yes please! I don't know anyone in that class!",
+        "#1Depends, what kind of movie were you thinking of? I'm a big fan of horror!",
+        "#1God, I've been so busy I actually haven’t. I'm down.",
+        "#4Yeah? Maybe once you're done, you can lend it to me and we can talk about it.", //#10
+        "#5I can't believe you think I'm more beautiful than Miss Mother Nature herself.",
+        "#3You're such a lifesaver and I'm so stupid. Thank you!",
+        "#3As long as you don't mind returning the favor some other time.",
+        "#4A Yoo, get me some cucumbers. The little persian ones!",
+        "#2You did? That's really thoughtful of you!",
+        "#2It's not my first choice of fast food, but if it's free, why not!",
+        "#1I barely know my plans for next week, let alone next month, but we'll see.",
+        "#1Fun fact: I LOVE carne asada fries.",
+        "#4Thanks, it's been exhausting lately. I'm glad you understand.",
+        "#1What does that have to do with anything? We can hang out and you don't have to lose ramen. Win-win.", //#20
+        "#2Thanks, I tend to have that effect on people.",
+        "#3I think you've found the way to my heart, honestly.",
+        "#4I did! You noticed? It was only three inches off, but my hair feels way healthier now.",
+        "#5You really think so? There's still so much more for me to learn about you.",
+        "#5It's the middle of July, you're so lame. But it's cute, I guess.",
+        "#1Is it one of those picture-taking one? I'm so down for that.",
+        "#2Really? You're a lifesaver!",
+        "#1Yes please, it's freaking forty-five degrees out right now.",
+        "#3As if you couldn’t have been any more obvious!", //#29
     };
 
     Dictionary<string, string> Character_Color = new Dictionary<string, string>
@@ -78,7 +79,6 @@ public class WaifuDialogue : MonoBehaviour
             waifuSprites.Add(s);
 
         //Example of Queuing Text. Delete this later on
-        QueueText("#1player this is just a testing sequence. one two three four?");
     }
 
     private void Update()
@@ -110,7 +110,8 @@ public class WaifuDialogue : MonoBehaviour
                     List<string> listStrings = SeprateString(a);
                     for (int j = 0; j < listStrings.Count; j++)
                     {
-                        line += listStrings[j]; 
+                        line += listStrings[j];
+                        totalChars += 1;
                     }
                     recordingInt += b;
                     i += listStrings.Count;
@@ -118,6 +119,7 @@ public class WaifuDialogue : MonoBehaviour
                 else if ( recordingInt < textCopy.Length && textCopy[recordingInt] != ' ')
                 {
                     line += textCopy[recordingInt];
+                    totalChars += 1;
                     recordingInt += 1;
                 }
                 else
@@ -125,6 +127,7 @@ public class WaifuDialogue : MonoBehaviour
                     if (recordingInt < textCopy.Length && CheckSpace(recordingInt, i, textCopy) == true)
                     {
                         line += textCopy[recordingInt];
+                        totalChars += 1;
                         recordingInt += 1;
                     }
                     else
@@ -137,6 +140,7 @@ public class WaifuDialogue : MonoBehaviour
             line = "";
         }
         line = textCopy;
+        totalChars += textCopy.Length;
         texts.Add(line);
     }
 
@@ -224,7 +228,7 @@ public class WaifuDialogue : MonoBehaviour
         return list;
     }
     #endregion
-    private List<string> CheckColorString(string texts,int typecount) 
+    private List<string> CheckColorString(string texts, int typecount) 
     {
         List<string> list = new List<string>();
         string temp = "";
@@ -250,10 +254,33 @@ public class WaifuDialogue : MonoBehaviour
         list.Add(a);
         return list;
     }
-    private void Say(List<string> texts) //type out texts with type writer effect.
+    private void Say(List<string> texts) //type out texts with typewriter effect.
     {
+        //Timer for typewriter effect
         timer += Time.deltaTime;
 
+        //Debug.Log(sayCount);
+        //Debug.Log(totalChars);
+
+        //Expression handler
+        if (botLine <= texts.Count - 1 && typeCount <= texts[botLine].Length - 1 && (texts[botLine][typeCount] == '0' ||
+            texts[botLine][typeCount] == '1' || texts[botLine][typeCount] == '2' ||
+            texts[botLine][typeCount] == '3' || texts[botLine][typeCount] == '4' ||
+            texts[botLine][typeCount] == '5'))
+        {
+            waifu.sprite = waifuSprites[texts[botLine][typeCount] - 48]; //-48 bc its an ascii value character
+            typeCount++; //Skip the number without adding it to text. We only need to check it to change expression.
+        }
+        if (sayCount == totalChars) //Mad Expression //If theres nothing else to say
+        {
+            if (canMad != true) { //May change this later, but we'll see
+                waifu.sprite = waifuSprites[0];
+            }
+            canMad = true;
+        } else canMad = false;
+
+
+        //Typewrite and color conversion
         if (timer >= textSpeed)
         {
             if (botLine <= texts.Count - 1)
@@ -280,12 +307,14 @@ public class WaifuDialogue : MonoBehaviour
                             tmpText.text += a;
                             typeCount += b;
                             timer = 0;
+                            sayCount += 1;
                         }
                         else 
                         {
                             tmpText.text += texts[botLine][typeCount];
                             typeCount++;
                             timer = 0;
+                            sayCount += 1;
                         }
                         
                     }

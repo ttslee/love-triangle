@@ -2276,7 +2276,7 @@ MonoBehaviour:
   textSpeed: 0.05
   charsPerLine: 22
   totalLines: 5
-  waifuSprites: []
+  waifu: {fileID: 4276232680972616915}
 --- !u!1 &7212715249043708904
 GameObject:
   m_ObjectHideFlags: 0
