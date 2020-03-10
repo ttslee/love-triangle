@@ -14,6 +14,12 @@ TextureImporter:
   - first:
       213: -4805986056234922988
     second: Waifu_3
+  - first:
+      213: 4834548772505480646
+    second: Waifu_4
+  - first:
+      213: 6576971754227468496
+    second: Waifu_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -114,6 +120,48 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 233b8ff60ccc42b41a5fdecd7602601c
+      internalID: 2897789141000230234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waifu_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f003a384b03ca545835a0dee8a682a9
+      internalID: -6394376525519003523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Waifu_2
+      rect:
+        serializedVersion: 2
+        x: 0
         y: 64
         width: 64
         height: 64
@@ -124,14 +172,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 73c9db68340fcef47a20f55c9412a5b0
-      internalID: 2897789141000230234
+      spriteID: 5de7968903371c64e8a0cb6d26d1f9a2
+      internalID: -264320730243536323
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waifu_1
+      name: Waifu_3
       rect:
         serializedVersion: 2
         x: 64
@@ -145,14 +193,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f74bbcf88ae4cc74e892fd9f751711a0
-      internalID: -6394376525519003523
+      spriteID: a8d6a84b5581a1749a7eea63e1660860
+      internalID: -4805986056234922988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waifu_2
+      name: Waifu_4
       rect:
         serializedVersion: 2
         x: 0
@@ -166,14 +214,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 445291ea7c02edb459e216ad6ab3229a
-      internalID: -264320730243536323
+      spriteID: feebcccbd7dd98b4b8a79b3a912d8889
+      internalID: 4834548772505480646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Waifu_3
+      name: Waifu_5
       rect:
         serializedVersion: 2
         x: 64
@@ -187,8 +235,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6e031a752d4b0514cadf0e274f13734e
-      internalID: -4805986056234922988
+      spriteID: c1b6312060aa3654aacceaceaab2edb8
+      internalID: 6576971754227468496
       vertices: []
       indices: 
       edges: []

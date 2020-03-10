@@ -740,6 +740,41 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_text
+      value: You look a little cold. Do you want to borrow my jacket?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3834086272134715409, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3844333951407983609, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_textInfo.characterCount
