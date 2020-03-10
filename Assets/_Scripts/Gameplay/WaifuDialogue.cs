@@ -17,9 +17,7 @@ public class WaifuDialogue : MonoBehaviour
     private int topLine = 0;
     private int botLine = 0;
     private int typeCount = 0; //Counts how many Letter has been iterated so far
-    //int faceExpression = 0; //For future UI effect <color=#036ffc>player</color>
-
-    //"Oh I just love that about you <color=#036ffc>player</color>!"
+    //int faceExpression = 0; //For future UI effect 
 
     #endregion
     public List<Sprite> waifuSprites;
@@ -36,9 +34,16 @@ public class WaifuDialogue : MonoBehaviour
         "This is the test waifu message... 8",
         "I love you with all my heart player.",
         "This is the test waifu message... player!",
-        "This is the test waifu message... player!",
+        "No please don't go player, I need you!",
         "This is the test waifu message... 12",
         "This is the test waifu message... 13",
+    };
+
+    Dictionary<string, string> Character_Color = new Dictionary<string, string>
+    {
+        {"Sanic", "<color=#036ffc>"},
+        {"Pika",  "<color=#ebeb34>"},
+        {"Pepe", "<color=#59eb34>" }
     };
     void Start() 
     {
@@ -265,12 +270,18 @@ public class WaifuDialogue : MonoBehaviour
         }
     }
 
-    #endregion
-
     public void Reply(int player, int msg) //Access this scripts list of replies according to int sent and say it
     {
         string Raw_Text = waifuResponses[msg];
-        string Set_Color = "<color=#036ffc>";
+        string Set_Color = "";
+        if (player == 1)
+        {
+            Set_Color = Character_Color[GameManager.Instance.player1Character.Item2];
+        }
+        else
+        {
+            Set_Color = Character_Color[GameManager.Instance.player2Character.Item2];
+        }
         string End_Color = "</color>";
         string Color_Name = "";
         string[] Array = Raw_Text.Split(' ');
@@ -278,7 +289,6 @@ public class WaifuDialogue : MonoBehaviour
         {
             if (i == Array.Length - 1)
             {
-                Debug.Log(i);
                 if (Array[i] == "player" || Array[i] == "player!" || Array[i] == "player." || Array[i] == "player,")
                 {
                     Color_Name += Set_Color;
@@ -308,13 +318,15 @@ public class WaifuDialogue : MonoBehaviour
         }
         if (player == 1)
         {
-            Color_Name = Color_Name.Replace("player", GameManager.Instance.player1.name);
+            Color_Name = Color_Name.Replace("player", GameManager.Instance.player1Character.Item2);
         }
         else
         {
-            Color_Name = Color_Name.Replace("player", GameManager.Instance.player2.name);
+            Color_Name = Color_Name.Replace("player", GameManager.Instance.player2Character.Item2);
         }
         QueueText(Color_Name);
     }
+
+    #endregion
 
 }
