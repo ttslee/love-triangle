@@ -78,7 +78,7 @@ public class WaifuDialogue : MonoBehaviour
             waifuSprites.Add(s);
 
         //Example of Queuing Text. Delete this later on
-        QueueText("#1player please have my babies");
+        QueueText("#1player this is just a testing sequence. one two three four?");
     }
 
     private void Update()
