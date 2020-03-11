@@ -184,6 +184,11 @@ public class PlayerScript : MonoBehaviour
             history.Clear();
             hasActionList = false;
             LoveBar++;
+            if (LoveBar == 4)
+            {
+                GameManager.Instance.player1.GetComponent<PlayerScript>().GameFinished();
+                GameManager.Instance.player2.GetComponent<PlayerScript>().GameFinished();
+            }
             GameManager.Instance.ActionListComplete(player, Message);
         }
     }
@@ -206,6 +211,22 @@ public class PlayerScript : MonoBehaviour
             hasImageList = true;
         }
             
+    }
+
+    public void GameFinished()
+    {
+        controls.Gameplay.X.Disable();
+        controls.Gameplay.O.Disable();
+        controls.Gameplay.S.Disable();
+        controls.Gameplay.T.Disable();
+        controls.Gameplay.Down.Disable();
+        controls.Gameplay.Left.Disable();
+        controls.Gameplay.Right.Disable();
+        controls.Gameplay.Up.Disable();
+        controls.Gameplay.RT.Disable();
+        controls.Gameplay.RB.Disable();
+        controls.Gameplay.LT.Disable();
+        controls.Gameplay.LB.Disable();
     }
 
     public void EnableMenuActions()
