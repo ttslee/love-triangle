@@ -335,19 +335,8 @@ public class WaifuDialogue : MonoBehaviour
                     
                     for (int i = topLine; i <= botLine - 1; i++)
                     {
-                        int i2 = 0;
-                        char[] tmpstring = new char[999];
-                        for (int j = 0; j < texts[i].Length; j++)
-                        {
-                            if (!System.Char.IsDigit(texts[i][j]))
-                            {
-                                tmpstring[i2] = texts[i][j];
-                                i2++;
-                            }
-                        }
-                        
-                        string a = new string(tmpstring, 0, i2);
-                        tmpText.text += new string(tmpstring,0,i2);
+                        string texta = dealingwithline(texts[i]);
+                        tmpText.text += texta;
                         tmpText.text += "\n";
                     }
                 }
@@ -385,7 +374,30 @@ public class WaifuDialogue : MonoBehaviour
             }
         }
     }
-
+    private string dealingwithline(string texta)
+    {
+        string a = "";
+        int i = 0;
+        while (i < texta.Length)
+        {
+            if (texta[i] == '<')
+            {
+                List<string> L = CheckColorString(texta, i);
+                a += L[0];
+                i += L[0].Length;
+            }
+            else if (!System.Char.IsDigit(texta[i]))
+            {
+                a += texta[i];
+                i++;
+            }
+            else
+            {
+                i++;
+            }
+        }
+        return a;
+    }
     public void Reply(int player, int msg) //Access this scripts list of replies according to int sent and say it
     {
         string Raw_Text = waifuResponses[msg];
