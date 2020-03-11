@@ -10,10 +10,41 @@ public class PlayerDialogueScript : MonoBehaviour
 
     private int currentIndex = 0;
     public TextMeshProUGUI textMesh;
+
+    public float textSpeed = 0.05f;
+    private float timer = 0f;
+    private bool ready = false;
+
     void Start()
     {
         if (GameObject.Find("GameManager") != null)
             GameManager.Instance.AssignDialogueBox(gameObject, parent);
+    }
+
+    public void DisplayText()
+    {
+        textMesh.maxVisibleCharacters = 0; //Makes text invis and Update function will begin.
+        ready = false;
+    }
+
+    private void Update()
+    {
+        timer += Time.deltaTime;
+
+        if (timer >= textSpeed)
+        {
+            if (textMesh.text.Length > textMesh.maxVisibleCharacters)
+            {
+                textMesh.maxVisibleCharacters++;
+            }
+            timer = 0f;
+        }
+
+        if (textMesh.text.Length <= textMesh.maxVisibleCharacters)
+        {
+            //check for other player i suppose? then start the game
+            ready = true;
+        }
     }
 
     public void SetText(string txt)
