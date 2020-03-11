@@ -271,7 +271,7 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         //StartCoroutine(LoadAsync()); // *************************************
-        SceneManager.LoadScene("Teo");
+        SceneManager.LoadScene("Main");
         MainMenuOn = false;
         if (player1)
             player1.GetComponent<PlayerScript>().DisableMenuActions();
