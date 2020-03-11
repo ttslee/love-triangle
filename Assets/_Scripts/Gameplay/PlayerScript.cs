@@ -182,7 +182,6 @@ public class PlayerScript : MonoBehaviour
             source.Play(); 
             history.Clear(); 
             hasActionList = false;
-            Debug.Log("???");
             imageListAnimator.SetTrigger("Hide"); //Hides text right after it resets
             LoveBar++;
             if (LoveBar == 4)

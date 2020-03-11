@@ -13,6 +13,7 @@ public class WaifuDialogue : MonoBehaviour
     List<string> texts = new List<string>(); //Each line of texts
     private float timer = 0f;
     public float textSpeed = 0.05f;
+    private bool paused = false; //Used for pausing in speech
     public int charsPerLine = 28; //Configurable WIDTH
     public int totalLines = 6; //Configurable HEIGHT
     private int topLine = 0; //The very top line, used for deleting
@@ -81,13 +82,14 @@ public class WaifuDialogue : MonoBehaviour
         foreach (Sprite s in sprites)
             waifuSprites.Add(s);
         //StartGame Dialogue
-        QueueText("1Really? Wintermelon milk tea, 50 % sweet, and less ice please!9"); //After doing these ones, all the numbers that were previously hidden are now showing up.
+        QueueText("1Really?8 Wintermelon milk tea, 50 % sweet, and less ice please!9"); //After doing these ones, all the numbers that were previously hidden are now showing up.
         QueueText("1That is definitely the most original thing I've heard in my entire life — tell me more.");
     }
 
     private void Update()
     {
-        Say(texts); //If she has something to say, she outright does it!
+        if (!paused)
+            Say(texts); //If she has something to say, she outright does it!
     }
 
     #region Completed Functions
@@ -259,9 +261,16 @@ public class WaifuDialogue : MonoBehaviour
         list.Add(a);
         return list;
     }
+
+    private IEnumerator Pause(float delay)
+    {
+        paused = true;
+        yield return new WaitForSeconds(delay);
+        paused = false;
+    }
+
     private void Say(List<string> texts) //type out texts with typewriter effect.
     {
-        
         //Timer for typewriter effect
         timer += Time.deltaTime;
         soundTimer += Time.deltaTime;
@@ -274,9 +283,10 @@ public class WaifuDialogue : MonoBehaviour
         {
             if (texts[botLine][typeCount] == '9') { //#9 = GAMESTART
                 GameManager.Instance.GameOn = true;
-            } else if (texts[botLine][typeCount] == '8') //#8 = DEFAULT DELAY
+            } else if (texts[botLine][typeCount] == '8') //#8 = INITIATE PAUSE DELAY
             {
-                textSpeed = .05f;
+                Debug.Log("??");
+                StartCoroutine(Pause(1f)); //Waifu will hesitate for 1 seconds.
             } else
                 waifu.sprite = waifuSprites[texts[botLine][typeCount] - 48]; //-48 bc its an ascii value character. Changes Face #0-5
             typeCount++; //Skip the number without adding it to text. We only need to check it to change expression.
