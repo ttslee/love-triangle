@@ -186,8 +186,9 @@ public class PlayerScript : MonoBehaviour
             LoveBar++;
             if (LoveBar == 4)
             {
-                GameManager.Instance.player1.GetComponent<PlayerScript>().GameFinished();
+                //GameManager.Instance.player1.GetComponent<PlayerScript>().GameFinished();
                 GameManager.Instance.player2.GetComponent<PlayerScript>().GameFinished();
+                GameManager.Instance.GameFinished = true;
             }
             GameManager.Instance.ActionListComplete(player, Message);
         }
@@ -250,19 +251,22 @@ public class PlayerScript : MonoBehaviour
     }
     public void DisableMenuActions()
     {
+        if (!GameManager.Instance.GameFinished)
+        {
+            controls.Gameplay.X.Enable();
+            controls.Gameplay.O.Enable();
+            controls.Gameplay.S.Enable();
+            controls.Gameplay.T.Enable();
+            controls.Gameplay.Down.Enable();
+            controls.Gameplay.Left.Enable();
+            controls.Gameplay.Right.Enable();
+            controls.Gameplay.Up.Enable();
+            controls.Gameplay.RT.Enable();
+            controls.Gameplay.RB.Enable();
+            controls.Gameplay.LT.Enable();
+            controls.Gameplay.LB.Enable();
+        }
         transform.Find("Mouse").gameObject.SetActive(false);
-        controls.Gameplay.X.Enable();
-        controls.Gameplay.O.Enable();
-        controls.Gameplay.S.Enable();
-        controls.Gameplay.T.Enable();
-        controls.Gameplay.Down.Enable();
-        controls.Gameplay.Left.Enable();
-        controls.Gameplay.Right.Enable();
-        controls.Gameplay.Up.Enable();
-        controls.Gameplay.RT.Enable();
-        controls.Gameplay.RB.Enable();
-        controls.Gameplay.LT.Enable();
-        controls.Gameplay.LB.Enable();
     }
     private void MoveMouse()
     {
