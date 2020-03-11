@@ -13,7 +13,7 @@ public class PlayerScript : MonoBehaviour
     // Message Info
     public string Message { get; set; }
     // InputImagesList
-    private GameObject inputImageList;
+    public GameObject inputImageList;
     private bool hasImageList = false;
 
     // Player
@@ -38,7 +38,6 @@ public class PlayerScript : MonoBehaviour
     public Animator imageListAnimator { get; set; }
     void Start()
     {
-        imageListAnimator = gameObject.GetComponent<Animator>();
         history = new Stack<string>();
         actionList = new List<string>();
         GameManager.Instance.NotifyGM(gameObject);
@@ -53,13 +52,7 @@ public class PlayerScript : MonoBehaviour
 
     void Update()
     {
-        if (SceneManager.GetActiveScene().name == "Johnny")
-        {
-            GameManager.Instance.MainMenuOn = false;
-            GameManager.Instance.GameOn = true;
-        }
-
-        if (SceneManager.GetActiveScene().name == "Teo" || SceneManager.GetActiveScene().name == "Johnny")
+        if (SceneManager.GetActiveScene().name != "Menu")
         {
             if (!hasImageList && GameManager.Instance.GameOn)
             {
@@ -173,9 +166,6 @@ public class PlayerScript : MonoBehaviour
         }
     }
 
-    
-    
-    
     private void CheckActionListComplete()
     {
         if(actionList.Count == 0)
@@ -200,7 +190,8 @@ public class PlayerScript : MonoBehaviour
         }
         if(inputImageList != null)
         {
-            imageListAnimator = inputImageList.GetComponent<Animator>();
+            imageListAnimator = inputImageList.GetComponent<Animator>(); 
+            imageListAnimator.SetTrigger("Start");
             hasImageList = true;
         }
             
