@@ -40,6 +40,7 @@ public class PlayerScript : MonoBehaviour
     // Sound
     public AudioClip correctInputSound;
     public AudioClip completeSound;
+    public AudioClip errorSound;
     public AudioSource source;
     void Start()
     {
@@ -152,6 +153,8 @@ public class PlayerScript : MonoBehaviour
                 }
                 else
                 {
+                    source.clip = errorSound;
+                    source.Play();
                     if(history.Count != 0)
                     {
                         if(AbilityBar < 6)
@@ -186,9 +189,10 @@ public class PlayerScript : MonoBehaviour
             LoveBar++;
             if (LoveBar == 4)
             {
+                GameManager.Instance.GameFinished = true;
                 //GameManager.Instance.player1.GetComponent<PlayerScript>().GameFinished();
                 GameManager.Instance.player2.GetComponent<PlayerScript>().GameFinished();
-                GameManager.Instance.GameFinished = true;
+                
             }
             GameManager.Instance.ActionListComplete(player, Message);
         }
