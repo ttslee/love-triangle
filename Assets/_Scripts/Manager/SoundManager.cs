@@ -36,8 +36,6 @@ public class SoundManager : MonoBehaviour
     // Play a single clip through the sound effects source.
     public void Play(AudioClip clip)
     {
-        float randomPitch = Random.Range(LowPitchRange, HighPitchRange);
-        EffectsSource.pitch = randomPitch;
         EffectsSource.clip = clip;
         EffectsSource.Play();
     }

@@ -5566,7 +5566,12 @@ PrefabInstance:
         type: 3}
       propertyPath: clip
       value: 
-      objectReference: {fileID: 8300000, guid: 95bbea5acac442844b4b858e18065862, type: 3}
+      objectReference: {fileID: 8300000, guid: 807684473b148c2468d6d6114b8e88cc, type: 3}
+    - target: {fileID: 490846053311058818, guid: 9116621a8d0e34740ba99979e8327348,
+        type: 3}
+      propertyPath: textSpeed
+      value: 0.0168
+      objectReference: {fileID: 0}
     - target: {fileID: 490846053488882660, guid: 9116621a8d0e34740ba99979e8327348,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

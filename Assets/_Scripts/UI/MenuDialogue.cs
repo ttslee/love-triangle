@@ -12,7 +12,7 @@ public class MenuDialogue : MonoBehaviour
     private float timer = 0f;
     public float startDelay = 0.0f;
     private bool start = false;
-    public float textSpeed = 0.05f;
+    public float textSpeed = 0.0005f;
     public bool autoStart = false;
     public AudioClip clip;
     private float clipTimer = 0f;
@@ -42,7 +42,7 @@ public class MenuDialogue : MonoBehaviour
     private void Say() //Types out text with type writer effect.
     {
         timer += Time.deltaTime;
-        clipTimer += Time.deltaTime;
+        
         
             
         if (start == true && timer >= textSpeed)
@@ -51,7 +51,8 @@ public class MenuDialogue : MonoBehaviour
             {
                 tmpText.maxVisibleCharacters++;
             }
-            if (clipTimer >= .09f && tmpText.maxVisibleCharacters < tmpText.text.Length)
+            clipTimer += Time.deltaTime;
+            if (clipTimer >= .05f && tmpText.maxVisibleCharacters < tmpText.text.Length)
             {
                 SoundManager.Instance.Play(clip);
                 clipTimer = 0f;
