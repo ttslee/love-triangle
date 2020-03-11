@@ -168,6 +168,7 @@ public class PlayerScript : MonoBehaviour
 
     private void CheckActionListComplete()
     {
+
         if(actionList.Count == 0)
         {
             history.Clear();

@@ -7,6 +7,12 @@ public class InputInfo : MonoBehaviour
     public SpriteRenderer image;
 
     private string action;
+
+    private void Start()
+    {
+        image.color = new Color(1, 1, 1, 0);
+    }
+
     public string Action
     {
         get
@@ -17,10 +23,5 @@ public class InputInfo : MonoBehaviour
         {
             action = value;
         }
-    }
-
-    public void SetSprite(Sprite spt)
-    {
-        image.sprite = spt;
     }
 }
