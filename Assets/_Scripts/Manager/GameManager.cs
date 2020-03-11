@@ -322,6 +322,7 @@ public class GameManager : MonoBehaviour
         GameOn = false;
         MainMenuOn = true;
         PauseMenuOn = false;
+        GameFinished = false;
         ShuffleList<string>(playerMessages);
         currentMessage = 0;
         if (player1)
