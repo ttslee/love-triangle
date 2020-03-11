@@ -12,7 +12,7 @@ public class WaifuDialogue : MonoBehaviour
     TextMeshProUGUI tmpText; //TextMeshPro Text Component
     List<string> texts = new List<string>(); //Each line of texts
     private float timer = 0f;
-    public float textSpeed = 0.05f;
+    public float textSpeed = 0.5f;
     private bool paused = false; //Used for pausing in speech
     public int charsPerLine = 28; //Configurable WIDTH
     public int totalLines = 6; //Configurable HEIGHT
@@ -317,15 +317,15 @@ public class WaifuDialogue : MonoBehaviour
                 {
                     topLine++;
                     tmpText.text = "";
-                    int i2 = 0;
+                    
                     for (int i = topLine; i <= botLine - 1; i++)
                     {
-                        char[] tmpstring = new char[charsPerLine];
+                        int i2 = 0;
+                        char[] tmpstring = new char[999];
                         for (int j = 0; j < texts[i].Length; j++)
                         {
                             if (!System.Char.IsDigit(texts[i][j]))
                             {
-                                
                                 tmpstring[i2] = texts[i][j];
                                 i2++;
                             }
@@ -334,7 +334,6 @@ public class WaifuDialogue : MonoBehaviour
                         string a = new string(tmpstring, 0, i2);
                         tmpText.text += new string(tmpstring,0,i2);
                         tmpText.text += "\n";
-                        i2 = 0;
                     }
                 }
                 else
