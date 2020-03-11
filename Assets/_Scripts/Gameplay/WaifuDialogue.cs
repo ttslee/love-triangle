@@ -80,7 +80,6 @@ public class WaifuDialogue : MonoBehaviour
         Sprite[] sprites = Resources.LoadAll<Sprite>("Waifu");
         foreach (Sprite s in sprites)
             waifuSprites.Add(s);
-
         //StartGame Dialogue
         QueueText("4booting up");
         QueueText("2After queueing this sentence,3 the problem starts appearing");
@@ -300,7 +299,7 @@ public class WaifuDialogue : MonoBehaviour
         {
             if(sayCount != totalChars && soundTimer >= .056f)
             {
-                SoundManager.Instance.Play(clip);
+                AudioSource.PlayClipAtPoint(clip, GameObject.Find("DialogueBox_Waifu").transform.position);
                 soundTimer = 0f;
             }
                 
