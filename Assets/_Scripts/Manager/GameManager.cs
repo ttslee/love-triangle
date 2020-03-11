@@ -187,12 +187,9 @@ public class GameManager : MonoBehaviour
     {
         if (player1 == null)
         {
-            player2 = player;
-            player2.name = "Player2";
-            player.GetComponent<PlayerScript>().SetPlayer(2);
-            //player1 = player;
-            //player1.name = "Player1";
-            //player.GetComponent<PlayerScript>().SetPlayer(1);
+            player1 = player;
+            player1.name = "Player1";
+            player.GetComponent<PlayerScript>().SetPlayer(1);
         }
         else if(player2 == null)
         {
