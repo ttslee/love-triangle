@@ -5201,7 +5201,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 490846054711275104}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099897931}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 21cec4d142ce8a54c8324a4421c9a921, type: 3}
@@ -5446,25 +5446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b5874fa59011f54d9aa7a6d4a9f07f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2099897931 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 20913281628960266, guid: 9116621a8d0e34740ba99979e8327348,
-    type: 3}
-  m_PrefabInstance: {fileID: 490846054711275104}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2099897936
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2099897931}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e8b0e5a625352084a8a5ce14d74eb41f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  music: {fileID: 8300000, guid: 0ab422db11cb7ce4d954d36cdc4b63ef, type: 3}
 --- !u!20 &2147250342 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2720796254099973462, guid: df1fe63617f6b354681ca4dfbb6c6dac,

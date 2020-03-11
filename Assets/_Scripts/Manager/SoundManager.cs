@@ -9,8 +9,8 @@ public class SoundManager : MonoBehaviour
     public AudioSource MusicSource;
 
     // Random pitch adjustment range.
-    public float LowPitchRange = .95f;
-    public float HighPitchRange = 1.05f;
+    public float LowPitchRange = 0f;
+    public float HighPitchRange = 0.1f;
 
     // Singleton instance.
     public static SoundManager Instance = null;

@@ -26,6 +26,8 @@ public class WaifuDialogue : MonoBehaviour
     private List<Sprite> waifuSprites = new List<Sprite>(); 
     private bool canMad = true;
 
+    //Sound Effect
+    public AudioClip clip;
     #endregion
 
     List<string> waifuResponses = new List<string>
@@ -262,6 +264,7 @@ public class WaifuDialogue : MonoBehaviour
     }
     private void Say(List<string> texts) //type out texts with typewriter effect.
     {
+        
         //Timer for typewriter effect
         timer += Time.deltaTime;
 
@@ -294,6 +297,8 @@ public class WaifuDialogue : MonoBehaviour
         //Typewrite and color conversion
         if (timer >= textSpeed)
         {
+            if(sayCount != totalChars)
+                SoundManager.Instance.Play(clip);
             if (botLine <= texts.Count - 1)
             {
                 if (botLine - topLine >= totalLines)
