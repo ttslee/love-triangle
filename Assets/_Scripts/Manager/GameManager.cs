@@ -229,18 +229,21 @@ public class GameManager : MonoBehaviour
 
     public void SetActionList(int p)
     {
-        switch(p)
+        if (!GameFinished)
         {
-            case 1:
-                player1.GetComponent<PlayerScript>().Message = playerMessages[currentMessage];
-                player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 1);
-                player1.GetComponent<PlayerScript>().HasActionList = true;
-                break;
-            case 2:
-                player2.GetComponent<PlayerScript>().Message = playerMessages[currentMessage];
-                player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 2);
-                player2.GetComponent<PlayerScript>().HasActionList = true;
-                break;
+            switch (p)
+            {
+                case 1:
+                    player1.GetComponent<PlayerScript>().Message = playerMessages[currentMessage];
+                    player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 1);
+                    player1.GetComponent<PlayerScript>().HasActionList = true;
+                    break;
+                case 2:
+                    player2.GetComponent<PlayerScript>().Message = playerMessages[currentMessage];
+                    player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 2);
+                    player2.GetComponent<PlayerScript>().HasActionList = true;
+                    break;
+            }
         }
         
     }
