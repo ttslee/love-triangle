@@ -8,11 +8,6 @@ public class InputInfo : MonoBehaviour
 
     private string action;
 
-    private void Start()
-    {
-        //image.color = new Color(1, 1, 1, 0);
-    }
-
     public string Action
     {
         get
