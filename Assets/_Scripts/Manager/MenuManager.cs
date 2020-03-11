@@ -50,14 +50,14 @@ public class MenuManager : MonoBehaviour
     public void OpenControls()
     {
 
-        OpenDialogueBox("Press the input that shows up on your side! When your blue bar fills up, Press any of the back buttons to use your ability! " +
-            "Restart anytime by pressing Start and returning to the main menu! Have Fun!");
+        OpenDialogueBox("The D-Pad and inputs on the right of the controller are the ones you will be using to face your opponent! When your blue ability bar fills up, press any of the back buttons to use it. " +
+            "Restart anytime by pressing Start and returning to the main menu. Have Fun!");
     }
 
     public void OpenCredits()
     {
         OpenDialogueBox("Teo Lee - Programming, Design, Sound\nJohnny Ngo - Programming, Design, Art\nJing Hu - Programming, Design\n" +
-            "Nam-giao Nguyen - Programming, Design\nAdrienne Caparaz - Design");
+            "Nam-giao Nguyen - Programming, Design\nAdrienne Caparaz - Design, Creative Writing");
     }
 
     private void OpenDialogueBox(string text)

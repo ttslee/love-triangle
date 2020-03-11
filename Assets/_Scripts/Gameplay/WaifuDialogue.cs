@@ -309,10 +309,24 @@ public class WaifuDialogue : MonoBehaviour
                 {
                     topLine++;
                     tmpText.text = "";
+                    int i2 = 0;
                     for (int i = topLine; i <= botLine - 1; i++)
                     {
-                        tmpText.text += texts[i];
+                        char[] tmpstring = new char[charsPerLine];
+                        for (int j = 0; j < texts[i].Length; j++)
+                        {
+                            if (!System.Char.IsDigit(texts[i][j]))
+                            {
+                                
+                                tmpstring[i2] = texts[i][j];
+                                i2++;
+                            }
+                        }
+                        
+                        string a = new string(tmpstring, 0, i2);
+                        tmpText.text += new string(tmpstring,0,i2);
                         tmpText.text += "\n";
+                        i2 = 0;
                     }
                 }
                 else
