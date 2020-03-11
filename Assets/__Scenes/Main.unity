@@ -576,6 +576,16 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4449954096064953876, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: textSpeed
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4449954096064953876, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: charsPerLine
+      value: 21
+      objectReference: {fileID: 0}
     - target: {fileID: 7212715248020503812, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_textInfo.characterCount
