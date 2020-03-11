@@ -30,36 +30,36 @@ public class WaifuDialogue : MonoBehaviour
 
     List<string> waifuResponses = new List<string>
     {
-        "#2Oh, thank you so much! I've been carrying them around all day my arms were getting tired!",
-        "#2Really player? Wintermelon milk tea, 50% sweet, and less ice please!",
-        "#3Thanks! I wasn't too sure about this shirt but I feel better about it now!",
-        "#1That is definitely the most original thing I've heard in my entire life — tell me more.",
-        "#2Is that a danish? Yeah, I want it!",
-        "#3While we what? Have a… d-date?",
-        "#5You're not the first to tell me that.",
-        "#1Oh my god, yes please! I don't know anyone in that class!",
-        "#1Depends, what kind of movie were you thinking of? I'm a big fan of horror!",
-        "#1God, I've been so busy I actually haven’t. I'm down.",
-        "#4Yeah? Maybe once you're done, you can lend it to me and we can talk about it.", //#10
-        "#5I can't believe you think I'm more beautiful than Miss Mother Nature herself.",
-        "#3You're such a lifesaver and I'm so stupid. Thank you!",
-        "#3As long as you don't mind returning the favor some other time.",
-        "#4A Yoo, get me some cucumbers. The little persian ones!",
-        "#2You did? That's really thoughtful of you player!",
-        "#2It's not my first choice of fast food, but if it's free, why not!",
-        "#1I barely know my plans for next week, let alone next month, but we'll see.",
-        "#1Fun fact: I LOVE carne asada fries.",
-        "#4Thanks, it's been exhausting lately. I'm glad you understand player.",
-        "#1What does that have to do with anything? We can hang out and you don't have to lose ramen. Win-win.", //#20
-        "#2Thanks, I tend to have that effect on people.",
-        "#3I think you've found the way to my heart, honestly.",
-        "#4I did! You noticed player? It was only three inches off, but my hair feels way healthier now.",
-        "#5You really think so? There's still so much more for me to learn about you player.",
-        "#5It's the middle of July, you're so lame. But it's cute, I guess.",
-        "#1Is it one of those picture-taking ones? I'm so down for that.",
-        "#2Really? You're a lifesaver!",
-        "#1Yes please, it's freaking forty-five degrees out right now.",
-        "#3As if you couldn’t have been any more obvious!", //#29
+        "2Oh, thank you so much! I've been carrying them around all day my arms were getting tired!",
+        "2Really player? Wintermelon milk tea, 50% sweet, and less ice please!",
+        "3Thanks! I wasn't too sure about this shirt but I feel better about it now!",
+        "1That is definitely the most original thing I've heard in my entire life — tell me more.",
+        "2Is that a danish? Yeah, I want it!",
+        "3While we what? Have a… d-date?",
+        "5You're not the first to tell me that.",
+        "1Oh my god, yes please! I don't know anyone in that class!",
+        "1Depends, what kind of movie were you thinking of? I'm a big fan of horror!",
+        "1God, I've been so busy I actually haven’t. I'm down.",
+        "4Yeah? Maybe once you're done, you can lend it to me and we can talk about it.", //#10
+        "5I can't believe you think I'm more beautiful than Miss Mother Nature herself.",
+        "3You're such a lifesaver and I'm so stupid. Thank you!",
+        "3As long as you don't mind returning the favor some other time.",
+        "4A Yoo, get me some cucumbers. The little persian ones!",
+        "2You did? That's really thoughtful of you player!",
+        "2It's not my first choice of fast food, but if it's free, why not!",
+        "1I barely know my plans for next week, let alone next month, but we'll see.",
+        "1Fun fact: I LOVE carne asada fries.",
+        "4Thanks, it's been exhausting lately. I'm glad you understand player.",
+        "1What does that have to do with anything? We can hang out and you don't have to lose ramen. Win-win.", //#20
+        "2Thanks, I tend to have that effect on people.",
+        "3I think you've found the way to my heart, honestly.",
+        "4I did! You noticed player? It was only three inches off, but my hair feels way healthier now.",
+        "5You really think so? There's still so much more for me to learn about you player.",
+        "5It's the middle of July, you're so lame. But it's cute, I guess.",
+        "1Is it one of those picture-taking ones? I'm so down for that.",
+        "2Really? You're a lifesaver!",
+        "1Yes please, it's freaking forty-five degrees out right now.",
+        "3As if you couldn’t have been any more obvious!", //#29
     };
 
     Dictionary<string, string> Character_Color = new Dictionary<string, string>
@@ -79,7 +79,9 @@ public class WaifuDialogue : MonoBehaviour
             waifuSprites.Add(s);
 
         //StartGame Dialogue
-        QueueText("One Two Three..........START!#9");
+        QueueText("4booting up");
+        QueueText("2After queueing this sentence,3 the problem starts appearing");
+        QueueText("3get ready... look! numbers will pop up!1"); //After doing these ones, all the numbers that were previously hidden are now showing up.
 
 
     }
@@ -100,11 +102,12 @@ public class WaifuDialogue : MonoBehaviour
         {
             for (int i = 0; i <= charsPerLine; i++)
             {
-                if (recordingInt < textCopy.Length && textCopy[recordingInt] == '#') //added Expressions here
+                if (recordingInt < textCopy.Length && System.Char.IsDigit(textCopy[recordingInt])) //added Expressions Code here. NEED HELP JING ;-;
                 {
-                    line += textCopy[++recordingInt]; //Only adds '1' into the things to say
-                    recordingInt ++; //Skips having to calculate charsPerLine for '#1'
-                }
+                    line += textCopy[recordingInt];
+                    totalChars += 1;
+                    recordingInt += 1;
+                } //ended here. thats all i put in this function. I want the NUM to not affect the charsPerLine.
                 else if (recordingInt < textCopy.Length && textCopy[recordingInt] == '<')
                 {
                     List<string> list = CheckColorString(textCopy, recordingInt);
@@ -262,31 +265,31 @@ public class WaifuDialogue : MonoBehaviour
         //Timer for typewriter effect
         timer += Time.deltaTime;
 
-        //Debug.Log(sayCount);
-        //Debug.Log(totalChars);
+        //Debug
+        Debug.Log(sayCount);
+        Debug.Log(totalChars);
 
         //Expression handler
-        if (botLine <= texts.Count - 1 && typeCount <= texts[botLine].Length - 1 && (texts[botLine][typeCount] == '0' ||
-            texts[botLine][typeCount] == '1' || texts[botLine][typeCount] == '2' ||
-            texts[botLine][typeCount] == '3' || texts[botLine][typeCount] == '4' ||
-            texts[botLine][typeCount] == '5' || texts[botLine][typeCount] == '9'))
+        if (botLine <= texts.Count - 1 && typeCount <= texts[botLine].Length - 1 && System.Char.IsDigit(texts[botLine][typeCount])) //NEED HELP JING ;-; I think this part is okay though. Check QueueText
         {
             if (texts[botLine][typeCount] == '9') {
-                GameManager.Instance.GameOn = true;
-                GameManager.Instance.player1.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Start");
+                //GameManager.Instance.GameOn = true;
+                //GameManager.Instance.player1.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Start");
                 //GameManager.Instance.player2.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Start");
             } else
-                waifu.sprite = waifuSprites[texts[botLine][typeCount] - 48]; //-48 bc its an ascii value character
+                waifu.sprite = waifuSprites[texts[botLine][typeCount] - 48]; //-48 bc its an ascii value character. Changes Face 0-5
             typeCount++; //Skip the number without adding it to text. We only need to check it to change expression.
+            sayCount++;
         }
-        if (sayCount == totalChars) //Mad Expression //If theres nothing else to say
+
+        //Expression Reset and Madness Enabler //You can ignore this
+        if (sayCount == totalChars)
         {
             if (canMad != true) { //May change this later, but we'll see
                 waifu.sprite = waifuSprites[0];
             }
             canMad = true;
         } else canMad = false;
-
 
         //Typewrite and color conversion
         if (timer >= textSpeed)
