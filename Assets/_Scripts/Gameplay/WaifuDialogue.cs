@@ -66,6 +66,22 @@ public class WaifuDialogue : MonoBehaviour
         "3As if you couldn't have been any more obvious!", //#29
     };
 
+    List<string> waifuStartDialogue = new List<string>
+    {
+        "Hey there, looks like we're going to be partners. My name's Stella what's yours?",
+        "Hi! Can I interest you in buying some food to support my club?",
+        "Hey, I just transferred into this school and it's my first day here. Can you show me around after class?",
+        "Oh, no one is sitting there you can take the seat.",
+    };
+
+    List<string> waifuFinishDialogue = new List<string>
+    {
+        "I r-r-really like you player. Do you want to go out with me?",
+        "I think you're a really cool guy player. Do you want to take our relationship to the next level?",
+        "I love it when we spend so much time together player. Would you be my boyfriend?",
+        "I-I think I like you. Please go out with me!",
+    };
+
     Dictionary<string, string> Character_Color = new Dictionary<string, string>
     {
         {"Sanic", "<color=#3f47cc>"},
