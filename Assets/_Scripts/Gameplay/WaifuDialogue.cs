@@ -31,7 +31,7 @@ public class WaifuDialogue : MonoBehaviour
     List<string> waifuResponses = new List<string>
     {
         "#2Oh, thank you so much! I've been carrying them around all day my arms were getting tired!",
-        "#2Really? Wintermelon milk tea, 50% sweet, and less ice please!",
+        "#2Really player? Wintermelon milk tea, 50% sweet, and less ice please!",
         "#3Thanks! I wasn't too sure about this shirt but I feel better about it now!",
         "#1That is definitely the most original thing I've heard in my entire life — tell me more.",
         "#2Is that a danish? Yeah, I want it!",
@@ -45,18 +45,18 @@ public class WaifuDialogue : MonoBehaviour
         "#3You're such a lifesaver and I'm so stupid. Thank you!",
         "#3As long as you don't mind returning the favor some other time.",
         "#4A Yoo, get me some cucumbers. The little persian ones!",
-        "#2You did? That's really thoughtful of you!",
+        "#2You did? That's really thoughtful of you player!",
         "#2It's not my first choice of fast food, but if it's free, why not!",
         "#1I barely know my plans for next week, let alone next month, but we'll see.",
         "#1Fun fact: I LOVE carne asada fries.",
-        "#4Thanks, it's been exhausting lately. I'm glad you understand.",
+        "#4Thanks, it's been exhausting lately. I'm glad you understand player.",
         "#1What does that have to do with anything? We can hang out and you don't have to lose ramen. Win-win.", //#20
         "#2Thanks, I tend to have that effect on people.",
         "#3I think you've found the way to my heart, honestly.",
-        "#4I did! You noticed? It was only three inches off, but my hair feels way healthier now.",
-        "#5You really think so? There's still so much more for me to learn about you.",
+        "#4I did! You noticed player? It was only three inches off, but my hair feels way healthier now.",
+        "#5You really think so? There's still so much more for me to learn about you player.",
         "#5It's the middle of July, you're so lame. But it's cute, I guess.",
-        "#1Is it one of those picture-taking one? I'm so down for that.",
+        "#1Is it one of those picture-taking ones? I'm so down for that.",
         "#2Really? You're a lifesaver!",
         "#1Yes please, it's freaking forty-five degrees out right now.",
         "#3As if you couldn’t have been any more obvious!", //#29
@@ -357,7 +357,7 @@ public class WaifuDialogue : MonoBehaviour
         {
             if (i == Array.Length - 1)
             {
-                if (Array[i] == "player" || Array[i] == "player!" || Array[i] == "player." || Array[i] == "player,")
+                if (Array[i] == "player" || Array[i] == "player!" || Array[i] == "player." || Array[i] == "player," || Array[i] == "player?")
                 {
                     Color_Name += Set_Color;
                     Color_Name += Array[i];
@@ -370,7 +370,7 @@ public class WaifuDialogue : MonoBehaviour
             }
             else
             {
-                if (Array[i] == "player" || Array[i] == "player!" || Array[i] == "player." || Array[i] == "player,")
+                if (Array[i] == "player" || Array[i] == "player!" || Array[i] == "player." || Array[i] == "player," || Array[i] == "player?")
                 {
                     Color_Name += Set_Color;
                     Color_Name += Array[i];
