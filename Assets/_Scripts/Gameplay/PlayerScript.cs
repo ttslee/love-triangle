@@ -178,6 +178,7 @@ public class PlayerScript : MonoBehaviour
 
         if(actionList.Count == 0)
         {
+            imageListAnimator.SetTrigger("Start"); //Added this for now;
             source.clip = completeSound;
             source.Play();
             history.Clear();

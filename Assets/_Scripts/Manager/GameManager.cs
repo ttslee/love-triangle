@@ -188,9 +188,9 @@ public class GameManager : MonoBehaviour
     
     public void AbilityCast(int player)
     {
-        if (player == 1)
+        if (player2 && player == 1) //Checks if player exists before being able to use
             ShuffleList<string>(player2.GetComponent<PlayerScript>().ActionList);
-        else
+        else if (player1 && player == 2)
             ShuffleList<string>(player1.GetComponent<PlayerScript>().ActionList);
     }
     public void ActionListComplete(int player, string message)
