@@ -231,18 +231,21 @@ public class PlayerScript : MonoBehaviour
 
     public void EnableMenuActions()
     {
-        controls.Gameplay.X.Disable();
-        controls.Gameplay.O.Disable();
-        controls.Gameplay.S.Disable();
-        controls.Gameplay.T.Disable();
-        controls.Gameplay.Down.Disable();
-        controls.Gameplay.Left.Disable();
-        controls.Gameplay.Right.Disable();
-        controls.Gameplay.Up.Disable();
-        controls.Gameplay.RT.Disable();
-        controls.Gameplay.RB.Disable();
-        controls.Gameplay.LT.Disable();
-        controls.Gameplay.LB.Disable();
+        if(!GameManager.Instance.GameFinished)
+        {
+            controls.Gameplay.X.Disable();
+            controls.Gameplay.O.Disable();
+            controls.Gameplay.S.Disable();
+            controls.Gameplay.T.Disable();
+            controls.Gameplay.Down.Disable();
+            controls.Gameplay.Left.Disable();
+            controls.Gameplay.Right.Disable();
+            controls.Gameplay.Up.Disable();
+            controls.Gameplay.RT.Disable();
+            controls.Gameplay.RB.Disable();
+            controls.Gameplay.LT.Disable();
+            controls.Gameplay.LB.Disable();
+        }
         transform.Find("Mouse").gameObject.SetActive(true);
     }
     public void DisableMenuActions()

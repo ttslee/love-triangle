@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public bool GameOn { get; set; }
     public bool MainMenuOn { get; set; } = true;
     public bool PauseMenuOn { get; set; } = false;
-
+    public bool GameFinished { get; set; } = false;
     //-------------------Player messages & data--------------------
     public Tuple<Sprite, string> player1Character { get; set; } = null;
     public Tuple<Sprite, string> player2Character { get; set; } = null;
