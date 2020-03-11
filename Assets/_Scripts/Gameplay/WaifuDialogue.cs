@@ -82,8 +82,8 @@ public class WaifuDialogue : MonoBehaviour
         foreach (Sprite s in sprites)
             waifuSprites.Add(s);
         //StartGame Dialogue
-        QueueText("1Really?8 Wintermelon milk tea, 50 % sweet, and less ice please!9"); //After doing these ones, all the numbers that were previously hidden are now showing up.
-        QueueText("1That is definitely the most original thing I've heard in my entire life — tell me more.");
+        QueueText("1Really?8 Wintermelon <color=#fff624> milk tea </color>, 50 % sweet, and less ice please!9"); //After doing these ones, all the numbers that were previously hidden are now showing up.
+        QueueText("1That is definitely the most.");
     }
 
     private void Update()
