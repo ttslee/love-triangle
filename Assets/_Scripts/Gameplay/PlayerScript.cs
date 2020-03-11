@@ -226,7 +226,7 @@ public class PlayerScript : MonoBehaviour
         if(hasActionList && GameManager.Instance.GameOn)
             for (int i = 0; i < 5; i++)
             {
-                if(actionList.Count <= i)
+                if (actionList.Count <= i)
                     inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
                 else
                     inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = GameManager.Instance.playerActionDictionary[ActionList[i]];
