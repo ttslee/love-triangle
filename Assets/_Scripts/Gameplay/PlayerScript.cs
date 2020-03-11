@@ -190,8 +190,10 @@ public class PlayerScript : MonoBehaviour
             if (LoveBar == 4)
             {
                 GameManager.Instance.GameFinished = true;
-                //GameManager.Instance.player1.GetComponent<PlayerScript>().GameFinished();
-                GameManager.Instance.player2.GetComponent<PlayerScript>().GameFinished();
+                if (player == 1)
+                    GameManager.Instance.player1.GetComponent<PlayerScript>().GameFinished();
+                else
+                    GameManager.Instance.player2.GetComponent<PlayerScript>().GameFinished();
                 
             }
             GameManager.Instance.ActionListComplete(player, Message);
