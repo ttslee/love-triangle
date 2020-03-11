@@ -38,7 +38,9 @@ public class PlayerScript : MonoBehaviour
     public Animator imageListAnimator { get; set; }
 
     // Sound
-    public AudioClip clip;
+    public AudioClip correctInputSound;
+    public AudioClip completeSound;
+    public AudioSource source;
     void Start()
     {
         history = new Stack<string>();
@@ -134,7 +136,8 @@ public class PlayerScript : MonoBehaviour
                     break;
                 if (action == actionList[0])
                 {
-                    SoundManager.Instance.Play(clip);
+                    source.clip = correctInputSound;
+                    source.Play();
                     switch(player)
                     {
                         case 1:
@@ -175,6 +178,8 @@ public class PlayerScript : MonoBehaviour
 
         if(actionList.Count == 0)
         {
+            source.clip = completeSound;
+            source.Play();
             history.Clear();
             hasActionList = false;
             LoveBar++;
