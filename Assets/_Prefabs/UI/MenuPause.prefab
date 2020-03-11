@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 731268811385516934}
   - component: {fileID: 731268811385516938}
   - component: {fileID: 731268811385516941}
+  - component: {fileID: 2451863471040648649}
   m_Layer: 5
   m_Name: Button_Resume
   m_TagString: Untagged
@@ -220,6 +221,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2451863471040648649}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &731268811385516938
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -261,6 +273,19 @@ MonoBehaviour:
   hasText: 1
   player1Allowed: 1
   player2Allowed: 1
+--- !u!114 &2451863471040648649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731268811385516932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5874fa59011f54d9aa7a6d4a9f07f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: b797cfe299eb7fb4b908c7dd339e8d3a, type: 3}
 --- !u!1 &731268811411826094
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,6 +300,7 @@ GameObject:
   - component: {fileID: 731268811411826096}
   - component: {fileID: 731268811411826100}
   - component: {fileID: 731268811411826101}
+  - component: {fileID: 8890101453604255988}
   m_Layer: 5
   m_Name: Button_Quit
   m_TagString: Untagged
@@ -407,6 +433,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 8890101453604255988}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &731268811411826100
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -448,6 +485,19 @@ MonoBehaviour:
   hasText: 1
   player1Allowed: 1
   player2Allowed: 1
+--- !u!114 &8890101453604255988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731268811411826094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5874fa59011f54d9aa7a6d4a9f07f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: b797cfe299eb7fb4b908c7dd339e8d3a, type: 3}
 --- !u!1 &731268811671101283
 GameObject:
   m_ObjectHideFlags: 0
@@ -1006,6 +1056,7 @@ GameObject:
   - component: {fileID: 731268812574539734}
   - component: {fileID: 731268812574539732}
   - component: {fileID: 731268812574539735}
+  - component: {fileID: 5860703937231685791}
   m_Layer: 5
   m_Name: Button_Menu
   m_TagString: Untagged
@@ -1138,6 +1189,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5860703937231685791}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &731268812574539732
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1179,6 +1241,19 @@ MonoBehaviour:
   hasText: 1
   player1Allowed: 1
   player2Allowed: 1
+--- !u!114 &5860703937231685791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731268812574539730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5874fa59011f54d9aa7a6d4a9f07f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: b797cfe299eb7fb4b908c7dd339e8d3a, type: 3}
 --- !u!1 &731268812679966457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1791,6 +1866,7 @@ GameObject:
   - component: {fileID: 731268813131644236}
   - component: {fileID: 731268813131644234}
   - component: {fileID: 731268813131644237}
+  - component: {fileID: 6259631989574110097}
   m_Layer: 5
   m_Name: Button_Controls
   m_TagString: Untagged
@@ -1923,6 +1999,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 6259631989574110097}
+        m_MethodName: Play
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!61 &731268813131644234
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1964,6 +2051,19 @@ MonoBehaviour:
   hasText: 1
   player1Allowed: 1
   player2Allowed: 1
+--- !u!114 &6259631989574110097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 731268813131644232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b5874fa59011f54d9aa7a6d4a9f07f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sound: {fileID: 8300000, guid: b797cfe299eb7fb4b908c7dd339e8d3a, type: 3}
 --- !u!1 &731268813347747651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2163,7 +2263,7 @@ GameObject:
   - component: {fileID: 909837600916140714}
   - component: {fileID: 909837600916140716}
   m_Layer: 5
-  m_Name: PauseMenu
+  m_Name: MenuPause
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
