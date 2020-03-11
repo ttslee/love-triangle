@@ -81,7 +81,7 @@ public class WaifuDialogue : MonoBehaviour
         //StartGame Dialogue
         QueueText("4booting up");
         QueueText("2After queueing this sentence,3 the problem starts appearing");
-        QueueText("3get ready... look! numbers will pop up!1"); //After doing these ones, all the numbers that were previously hidden are now showing up.
+        QueueText("3get ready... look! numbers will pop up!9"); //After doing these ones, all the numbers that were previously hidden are now showing up.
 
 
     }
@@ -266,16 +266,14 @@ public class WaifuDialogue : MonoBehaviour
         timer += Time.deltaTime;
 
         //Debug
-        Debug.Log(sayCount);
-        Debug.Log(totalChars);
+        //Debug.Log(sayCount);
+        //Debug.Log(totalChars);
 
         //Expression handler
         if (botLine <= texts.Count - 1 && typeCount <= texts[botLine].Length - 1 && System.Char.IsDigit(texts[botLine][typeCount])) //NEED HELP JING ;-; I think this part is okay though. Check QueueText
         {
             if (texts[botLine][typeCount] == '9') {
-                //GameManager.Instance.GameOn = true;
-                //GameManager.Instance.player1.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Start");
-                //GameManager.Instance.player2.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Start");
+                GameManager.Instance.Begin();
             } else
                 waifu.sprite = waifuSprites[texts[botLine][typeCount] - 48]; //-48 bc its an ascii value character. Changes Face 0-5
             typeCount++; //Skip the number without adding it to text. We only need to check it to change expression.

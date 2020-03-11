@@ -276,6 +276,15 @@ public class GameManager : MonoBehaviour
             player2.GetComponent<PlayerScript>().DisableMenuActions();
     }
 
+    public void Begin()
+    {
+        GameOn = true;
+        if (player1 != null)
+            player1.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Start");
+        if (player2 != null)
+            player2.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Start");
+    }
+
     public void Pause()
     {
         if(player1)
