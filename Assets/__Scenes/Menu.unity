@@ -5562,6 +5562,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 20913281628960269, guid: 9116621a8d0e34740ba99979e8327348,
+        type: 3}
+      propertyPath: menuSong
+      value: 
+      objectReference: {fileID: 8300000, guid: 35a9ba55808be30479c9ea3205f967eb, type: 3}
     - target: {fileID: 490846053311058818, guid: 9116621a8d0e34740ba99979e8327348,
         type: 3}
       propertyPath: clip
