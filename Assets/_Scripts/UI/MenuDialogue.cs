@@ -43,17 +43,18 @@ public class MenuDialogue : MonoBehaviour
     {
         timer += Time.deltaTime;
         clipTimer += Time.deltaTime;
-        if (clipTimer >= .075f)
-        {
-            SoundManager.Instance.Play(clip);
-            clipTimer = 0f;
-        }
+        
             
         if (start == true && timer >= textSpeed)
         {
             if (tmpText.text.Length > tmpText.maxVisibleCharacters)
             {
                 tmpText.maxVisibleCharacters++;
+            }
+            if (clipTimer >= .09f && tmpText.maxVisibleCharacters < tmpText.text.Length)
+            {
+                SoundManager.Instance.Play(clip);
+                clipTimer = 0f;
             }
             timer = 0f;
         }
