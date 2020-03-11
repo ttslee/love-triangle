@@ -36,6 +36,9 @@ public class PlayerScript : MonoBehaviour
 
     // Animator 
     public Animator imageListAnimator { get; set; }
+
+    // Sound
+    public AudioClip clip;
     void Start()
     {
         history = new Stack<string>();
@@ -131,6 +134,7 @@ public class PlayerScript : MonoBehaviour
                     break;
                 if (action == actionList[0])
                 {
+                    SoundManager.Instance.Play(clip);
                     switch(player)
                     {
                         case 1:
@@ -208,7 +212,6 @@ public class PlayerScript : MonoBehaviour
         controls.Gameplay.Left.Disable();
         controls.Gameplay.Right.Disable();
         controls.Gameplay.Up.Disable();
-        controls.Gameplay.Start.Disable();
         controls.Gameplay.RT.Disable();
         controls.Gameplay.RB.Disable();
         controls.Gameplay.LT.Disable();
@@ -226,7 +229,6 @@ public class PlayerScript : MonoBehaviour
         controls.Gameplay.Left.Enable();
         controls.Gameplay.Right.Enable();
         controls.Gameplay.Up.Enable();
-        controls.Gameplay.Start.Enable();
         controls.Gameplay.RT.Enable();
         controls.Gameplay.RB.Enable();
         controls.Gameplay.LT.Enable();

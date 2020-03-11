@@ -74,6 +74,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4286233581
   inputImageList: {fileID: 0}
+  clip: {fileID: 8300000, guid: ab0dc435dd33aa54d985b630c4fb873f, type: 3}
 --- !u!114 &6757867800807153733
 MonoBehaviour:
   m_ObjectHideFlags: 0
