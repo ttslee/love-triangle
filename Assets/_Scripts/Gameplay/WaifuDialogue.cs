@@ -285,7 +285,6 @@ public class WaifuDialogue : MonoBehaviour
                 GameManager.Instance.GameOn = true;
             } else if (texts[botLine][typeCount] == '8') //#8 = INITIATE PAUSE DELAY
             {
-                Debug.Log("??");
                 StartCoroutine(Pause(1f)); //Waifu will hesitate for 1 seconds.
             } else
                 waifu.sprite = waifuSprites[texts[botLine][typeCount] - 48]; //-48 bc its an ascii value character. Changes Face #0-5
