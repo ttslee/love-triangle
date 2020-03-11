@@ -2277,7 +2277,7 @@ MonoBehaviour:
   charsPerLine: 22
   totalLines: 5
   waifu: {fileID: 4276232680972616915}
-  clip: {fileID: 8300000, guid: 807684473b148c2468d6d6114b8e88cc, type: 3}
+  clip: {fileID: 8300000, guid: 95bbea5acac442844b4b858e18065862, type: 3}
 --- !u!1 &7212715249043708904
 GameObject:
   m_ObjectHideFlags: 0

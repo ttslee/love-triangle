@@ -28,6 +28,7 @@ public class WaifuDialogue : MonoBehaviour
 
     //Sound Effect
     public AudioClip clip;
+    private float soundTimer = .056f;
     #endregion
 
     List<string> waifuResponses = new List<string>
@@ -267,7 +268,7 @@ public class WaifuDialogue : MonoBehaviour
         
         //Timer for typewriter effect
         timer += Time.deltaTime;
-
+        soundTimer += Time.deltaTime;
         //Debug
         //Debug.Log(sayCount);
         //Debug.Log(totalChars);
@@ -297,8 +298,12 @@ public class WaifuDialogue : MonoBehaviour
         //Typewrite and color conversion
         if (timer >= textSpeed)
         {
-            if(sayCount != totalChars)
+            if(sayCount != totalChars && soundTimer >= .056f)
+            {
                 SoundManager.Instance.Play(clip);
+                soundTimer = 0f;
+            }
+                
             if (botLine <= texts.Count - 1)
             {
                 if (botLine - topLine >= totalLines)
