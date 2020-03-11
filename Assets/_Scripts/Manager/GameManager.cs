@@ -212,7 +212,19 @@ public class GameManager : MonoBehaviour
     public void ActionListComplete(int player, string message)
     {
         GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, playerMessageDictionary[message]);
-        SetActionList(player);
+        if (!GameFinished) {
+            SetActionList(player);
+            if (player == 1)
+                DialogueBoxP1.GetComponent<PlayerDialogueScript>().DisplayText(player1.GetComponent<PlayerScript>().imageListAnimator);
+            else
+                DialogueBoxP2.GetComponent<PlayerDialogueScript>().DisplayText(player2.GetComponent<PlayerScript>().imageListAnimator);
+        } else
+        {
+            if (player == 1)
+                player1.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Hide");
+            else
+                player2.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Hide");
+        }
     }
 
     public void SetActionList(int p)
