@@ -307,7 +307,7 @@ public class WaifuDialogue : MonoBehaviour
         {
             if(sayCount != totalChars && soundTimer >= .056f)
             {
-                AudioSource.PlayClipAtPoint(clip, GameObject.Find("DialogueBox_Waifu").transform.position);
+                SoundManager.Instance.Play(clip);
                 soundTimer = 0f;
             }
                 

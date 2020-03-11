@@ -15,7 +15,7 @@ public class MenuManager : MonoBehaviour
     public GameObject dialogueBox;
     public GameObject buttons;
     private TextMeshProUGUI textBox;
-
+    public AudioClip menuSong;
     void Start()
     {
         if (!PauseMenu)
@@ -26,6 +26,7 @@ public class MenuManager : MonoBehaviour
             playerIcons.Add(new Tuple<Sprite, string>(s[2], "Pepe"));
             playerLeft.sprite = playerIcons[indexLeft].Item1;
             playerRight.sprite = playerIcons[indexRight].Item1;
+            SoundManager.Instance.PlayMusic(menuSong);
         }
         textBox = dialogueBox.GetComponentInChildren<TextMeshProUGUI>();
     }
