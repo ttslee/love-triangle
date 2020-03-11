@@ -27,7 +27,6 @@ public class PlayerDialogueScript : MonoBehaviour
         textMesh.maxVisibleCharacters = 0; //Makes text invis and Update function will begin.
         if (imageListAnimator == null)
             imageListAnimator = imageList;
-        imageListAnimator.SetTrigger("Hide");
         ready = false;
     }
 

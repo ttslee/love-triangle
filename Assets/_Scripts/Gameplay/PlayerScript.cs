@@ -178,12 +178,12 @@ public class PlayerScript : MonoBehaviour
 
         if(actionList.Count == 0)
         {
-            //imageListAnimator.SetTrigger("Start"); //Added this for now;
             source.clip = completeSound;
-            source.Play(); //Plays sound
-            history.Clear(); //Clears InputStack or something
-            hasActionList = false; //Will reset ActionList
-            //imageListAnimator.SetTrigger("Hide"); //Hides text right after it resets
+            source.Play(); 
+            history.Clear(); 
+            hasActionList = false;
+            Debug.Log("???");
+            imageListAnimator.SetTrigger("Hide"); //Hides text right after it resets
             LoveBar++;
             if (LoveBar == 4)
             {
@@ -209,7 +209,6 @@ public class PlayerScript : MonoBehaviour
         if(inputImageList != null)
         {
             imageListAnimator = inputImageList.GetComponent<Animator>(); 
-            imageListAnimator.SetTrigger("Start");
             hasImageList = true;
         }
             

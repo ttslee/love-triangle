@@ -212,19 +212,7 @@ public class GameManager : MonoBehaviour
     public void ActionListComplete(int player, string message)
     {
         GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, playerMessageDictionary[message]);
-        if (!GameFinished) {
-            SetActionList(player);
-            if (player == 1)
-                DialogueBoxP1.GetComponent<PlayerDialogueScript>().DisplayText(player1.GetComponent<PlayerScript>().imageListAnimator);
-            else
-                DialogueBoxP2.GetComponent<PlayerDialogueScript>().DisplayText(player2.GetComponent<PlayerScript>().imageListAnimator);
-        } else
-        {
-            if (player == 1)
-                player1.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Hide");
-            else
-                player2.GetComponent<PlayerScript>().imageListAnimator.SetTrigger("Hide");
-        }
+        SetActionList(player);
     }
 
     public void SetActionList(int p)
@@ -237,15 +225,16 @@ public class GameManager : MonoBehaviour
                     player1.GetComponent<PlayerScript>().Message = playerMessages[currentMessage];
                     player1.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 1);
                     player1.GetComponent<PlayerScript>().HasActionList = true;
+                    DialogueBoxP1.GetComponent<PlayerDialogueScript>().DisplayText(player1.GetComponent<PlayerScript>().imageListAnimator);
                     break;
                 case 2:
                     player2.GetComponent<PlayerScript>().Message = playerMessages[currentMessage];
                     player2.GetComponent<PlayerScript>().ActionList = GenerateActionList(playerMessages[currentMessage], 2);
                     player2.GetComponent<PlayerScript>().HasActionList = true;
+                    DialogueBoxP2.GetComponent<PlayerDialogueScript>().DisplayText(player2.GetComponent<PlayerScript>().imageListAnimator);
                     break;
             }
         }
-        
     }
     private int FindSpaces(string msg)
     {
