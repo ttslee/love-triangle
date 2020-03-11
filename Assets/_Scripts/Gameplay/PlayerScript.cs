@@ -178,12 +178,19 @@ public class PlayerScript : MonoBehaviour
 
         if(actionList.Count == 0)
         {
-            imageListAnimator.SetTrigger("Start"); //Added this for now;
+            //imageListAnimator.SetTrigger("Start"); //Added this for now;
             source.clip = completeSound;
-            source.Play();
-            history.Clear();
-            hasActionList = false;
+            source.Play(); //Plays sound
+            history.Clear(); //Clears InputStack or something
+            hasActionList = false; //Will reset ActionList
+            //imageListAnimator.SetTrigger("Hide"); //Hides text right after it resets
             LoveBar++;
+            if (LoveBar == 4)
+            {
+                //GameManager.Instance.player1.GetComponent<PlayerScript>().GameFinished();
+                GameManager.Instance.player2.GetComponent<PlayerScript>().GameFinished();
+                GameManager.Instance.GameFinished = true;
+            }
             GameManager.Instance.ActionListComplete(player, Message);
         }
     }
@@ -208,7 +215,7 @@ public class PlayerScript : MonoBehaviour
             
     }
 
-    public void EnableMenuActions()
+    public void GameFinished()
     {
         controls.Gameplay.X.Disable();
         controls.Gameplay.O.Disable();
@@ -222,23 +229,45 @@ public class PlayerScript : MonoBehaviour
         controls.Gameplay.RB.Disable();
         controls.Gameplay.LT.Disable();
         controls.Gameplay.LB.Disable();
+    }
+
+    public void EnableMenuActions()
+    {
+        if(!GameManager.Instance.GameFinished)
+        {
+            controls.Gameplay.X.Disable();
+            controls.Gameplay.O.Disable();
+            controls.Gameplay.S.Disable();
+            controls.Gameplay.T.Disable();
+            controls.Gameplay.Down.Disable();
+            controls.Gameplay.Left.Disable();
+            controls.Gameplay.Right.Disable();
+            controls.Gameplay.Up.Disable();
+            controls.Gameplay.RT.Disable();
+            controls.Gameplay.RB.Disable();
+            controls.Gameplay.LT.Disable();
+            controls.Gameplay.LB.Disable();
+        }
         transform.Find("Mouse").gameObject.SetActive(true);
     }
     public void DisableMenuActions()
     {
+        if (!GameManager.Instance.GameFinished)
+        {
+            controls.Gameplay.X.Enable();
+            controls.Gameplay.O.Enable();
+            controls.Gameplay.S.Enable();
+            controls.Gameplay.T.Enable();
+            controls.Gameplay.Down.Enable();
+            controls.Gameplay.Left.Enable();
+            controls.Gameplay.Right.Enable();
+            controls.Gameplay.Up.Enable();
+            controls.Gameplay.RT.Enable();
+            controls.Gameplay.RB.Enable();
+            controls.Gameplay.LT.Enable();
+            controls.Gameplay.LB.Enable();
+        }
         transform.Find("Mouse").gameObject.SetActive(false);
-        controls.Gameplay.X.Enable();
-        controls.Gameplay.O.Enable();
-        controls.Gameplay.S.Enable();
-        controls.Gameplay.T.Enable();
-        controls.Gameplay.Down.Enable();
-        controls.Gameplay.Left.Enable();
-        controls.Gameplay.Right.Enable();
-        controls.Gameplay.Up.Enable();
-        controls.Gameplay.RT.Enable();
-        controls.Gameplay.RB.Enable();
-        controls.Gameplay.LT.Enable();
-        controls.Gameplay.LB.Enable();
     }
     private void MoveMouse()
     {

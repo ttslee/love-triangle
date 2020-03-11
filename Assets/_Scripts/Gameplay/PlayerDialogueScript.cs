@@ -14,6 +14,7 @@ public class PlayerDialogueScript : MonoBehaviour
     public float textSpeed = 0.05f;
     private float timer = 0f;
     private bool ready = false;
+    private Animator imageListAnimator = null;
 
     void Start()
     {
@@ -21,9 +22,12 @@ public class PlayerDialogueScript : MonoBehaviour
             GameManager.Instance.AssignDialogueBox(gameObject, parent);
     }
 
-    public void DisplayText()
+    public void DisplayText(Animator imageList)
     {
         textMesh.maxVisibleCharacters = 0; //Makes text invis and Update function will begin.
+        if (imageListAnimator == null)
+            imageListAnimator = imageList;
+        imageListAnimator.SetTrigger("Hide");
         ready = false;
     }
 
@@ -40,9 +44,11 @@ public class PlayerDialogueScript : MonoBehaviour
             timer = 0f;
         }
 
-        if (textMesh.text.Length <= textMesh.maxVisibleCharacters)
+        if (!ready && (textMesh.text.Length <= textMesh.maxVisibleCharacters))
         {
             //check for other player i suppose? then start the game
+            if (imageListAnimator != null)
+                imageListAnimator.SetTrigger("Start");
             ready = true;
         }
     }
