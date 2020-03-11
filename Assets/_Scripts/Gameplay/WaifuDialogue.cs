@@ -81,9 +81,8 @@ public class WaifuDialogue : MonoBehaviour
         foreach (Sprite s in sprites)
             waifuSprites.Add(s);
         //StartGame Dialogue
-        QueueText("4booting up");
-        QueueText("2After queueing this sentence,3 the problem starts appearing");
-        QueueText("3get ready... look! numbers will pop up!9"); //After doing these ones, all the numbers that were previously hidden are now showing up.
+        QueueText("1Really? Wintermelon milk tea, 50 % sweet, and less ice please!9"); //After doing these ones, all the numbers that were previously hidden are now showing up.
+        QueueText("1That is definitely the most original thing I've heard in my entire life — tell me more.");
     }
 
     private void Update()

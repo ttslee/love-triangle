@@ -776,6 +776,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: 2
   textMesh: {fileID: 3618216309218818259}
+  textSpeed: 0.05
 --- !u!1 &3537232346960885577
 GameObject:
   m_ObjectHideFlags: 0
@@ -1096,6 +1097,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: 1
   textMesh: {fileID: 3834086272134715409}
+  textSpeed: 0.05
 --- !u!1 &4404551258370786363
 GameObject:
   m_ObjectHideFlags: 0
@@ -2274,7 +2276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textSpeed: 0.05
-  charsPerLine: 22
+  charsPerLine: 21
   totalLines: 5
   waifu: {fileID: 4276232680972616915}
   clip: {fileID: 8300000, guid: 95bbea5acac442844b4b858e18065862, type: 3}
