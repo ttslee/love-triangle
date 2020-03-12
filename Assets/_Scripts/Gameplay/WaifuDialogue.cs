@@ -72,11 +72,13 @@ public class WaifuDialogue : MonoBehaviour
 
     List<string> waifuStartDialogue = new List<string>
     {
-        "2Hey there!8 1Looks like the three of us are going to be partners for this game project. My name's Stella!9",
-        "Sorry to bother you guys, but Kurt says you guys are looking for another member to join your group.8 I'm Stella, nice to meet you!9",
-        "1Excuse me!8 2Can I interest you two in buying some two dollar boba to support my kpop club? Ah,8 thank you for buying!9",
-        "2Hey!8 1I'm a transfer student and it's my first day here. The teacher said you guys can show me around after class?9",
-        "3Ah!8 2Sorry I bumped into you... Oh hey, you guys have that class too! Want to walk together with me?9",
+        "2Hey there!81 Looks like the three of us are going to be partners for this game project. My name's Stella!9",
+        "1Sorry to bother you guys, but Kurt says you guys are looking for another member to join your group.82 I'm Stella, nice to meet you!9",
+        "1Excuse me!82 Can I interest you two in buying some two dollar boba to support my kpop club?82 Ah, thank you for buying!9",
+        "2Hey!81 I'm a transfer student and it's my first day here. The teacher said you guys can show me around after class?9",
+        "3Ah!82 Sorry I bumped into you... Oh hey, you guys have that class too! Want to walk together with me?9",
+        "2Hi, I'm Stella!81 I'm a fellow CGS major trying to land an internship, but even a basic at home job will do for me haha.9",
+        "1I'd like to introduce a woman with a lot of charm, talent, and wit.8 Unfortunately, she couldn't be here tonight, 2so instead I'm here to take her place!8 Nice to meet you, I'm Stella.9"
     };
 
     List<string> waifuFinishDialogue = new List<string>
@@ -85,10 +87,10 @@ public class WaifuDialogue : MonoBehaviour
         "4.8.8.8 player, 8I think you're a really amazing person. Do you want to take our relationship a little further?7",
         "4.8.8.8 I really love spending time with you player. Would you be mine?7",
         "3.8.8.8 I-8I think I like you. Will you please go out with me!7",
-        "3.8.8.8 I like you player. Whether you're a hedgehod, a pokemon, or a frog, I don't care anymore.7",
+        "3.8.8.8 I like you player. 8Whether you're a hedgehog, a pokemon, or a frog, I don't care anymore!7",
         "4.8.8.8 Hey player, 8I'd like to try it once. That wicked love.7",
-        "4.8.8.8 player, 8I'm sorry for looking at that other guy over there.8 Should I apologize.. or should I just kiss you right now?7",
-        "3.8.8.8 player, 8I'm not going to lie.8 After hearing you talk four sentences, I fell in love with you.7"
+        "1.8.8.8 player, 8I'm sorry for looking at that other guy over there.8 Should I apologize..3 or should I just kiss you right now?7",
+        "1.8.8.8 player, 8I'm not going to lie.8 After hearing you talk four sentences,3 I fell in love with you.7"
     };
 
     Dictionary<string, string> Character_Color = new Dictionary<string, string>
