@@ -73,7 +73,7 @@ public class WaifuDialogue : MonoBehaviour
     List<string> waifuStartDialogue = new List<string>
     {
         "2Hey there!8 1Looks like the three of us are going to be partners for this game project. My name's Stella!9",
-        "Sorry to bother you guys, but Kurt says you guys are looking for another member for your group.8 I'm Stella. Nice to meet you!",
+        "Sorry to bother you guys, but Kurt says you guys are looking for another member to join your group.8 I'm Stella, nice to meet you!9",
         "1Excuse me!8 2Can I interest you two in buying some two dollar boba to support my kpop club? Ah,8 thank you for buying!9",
         "2Hey!8 1I'm a transfer student and it's my first day here. The teacher said you guys can show me around after class?9",
         "3Ah!8 2Sorry I bumped into you... Oh hey, you guys have that class too! Want to walk together with me?9",
@@ -85,10 +85,10 @@ public class WaifuDialogue : MonoBehaviour
         "4.8.8.8 player, 8I think you're a really amazing person. Do you want to take our relationship a little further?7",
         "4.8.8.8 I really love spending time with you player. Would you be mine?7",
         "3.8.8.8 I-8I think I like you. Will you please go out with me!7",
-        "3.8.8.8 I like you player. Whether you're a hedgehod, a pokemon, or a frog, I don't care anymore.",
-        "4.8.8.8 Hey player, 8I'd like to try it once. That wicked love.",
-        "4.8.8.8 player, 8I'm sorry for looking at that other guy over there.8 Should I apologize.. or should I just kiss you right now?",
-        "3.8.8.8 player, 8I'm not going to lie.8 After hearing you talk four sentences, I fell in love with you."
+        "3.8.8.8 I like you player. Whether you're a hedgehod, a pokemon, or a frog, I don't care anymore.7",
+        "4.8.8.8 Hey player, 8I'd like to try it once. That wicked love.7",
+        "4.8.8.8 player, 8I'm sorry for looking at that other guy over there.8 Should I apologize.. or should I just kiss you right now?7",
+        "3.8.8.8 player, 8I'm not going to lie.8 After hearing you talk four sentences, I fell in love with you.7"
     };
 
     Dictionary<string, string> Character_Color = new Dictionary<string, string>
