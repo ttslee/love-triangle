@@ -73,7 +73,7 @@ public class PlayerDialogueScript : MonoBehaviour
             currentIndex--;
         while (currentIndex != 0 && textMesh.text[currentIndex - 1] != ' ')
             currentIndex--;
-        print(currentIndex);
+        //print(currentIndex);
         textMesh.text = textMesh.text.Insert(currentIndex, alpha);
     }
     public void CorrectInput()
