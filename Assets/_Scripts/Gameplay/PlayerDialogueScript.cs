@@ -39,10 +39,21 @@ public class PlayerDialogueScript : MonoBehaviour
 
     private IEnumerator DisplayWait(float delay)
     {
+        ready = false;
         yield return new WaitForSeconds(delay);
         textMesh.text = upcomingText;
         textMesh.maxVisibleCharacters = 0; //Makes text invis and Update function will begin.
-        ready = false;
+    }
+
+    bool AnimatorIsPlaying()
+    {
+        return imageListAnimator.GetCurrentAnimatorStateInfo(0).length >
+               imageListAnimator.GetCurrentAnimatorStateInfo(0).normalizedTime;
+    }
+
+    bool AnimatorIsPlaying(string stateName)
+    {
+        return AnimatorIsPlaying() && imageListAnimator.GetCurrentAnimatorStateInfo(0).IsName(stateName);
     }
 
     private void Update()
@@ -58,12 +69,13 @@ public class PlayerDialogueScript : MonoBehaviour
             timer = 0f;
         }
 
-        if (!ready && (textMesh.text.Length <= textMesh.maxVisibleCharacters))
+        if (!ready && (textMesh.text == upcomingText) && (textMesh.text.Length <= textMesh.maxVisibleCharacters))
         {
             //check for other player i suppose? then start the game
             if (imageListAnimator != null)
                 imageListAnimator.SetTrigger("Start");
-            ready = true;
+            if (imageListAnimator != null && !AnimatorIsPlaying("Start"))
+                ready = true;
         }
     }
 
