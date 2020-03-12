@@ -29,7 +29,7 @@ public class PlayerDialogueScript : MonoBehaviour
         if (imageListAnimator == null)
             imageListAnimator = imageList;
         if (!firstTime)
-            StartCoroutine(DisplayWait(3f));
+            StartCoroutine(DisplayWait(4f));
         else
         {
             StartCoroutine(DisplayWait(.5f));

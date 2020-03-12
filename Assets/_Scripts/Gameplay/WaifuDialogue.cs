@@ -12,10 +12,10 @@ public class WaifuDialogue : MonoBehaviour
     TextMeshProUGUI tmpText; //TextMeshPro Text Component
     List<string> texts = new List<string>(); //Each line of texts
     private float timer = 0f;
-    public float textSpeed = 0.5f;
+    private float textSpeed = 0.05f;
     private bool paused = false; //Used for pausing in speech
-    public int charsPerLine = 28; //Configurable WIDTH
-    public int totalLines = 6; //Configurable HEIGHT
+    public int charsPerLine = 21; //Configurable WIDTH
+    public int totalLines = 5; //Configurable HEIGHT
     private int topLine = 0; //The very top line, used for deleting
     private int botLine = 0; //Current line you are on
     private int typeCount = 0; //Counts how many Letters has been iterated so far per line
@@ -38,42 +38,42 @@ public class WaifuDialogue : MonoBehaviour
 
     List<string> waifuResponses = new List<string>
     {
-        "2Oh, thank you so much! 81I've been carrying them around all day and my arms were getting so tired.",
-        "3Really player? 81Thai milk tea, half sweet, and less ice please!",
-        "2Thanks! 1I wasn't too sure about this shirt but I feel better about it now!",
-        "1That is definitely the most original thing I've heard in my entire life, tell me more.",
-        "2Is that a danish?8 Yeah, I want it!",
-        "3While we what? Have a d-8date?",
-        "5You're not the first to tell me that.",
-        "1Oh my gosh, yes please! I don't know anyone in that class!",
-        "1Depends,8 what kind of movie were you thinking of? 2I'm a big fan of horror!",
-        "1Gosh, I've been so busy I actually haven’t. I'm down.",
-        "1Yeah?8 Maybe once you're done, 4you can lend it to me and we can talk about it.", //#10
-        "5I can't believe you think I'm more beautiful than Miss Mother Nature herself.",
-        "3You're such a lifesaver and I'm so stupid.8 Thank you!",
-        "4As long as you don't mind returning the favor some other time.",
-        "1Can you get me that tiny cactus sitting outside?8 3It's so cute!",
-        "4You did?8 That's really thoughtful of you player!",
-        "5It's not my first choice of fast food, 2but if it's free, why not!",
-        "1I barely know my plans for next week, let alone next month,8 but we'll see.",
-        "2Fun fact: I LOVE carne asada fries.",
-        "4Thanks, it's been exhausting lately.8 I'm glad you understand player.",
-        "5What does that have to do with anything?8 1We can hang out and you don't have to lose ramen. Win win.", //#20
-        "2Thanks, I tend to have that effect on people.",
-        "4I think you've found the way to my heart, honestly.",
-        "2I did! You noticed player?8 1It was only three inches off, but my hair feels way healthier now.",
-        "5You really think so?8 3There's still so much more for me to learn about you player.",
-        "5It's the middle of July, you're so lame.8 2But it's cute, I guess.",
-        "1Is it one of those picture-taking ones? 2I'm so down for that.",
-        "2Really? You're a lifesaver!",
-        "1Yes please, it's forty-five degrees out right now!",
-        "3As if you couldn't have been any more obvious!", //#29
+        "2Thank you!81 My arms are so tired from carrying them around all day.", //0 //1 Pause
+        "3Really player?81 Thai milk tea, half sweet, and less ice please!", //1 //1 Pause
+        "2Thanks! 1I wasn't too sure about this shirt but I feel better about it now!", //2 //Takes about 4seconds to say //0 Pause
+        "1That is definitely the most original thing I've heard in my entire life, tell me more.", //3 //0 Pause
+        "2Is that a brioche?!8 Yeah, I definitely want it if you don't mind!", //4 //1 Pause
+        "3While we what?8 Have a d-8date?", //5 //2 Pause
+        "5You're not the first to tell me that. That guy over there said the same thing.", //6 //0 Pause
+        "1Oh my gosh, yes please! I don't know anyone in that class!", //7 //0 Pause
+        "1Depends,8 what movie were you thinking of? 2I'm a big horror fan!", //8 //1 Pause
+        "1Gosh, I've been so busy I actually haven’t. I'm down for some California Gogi!", //9
+        "1Yeah?84 If you lend it to me, maybe we can talk about it.", //#10 //1 Pause
+        "5I can't believe you think I'm more beautiful than Miss Mother Nature herself.", //11 //0 Pause
+        "3You are such a lifesaver and I'm so stupid.8 Thank you so much!", //12 //1 Pause
+        "4As long as you don't mind returning the favor some other time.", //13 //0 Pause
+        "1Can you get me that tiny cactus sitting outside?8 3It's so cute!", //14 //1 Pause
+        "4Did you really?8 Wow, that's really thoughtful of you player!", //15 //1 Pause
+        "5It's not really my first choice of fast food...2 but if it's free, why not!", //16 //0 Pause
+        "1I barely know my plans for next week, let alone next month, but we'll see.", //17 //0 Pause
+        "2Fun fact: I LOVE carne asada fries. I'd eat it for breakfast, lunch, and dinner.", //18 //0 Pause
+        "4Thanks, it's been exhausting lately.8 I'm glad you understand player.", //19 //1 Pause
+        "5What does that have to do with anything?8 1We can do both though! Win win.", //#20 //1 Pause
+        "2Haha thanks!8 I guess I have that effect on people.", //21 //1 Pause
+        "4Honestly,8 I think you've just found the way to my heart.", //22 //1 Pause
+        "2I did! You noticed player?81 My hair feels way healthier now.", //23 //1 Pause
+        "5You really think so?8 There's still so much to learn about you player.", //24 //1 Pause
+        "5It's the middle of July, you're so lame.8 2But it's cute, I guess.", //25 //1 Pause
+        "1Is it one of those picture-taking ones? 2I'm so down for that.", //26 //0 Pause
+        "1Really?82 You're a lifesaver! BTS concert here we come!", //27 //1 Pause
+        "1Please!8 It's like forty-five degrees out right now!", //28 //1 Pause
+        "3As if you couldn't have been any more obvious player!", //#29 //0 Pause
     };
 
     List<string> waifuStartDialogue = new List<string>
     {
         "2Hey there!8 1Looks like the three of us are going to be partners. My name's Stella!9",
-        "1Excuse me!8 2Can I interest you two in buying some boba to support my kpop club?9",
+        "1Excuse me!8 2Can I interest you two in buying some two dollar boba to support my kpop club?9",
         "2Hey!8 1I'm a transfer student and it's my first day here. The teacher said you guys can show me around after class?9",
         "3Ah!8 2Sorry I bumped into you... Oh hey, you guys have that class too! Want to walk together with me?9",
     };
