@@ -5575,6 +5575,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c54fd50536e014bb6f7faec9968ad1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  leftPortrait: {fileID: 2060528787}
+  rightPortrait: {fileID: 2060528786}
+--- !u!1 &2060528786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5712427216905598026, guid: f5c52384d76597c488cb195f36f0c230,
+    type: 3}
+  m_PrefabInstance: {fileID: 2060528783}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2060528787 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1416885880137894808, guid: f5c52384d76597c488cb195f36f0c230,
+    type: 3}
+  m_PrefabInstance: {fileID: 2060528783}
+  m_PrefabAsset: {fileID: 0}
 --- !u!20 &2145709022 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 2720796254099973462, guid: df1fe63617f6b354681ca4dfbb6c6dac,

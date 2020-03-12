@@ -311,12 +311,17 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
-        //StartCoroutine(LoadAsync()); // *************************************
+        StartCoroutine(DelayedStart());
+    }
+
+    private IEnumerator DelayedStart()
+    {
+        yield return new WaitForSeconds(.1f);
         SceneManager.LoadScene("Main");
         MainMenuOn = false;
         if (player1)
             player1.GetComponent<PlayerScript>().DisableMenuActions();
-        if(player2)
+        if (player2)
             player2.GetComponent<PlayerScript>().DisableMenuActions();
     }
 

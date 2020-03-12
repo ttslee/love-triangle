@@ -5,8 +5,8 @@ using UnityEngine.UI;
 using TMPro;
 public class PortraitScript : MonoBehaviour
 {
-    GameObject leftPortrait;
-    GameObject rightPortrait;
+    public GameObject leftPortrait;
+    public GameObject rightPortrait;
     static private Sprite[] abilitySprites;
     static private Sprite[] loveSprites;
     // Start is called before the first frame update
@@ -14,8 +14,6 @@ public class PortraitScript : MonoBehaviour
     {
         abilitySprites = Resources.LoadAll<Sprite>("Ability");
         loveSprites = Resources.LoadAll<Sprite>("Love");
-        leftPortrait = GameObject.Find("Portrait_Left");
-        rightPortrait = GameObject.Find("Portrait_Right"); 
 
         leftPortrait.transform.Find("Icon").GetComponent<Image>().sprite = GameManager.Instance.player1Character.Item1;
         leftPortrait.transform.Find("Name").GetComponent<TextMeshProUGUI>().text = GameManager.Instance.player1Character.Item2;

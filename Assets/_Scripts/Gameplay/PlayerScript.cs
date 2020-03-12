@@ -124,7 +124,7 @@ public class PlayerScript : MonoBehaviour
                 break;
             case "Start":
                 if (!GameManager.Instance.GameOn && GameManager.Instance.MainMenuOn)
-                    GameManager.Instance.StartGame(); 
+                    GameObject.Find("Canvas").GetComponent<MenuManager>().StartGame();
                 else if (GameManager.Instance.GameOn && !GameManager.Instance.PauseMenuOn)
                     GameManager.Instance.Pause();
                 else if (!GameManager.Instance.GameOn && GameManager.Instance.PauseMenuOn)
