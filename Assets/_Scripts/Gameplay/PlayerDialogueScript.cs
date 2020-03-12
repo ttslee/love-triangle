@@ -11,7 +11,7 @@ public class PlayerDialogueScript : MonoBehaviour
     private int currentIndex = 0;
     public TextMeshProUGUI textMesh;
 
-    private float textSpeed = 0.1f;
+    private float textSpeed = 0.08f;
     private float timer = 0f;
     private bool ready = false;
     private Animator imageListAnimator = null;
@@ -57,6 +57,24 @@ public class PlayerDialogueScript : MonoBehaviour
         currentIndex = 0;
         txt = txt.Insert(0, alpha);
         textMesh.text = txt;
+    }
+    public void CorrectInputWord()
+    {
+        textMesh.text = textMesh.text.Remove(currentIndex, len);
+        while (textMesh.text[currentIndex] != ' ' && currentIndex < textMesh.text.Length-1)
+            currentIndex++;
+        currentIndex++;
+        textMesh.text = textMesh.text.Insert(currentIndex, alpha);
+    }
+    public void IncorrectInputWord()
+    {
+        textMesh.text = textMesh.text.Remove(currentIndex, len);
+        if (currentIndex != 0)
+            currentIndex--;
+        while (currentIndex != 0 && textMesh.text[currentIndex - 1] != ' ')
+            currentIndex--;
+        print(currentIndex);
+        textMesh.text = textMesh.text.Insert(currentIndex, alpha);
     }
     public void CorrectInput()
     {

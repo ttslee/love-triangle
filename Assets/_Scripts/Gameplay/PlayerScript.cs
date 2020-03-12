@@ -142,10 +142,10 @@ public class PlayerScript : MonoBehaviour
                     switch(player)
                     {
                         case 1:
-                            GameManager.Instance.DialogueBoxP1.GetComponent<PlayerDialogueScript>().CorrectInput();
+                            GameManager.Instance.DialogueBoxP1.GetComponent<PlayerDialogueScript>().CorrectInputWord();
                             break;
                         case 2:
-                            GameManager.Instance.DialogueBoxP2.GetComponent<PlayerDialogueScript>().CorrectInput();
+                            GameManager.Instance.DialogueBoxP2.GetComponent<PlayerDialogueScript>().CorrectInputWord();
                             break;
                     }
                     history.Push(action);
@@ -162,10 +162,10 @@ public class PlayerScript : MonoBehaviour
                         switch (player)
                         {
                             case 1:
-                                GameManager.Instance.DialogueBoxP1.GetComponent<PlayerDialogueScript>().IncorrectInput();
+                                GameManager.Instance.DialogueBoxP1.GetComponent<PlayerDialogueScript>().IncorrectInputWord();
                                 break;
                             case 2:
-                                GameManager.Instance.DialogueBoxP2.GetComponent<PlayerDialogueScript>().IncorrectInput();
+                                GameManager.Instance.DialogueBoxP2.GetComponent<PlayerDialogueScript>().IncorrectInputWord();
                                 break;
                         }
                         actionList.Insert(0, history.Pop());
