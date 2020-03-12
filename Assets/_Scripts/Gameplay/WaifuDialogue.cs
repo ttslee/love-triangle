@@ -72,18 +72,18 @@ public class WaifuDialogue : MonoBehaviour
 
     List<string> waifuStartDialogue = new List<string>
     {
-        "Hey there!8 Looks like we're going to be partners. My name's Stella what's yours?9",
-        "Hi!8 Can I interest you in buying some food to support my club?9",
-        "Hey!8 I just transferred into this school and it's my first day here. Can you show me around after class?9",
-        "Oh!8 no one is sitting there you can take the seat.9",
+        "2Hey there!8 1Looks like the three of us are going to be partners. My name's Stella!9",
+        "1Excuse me!8 2Can I interest you two in buying some boba to support my kpop club?9",
+        "2Hey!8 1I'm a transfer student and it's my first day here. The teacher said you guys can show me around after class?9",
+        "3Ah!8 2Sorry I bumped into you... Oh hey you guys have that class too! Want to walk together with me?9",
     };
 
     List<string> waifuFinishDialogue = new List<string>
     {
-        ".8.8.8 I r-r-really like you player. Do you want to go out with me?7",
-        ".8.8.8 I think you're a really cool guy player. Do you want to take our relationship to the next level?7",
-        ".8.8.8 I love it when we spend so much time together player. Would you be my boyfriend?7",
-        ".8.8.8 I-I think I like you. Please go out with me!7",
+        "3.8.8.8 I r-r-really like you player. Do you want to go out with me?7",
+        "4.8.8.8 I think you're a really cool guy player. Do you want to take our relationship to the next level?7",
+        "4.8.8.8 I love it when we spend so much time together player. Would you be my boyfriend?7",
+        "3.8.8.8 I-I think I like you. Please go out with me!7",
     };
 
     Dictionary<string, string> Character_Color = new Dictionary<string, string>
