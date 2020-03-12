@@ -168,7 +168,7 @@ public class PlayerScript : MonoBehaviour
                     if(history.Count != 0)
                     {
                         if(AbilityBar < 6)
-                            AbilityBar++;
+                            AbilityBar+=3;
                         switch (player)
                         {
                             case 1:
