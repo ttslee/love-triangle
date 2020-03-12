@@ -78,6 +78,7 @@ MonoBehaviour:
   correctInputSound: {fileID: 8300000, guid: ab0dc435dd33aa54d985b630c4fb873f, type: 3}
   completeSound: {fileID: 8300000, guid: b4861dd91a9c60648816127d0712a93f, type: 3}
   errorSound: {fileID: 8300000, guid: 5734a72096993c643816eff39bd4fc9a, type: 3}
+  winner: {fileID: 8300000, guid: 3e73d12b0a7c3564988c5cf5d67997d6, type: 3}
   source: {fileID: 27734422483379546}
 --- !u!114 &6757867800807153733
 MonoBehaviour:

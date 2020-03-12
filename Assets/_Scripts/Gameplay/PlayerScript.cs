@@ -41,6 +41,7 @@ public class PlayerScript : MonoBehaviour
     public AudioClip correctInputSound;
     public AudioClip completeSound;
     public AudioClip errorSound;
+    public AudioClip winner;
     public AudioSource source;
     void Start()
     {
@@ -199,6 +200,8 @@ public class PlayerScript : MonoBehaviour
             if (LoveBar == 4)
             {
                 GameManager.Instance.GameFinished = true;
+                source.clip = winner;
+                source.Play();
             }
             GameManager.Instance.ActionListComplete(player, Message);
         }
