@@ -11,7 +11,7 @@ public class PlayerDialogueScript : MonoBehaviour
     private int currentIndex = 0;
     public TextMeshProUGUI textMesh;
 
-    private float textSpeed = 0.08f;
+    private float textSpeed = 0.05f;
     private float timer = 0f;
     private bool ready = false;
     private Animator imageListAnimator = null;
