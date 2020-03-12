@@ -13,7 +13,7 @@ public class PlayerDialogueScript : MonoBehaviour
 
     private float textSpeed = 0.05f;
     private float timer = 0f;
-    private bool ready = false;
+    public bool ready = false;
     private Animator imageListAnimator = null;
 
     void Start()

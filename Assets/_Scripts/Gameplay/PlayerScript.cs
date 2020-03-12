@@ -135,6 +135,15 @@ public class PlayerScript : MonoBehaviour
                     break;
                 if (!hasActionList)
                     break;
+                if (player == 1)
+                {
+                    if (GameManager.Instance.DialogueBoxP1.GetComponent<PlayerDialogueScript>().ready != true)
+                        break;
+                } else
+                {
+                    if (GameManager.Instance.DialogueBoxP2.GetComponent<PlayerDialogueScript>().ready != true)
+                        break;
+                }
                 if (action == actionList[0])
                 {
                     source.clip = correctInputSound;

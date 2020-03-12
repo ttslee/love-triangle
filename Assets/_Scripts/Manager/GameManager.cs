@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameObject DialogueBoxP1 { get; set; } = null;
     public GameObject DialogueBoxP2 { get; set; } = null;
     private int currentMessage = 0;
+
     List<string> playerMessages = new List<string>
     {
         "Here, let me help you with your bags, they look really heavy!",
@@ -208,12 +209,20 @@ public class GameManager : MonoBehaviour
         else if (player1 && player == 2)
             ShuffleList<string>(player1.GetComponent<PlayerScript>().ActionList);
     }
+
+    private IEnumerator DisplayWait(float delay, int player)
+    {
+        yield return new WaitForSeconds(delay);
+        SetActionList(player);
+    }
+
     public void ActionListComplete(int player, string message)
     {
         GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, playerMessageDictionary[message], 0);
-        SetActionList(player);
         if (GameFinished)
             GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, 0, 1);
+        SetActionList(player);
+        //StartCoroutine(DisplayWait(10f, player)); //Whenever the player finishes the text, the player now must wait 1sec before seeing the new input challenge
     }
 
     public void SetActionList(int p)
