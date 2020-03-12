@@ -87,9 +87,8 @@ public class WaifuDialogue : MonoBehaviour
         "3.8.8.8 I-8I think I like you. Will you please go out with me!7",
         "3.8.8.8 I like you player. Whether you're a hedgehod, a pokemon, or a frog, I don't care anymore.",
         "4.8.8.8 Hey player, 8I'd like to try it once. That wicked love.",
-        "4.8.8.8 player, 8I'm sorry for looking at that other guy over there.8 Should I apologize.. or should I just kiss you right now?,"
+        "4.8.8.8 player, 8I'm sorry for looking at that other guy over there.8 Should I apologize.. or should I just kiss you right now?",
         "3.8.8.8 player, 8I'm not going to lie.8 After hearing you talk four sentences, I fell in love with you."
-
     };
 
     Dictionary<string, string> Character_Color = new Dictionary<string, string>
