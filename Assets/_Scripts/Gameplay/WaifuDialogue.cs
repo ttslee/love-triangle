@@ -52,7 +52,7 @@ public class WaifuDialogue : MonoBehaviour
         "5I can't believe you think I'm more beautiful than Miss Mother Nature herself.",
         "3You're such a lifesaver and I'm so stupid. Thank you!",
         "4As long as you don't mind returning the favor some other time.",
-        "1Can you get me tiny cactus sitting outside? 3Its so cute!",
+        "1Can you get me that tiny cactus sitting outside? 3Its so cute!",
         "4You did? That's really thoughtful of you player!",
         "5It's not my first choice of fast food, 2but if it's free, why not!",
         "1I barely know my plans for next week, let alone next month, but we'll see.",
