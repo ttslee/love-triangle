@@ -75,7 +75,7 @@ public class WaifuDialogue : MonoBehaviour
         "2Hey there!8 1Looks like the three of us are going to be partners. My name's Stella!9",
         "1Excuse me!8 2Can I interest you two in buying some boba to support my kpop club?9",
         "2Hey!8 1I'm a transfer student and it's my first day here. The teacher said you guys can show me around after class?9",
-        "3Ah!8 2Sorry I bumped into you... Oh hey you guys have that class too! Want to walk together with me?9",
+        "3Ah!8 2Sorry I bumped into you... Oh hey, you guys have that class too! Want to walk together with me?9",
     };
 
     List<string> waifuFinishDialogue = new List<string>
