@@ -33,9 +33,15 @@ public class MenuManager : MonoBehaviour
 
     public void StartGame()
     {
-        GameManager.Instance.player1Character = playerIcons[(indexLeft % playerIcons.Count)];
-        GameManager.Instance.player2Character = playerIcons[(indexRight % playerIcons.Count)];
-        GameManager.Instance.StartGame();
+        if (GameObject.FindGameObjectWithTag("Mouse") != null)
+        {
+            GameManager.Instance.player1Character = playerIcons[(indexLeft % playerIcons.Count)];
+            GameManager.Instance.player2Character = playerIcons[(indexRight % playerIcons.Count)];
+            GameManager.Instance.StartGame();
+        } else
+        {
+            OpenDialogueBox("Uh oh! We apologize for the inconvenience but this game is a competitive two player game that requires at least one controller connected (for singleplayer player). Please connect two controllers for the best gameplay experience!");
+        }
     }
 
     public void ResumeGame()
