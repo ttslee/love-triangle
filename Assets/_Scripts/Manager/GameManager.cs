@@ -210,19 +210,12 @@ public class GameManager : MonoBehaviour
             ShuffleList<string>(player1.GetComponent<PlayerScript>().ActionList);
     }
 
-    private IEnumerator DisplayWait(float delay, int player)
-    {
-        yield return new WaitForSeconds(delay);
-        SetActionList(player);
-    }
-
     public void ActionListComplete(int player, string message)
     {
         GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, playerMessageDictionary[message], 0);
         if (GameFinished)
             GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, 0, 1);
         SetActionList(player);
-        //StartCoroutine(DisplayWait(10f, player)); //Whenever the player finishes the text, the player now must wait 1sec before seeing the new input challenge
     }
 
     public void SetActionList(int p)

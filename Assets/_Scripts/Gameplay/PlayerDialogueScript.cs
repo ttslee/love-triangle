@@ -14,6 +14,7 @@ public class PlayerDialogueScript : MonoBehaviour
     private float textSpeed = 0.05f;
     private float timer = 0f;
     public bool ready = false;
+    private string upcomingText = "";
     private Animator imageListAnimator = null;
 
     void Start()
@@ -24,9 +25,16 @@ public class PlayerDialogueScript : MonoBehaviour
 
     public void DisplayText(Animator imageList)
     {
-        textMesh.maxVisibleCharacters = 0; //Makes text invis and Update function will begin.
         if (imageListAnimator == null)
             imageListAnimator = imageList;
+        StartCoroutine(DisplayWait(1f));
+    }
+
+    private IEnumerator DisplayWait(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        textMesh.text = upcomingText;
+        textMesh.maxVisibleCharacters = 0; //Makes text invis and Update function will begin.
         ready = false;
     }
 
@@ -56,7 +64,7 @@ public class PlayerDialogueScript : MonoBehaviour
     {
         currentIndex = 0;
         txt = txt.Insert(0, alpha);
-        textMesh.text = txt;
+        upcomingText = txt;
     }
     public void CorrectInputWord()
     {
