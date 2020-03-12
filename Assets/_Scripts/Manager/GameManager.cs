@@ -208,8 +208,10 @@ public class GameManager : MonoBehaviour
     }
     public void ActionListComplete(int player, string message)
     {
-        GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, playerMessageDictionary[message]);
+        GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, playerMessageDictionary[message], 0);
         SetActionList(player);
+        if (GameFinished)
+            GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, 0, 1);
     }
 
     public void SetActionList(int p)

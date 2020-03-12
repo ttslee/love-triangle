@@ -30,14 +30,18 @@ public class WaifuDialogue : MonoBehaviour
     //Sound Effect
     public AudioClip clip;
     private float soundTimer = .056f;
+
+    //End with Particles
+    public GameObject particles;
+
     #endregion
 
     List<string> waifuResponses = new List<string>
     {
         "2Oh, thank you so much! I've been carrying them around all day my arms were getting tired!",
-        "1Really player? Wintermelon milk tea, 50% sweet, and less ice please!",
+        "1Really player? Wintermelon milk tea, half sweet, and less ice please!",
         "2Thanks! I wasn't too sure about this shirt but I feel better about it now!",
-        "1That is definitely the most original thing I've heard in my entire life — tell me more.",
+        "1That is definitely the most original thing I've heard in my entire life, tell me more.",
         "2Is that a danish? Yeah, I want it!",
         "3While we what? Have a… d-date?",
         "5You're not the first to tell me that.",
@@ -54,7 +58,7 @@ public class WaifuDialogue : MonoBehaviour
         "1I barely know my plans for next week, let alone next month, but we'll see.",
         "2Fun fact: I LOVE carne asada fries.",
         "4Thanks, it's been exhausting lately. I'm glad you understand player.",
-        "1What does that have to do with anything? We can hang out and you don't have to lose ramen. Win-win.", //#20
+        "1What does that have to do with anything? We can hang out and you don't have to lose ramen. Win win.", //#20
         "2Thanks, I tend to have that effect on people.",
         "4I think you've found the way to my heart, honestly.",
         "2I did! You noticed player? It was only three inches off, but my hair feels way healthier now.",
@@ -68,18 +72,18 @@ public class WaifuDialogue : MonoBehaviour
 
     List<string> waifuStartDialogue = new List<string>
     {
-        "Hey there, looks like we're going to be partners. My name's Stella what's yours?",
-        "Hi! Can I interest you in buying some food to support my club?",
-        "Hey, I just transferred into this school and it's my first day here. Can you show me around after class?",
-        "Oh, no one is sitting there you can take the seat.",
+        "Hey there!8 Looks like we're going to be partners. My name's Stella what's yours?9",
+        "Hi!8 Can I interest you in buying some food to support my club?9",
+        "Hey!8 I just transferred into this school and it's my first day here. Can you show me around after class?9",
+        "Oh!8 no one is sitting there you can take the seat.9",
     };
 
     List<string> waifuFinishDialogue = new List<string>
     {
-        "I r-r-really like you player. Do you want to go out with me?",
-        "I think you're a really cool guy player. Do you want to take our relationship to the next level?",
-        "I love it when we spend so much time together player. Would you be my boyfriend?",
-        "I-I think I like you. Please go out with me!",
+        ".8.8.8 I r-r-really like you player. Do you want to go out with me?7",
+        ".8.8.8 I think you're a really cool guy player. Do you want to take our relationship to the next level?7",
+        ".8.8.8 I love it when we spend so much time together player. Would you be my boyfriend?7",
+        ".8.8.8 I-I think I like you. Please go out with me!7",
     };
 
     Dictionary<string, string> Character_Color = new Dictionary<string, string>
@@ -98,8 +102,7 @@ public class WaifuDialogue : MonoBehaviour
         foreach (Sprite s in sprites)
             waifuSprites.Add(s);
         //StartGame Dialogue
-        QueueText("1Really?8 Wintermelon <color=#fff624> milk tea </color>, 50 % sweet, and less ice please!9"); //After doing these ones, all the numbers that were previously hidden are now showing up.
-        QueueText("1That is definitely the most.");
+        QueueText(waifuStartDialogue[Random.Range(0,4)]);
     }
 
     private void Update()
@@ -301,7 +304,11 @@ public class WaifuDialogue : MonoBehaviour
                 GameManager.Instance.GameOn = true;
             } else if (texts[botLine][typeCount] == '8') //#8 = INITIATE PAUSE DELAY
             {
-                StartCoroutine(Pause(1f)); //Waifu will hesitate for 1 seconds.
+                StartCoroutine(Pause(.8f)); //Waifu will hesitate for 1 seconds.
+            }
+            else if (texts[botLine][typeCount] == '7') //#7 = GAME FINISHED FUNCTION
+            {
+                particles.SetActive(true);
             } else
                 waifu.sprite = waifuSprites[texts[botLine][typeCount] - 48]; //-48 bc its an ascii value character. Changes Face #0-5
             typeCount++; //Skip the number without adding it to text. We only need to check it to change expression.
@@ -398,9 +405,13 @@ public class WaifuDialogue : MonoBehaviour
         }
         return a;
     }
-    public void Reply(int player, int msg) //Access this scripts list of replies according to int sent and say it
+    public void Reply(int player, int msg, int fin) //Access this scripts list of replies according to int sent and say it
     {
-        string Raw_Text = waifuResponses[msg];
+        string Raw_Text;
+        if (fin == 0)
+            Raw_Text = waifuResponses[msg];
+        else
+            Raw_Text = waifuFinishDialogue[Random.Range(0, 4)];
         string Set_Color = "";
         if (player == 1)
         {
@@ -456,5 +467,4 @@ public class WaifuDialogue : MonoBehaviour
     }
 
     #endregion
-
 }
