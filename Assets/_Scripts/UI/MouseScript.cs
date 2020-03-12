@@ -20,6 +20,6 @@ public class MouseScript : MonoBehaviour
 
     public void Start()
     {
-        GetComponent<SpriteRenderer>().color = (Player == 1) ? parent.GetComponent<PlayerScript>().mouseColor1 : parent.GetComponent<PlayerScript>().mouseColor1;
+        GetComponent<SpriteRenderer>().color = (Player == 1) ? parent.GetComponent<PlayerScript>().mouseColor1 : parent.GetComponent<PlayerScript>().mouseColor2;
     }
 }

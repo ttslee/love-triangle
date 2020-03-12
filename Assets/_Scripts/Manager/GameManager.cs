@@ -31,7 +31,7 @@ public class GameManager : MonoBehaviour
         "Hey, I have the feeling that I'm probably the right one for you.",
         "We're taking the same 6AM next quarter! do you want to sit together?",
         "Want to watch a movie together sometime? This weekend, maybe?",
-        "Have you eaten today? Wanna come and grab lunch with me? Jk! Unless?",
+        "Have you eaten today? Wanna come and grab lunch with me? Jk! Unless..?",
         "I've been reading this book lately and I think you'd like it a lot.",
         "I thought the sunset was the most beautiful thing, but then I saw you.",
         "I heard you left your wallet at home! Let me can spot you for lunch.",
@@ -72,7 +72,7 @@ public class GameManager : MonoBehaviour
         {"Hey, I have the feeling that I'm probably the right one for you.", 6 },
         {"We're taking the same 6AM next quarter! do you want to sit together?", 7 },
         {"Want to watch a movie together sometime? This weekend, maybe?", 8 },
-        {"Have you eaten today? Wanna come and grab lunch with me? Jk! Unless?", 9 },
+        {"Have you eaten today? Wanna come and grab lunch with me? Jk! Unless..?", 9 },
         {"I've been reading this book lately and I think you'd like it a lot.", 10 },
         {"I thought the sunset was the most beautiful thing, but then I saw you.", 11 },
         {"I heard you left your wallet at home! Let me can spot you for lunch.", 12 },
@@ -194,10 +194,10 @@ public class GameManager : MonoBehaviour
             player1.name = "Player1";
             player.GetComponent<PlayerScript>().SetPlayer(1);
         }
-        else if(player2 == null)
+        else
         {
-            player2.name = "Player2";
             player2 = player;
+            player2.name = "Player2";
             player.GetComponent<PlayerScript>().SetPlayer(2);
         }
     }
