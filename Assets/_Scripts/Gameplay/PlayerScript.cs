@@ -21,7 +21,7 @@ public class PlayerScript : MonoBehaviour
     public int Player { get { return player; } set { player = value; } }
     Vector2 move;
     // PlayerControls
-    public PlayerControls controls { get; set; }
+    //public PlayerControls controls { get; set; }
     
     // Input stream and String Info
     private Stack<string> history;
@@ -44,6 +44,7 @@ public class PlayerScript : MonoBehaviour
     public AudioSource source;
     void Start()
     {
+        //controls = new PlayerControls();
         history = new Stack<string>();
         actionList = new List<string>();
         GameManager.Instance.NotifyGM(gameObject);
@@ -51,8 +52,7 @@ public class PlayerScript : MonoBehaviour
 
     private void Awake()
     {
-        controls = new PlayerControls();
-        InputControlBindings();
+        //InputControlBindings();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -87,24 +87,24 @@ public class PlayerScript : MonoBehaviour
     {
         player = i;
     }
-    private void InputControlBindings()
-    {
-        controls.Gameplay.X.performed += ctx => PlayerAction("X");              // X button
-        controls.Gameplay.O.performed += ctx => PlayerAction("O");              // circle
-        controls.Gameplay.S.performed += ctx => PlayerAction("S");              // square
-        controls.Gameplay.T.performed += ctx => PlayerAction("T");              // triangle
-        controls.Gameplay.Down.performed += ctx => PlayerAction("Down");        // Down D-PAD
-        controls.Gameplay.Left.performed += ctx => PlayerAction("Left");        // Left D-PAD
-        controls.Gameplay.Right.performed += ctx => PlayerAction("Right");      // Right D-PAD
-        controls.Gameplay.Up.performed += ctx => PlayerAction("Up");            // UP D-PAD
-        controls.Gameplay.Start.performed += ctx => PlayerAction("Start");      // Options/Start
-        controls.Gameplay.RT.performed += ctx => PlayerAction("RT");            // Right trigger
-        controls.Gameplay.RB.performed += ctx => PlayerAction("RB");            // Right Bumper
-        controls.Gameplay.LT.performed += ctx => PlayerAction("LT");            // Left Trigger
-        controls.Gameplay.LB.performed += ctx => PlayerAction("LB");            // Left Bumper
-        controls.Gameplay.LeftJoy.performed += ctx => move = ctx.ReadValue<Vector2>() * 2f;  // LeftJoy
-        controls.Gameplay.LeftJoy.canceled += ctx => move = Vector2.zero;
-    }
+    //private void InputControlBindings()
+    //{
+    //    controls.Gameplay.X.performed += ctx => PlayerAction("X");              // X button
+    //    controls.Gameplay.O.performed += ctx => PlayerAction("O");              // circle
+    //    controls.Gameplay.S.performed += ctx => PlayerAction("S");              // square
+    //    controls.Gameplay.T.performed += ctx => PlayerAction("T");              // triangle
+    //    controls.Gameplay.Down.performed += ctx => PlayerAction("Down");        // Down D-PAD
+    //    controls.Gameplay.Left.performed += ctx => PlayerAction("Left");        // Left D-PAD
+    //    controls.Gameplay.Right.performed += ctx => PlayerAction("Right");      // Right D-PAD
+    //    controls.Gameplay.Up.performed += ctx => PlayerAction("Up");            // UP D-PAD
+    //    controls.Gameplay.Start.performed += ctx => PlayerAction("Start");      // Options/Start
+    //    controls.Gameplay.RT.performed += ctx => PlayerAction("RT");            // Right trigger
+    //    controls.Gameplay.RB.performed += ctx => PlayerAction("RB");            // Right Bumper
+    //    controls.Gameplay.LT.performed += ctx => PlayerAction("LT");            // Left Trigger
+    //    controls.Gameplay.LB.performed += ctx => PlayerAction("LB");            // Left Bumper
+    //    controls.Gameplay.LeftJoy.performed += ctx => move = ctx.ReadValue<Vector2>() * 2f;  // LeftJoy
+    //    controls.Gameplay.LeftJoy.canceled += ctx => move = Vector2.zero;
+    //}
 
     private void PlayerAction(string action)
     {
@@ -199,11 +199,6 @@ public class PlayerScript : MonoBehaviour
             if (LoveBar == 4)
             {
                 GameManager.Instance.GameFinished = true;
-                if (player == 1)
-                    GameManager.Instance.player1.GetComponent<PlayerScript>().GameFinished();
-                else
-                    GameManager.Instance.player2.GetComponent<PlayerScript>().GameFinished();
-                
             }
             GameManager.Instance.ActionListComplete(player, Message);
         }
@@ -228,58 +223,12 @@ public class PlayerScript : MonoBehaviour
             
     }
 
-    public void GameFinished()
-    {
-        controls.Gameplay.X.Disable();
-        controls.Gameplay.O.Disable();
-        controls.Gameplay.S.Disable();
-        controls.Gameplay.T.Disable();
-        controls.Gameplay.Down.Disable();
-        controls.Gameplay.Left.Disable();
-        controls.Gameplay.Right.Disable();
-        controls.Gameplay.Up.Disable();
-        controls.Gameplay.RT.Disable();
-        controls.Gameplay.RB.Disable();
-        controls.Gameplay.LT.Disable();
-        controls.Gameplay.LB.Disable();
-    }
-
     public void EnableMenuActions()
     {
-        if(!GameManager.Instance.GameFinished)
-        {
-            controls.Gameplay.X.Disable();
-            controls.Gameplay.O.Disable();
-            controls.Gameplay.S.Disable();
-            controls.Gameplay.T.Disable();
-            controls.Gameplay.Down.Disable();
-            controls.Gameplay.Left.Disable();
-            controls.Gameplay.Right.Disable();
-            controls.Gameplay.Up.Disable();
-            controls.Gameplay.RT.Disable();
-            controls.Gameplay.RB.Disable();
-            controls.Gameplay.LT.Disable();
-            controls.Gameplay.LB.Disable();
-        }
         transform.Find("Mouse").gameObject.SetActive(true);
     }
     public void DisableMenuActions()
     {
-        if (!GameManager.Instance.GameFinished)
-        {
-            controls.Gameplay.X.Enable();
-            controls.Gameplay.O.Enable();
-            controls.Gameplay.S.Enable();
-            controls.Gameplay.T.Enable();
-            controls.Gameplay.Down.Enable();
-            controls.Gameplay.Left.Enable();
-            controls.Gameplay.Right.Enable();
-            controls.Gameplay.Up.Enable();
-            controls.Gameplay.RT.Enable();
-            controls.Gameplay.RB.Enable();
-            controls.Gameplay.LT.Enable();
-            controls.Gameplay.LB.Enable();
-        }
         transform.Find("Mouse").gameObject.SetActive(false);
     }
     private void MoveMouse()
@@ -289,12 +238,12 @@ public class PlayerScript : MonoBehaviour
     }
     private void OnEnable()
     {
-        controls.Gameplay.Enable();
+        //controls.Gameplay.Enable();
     }
 
     private void OnDisable()
     {
-        controls.Gameplay.Disable();
+        //controls.Gameplay.Disable();
     }
 
     private void SetActionImages()
@@ -317,5 +266,76 @@ public class PlayerScript : MonoBehaviour
         actionList.Clear();
         LoveBar = 0;
         AbilityBar = 0;
+    }
+  
+    public void OnX()
+    {
+        if(!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("X");              // X button
+    }
+
+    public void OnO()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("O");              
+    }
+    public void OnS()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("S");              
+    }
+    public void OnT()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("T");             
+    }
+    public void OnUp()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("Up");             
+    }
+    public void OnDown()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("Down");              
+    }
+    public void OnLeft()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("Left");              
+    }
+    public void OnRight()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("Right");             
+    }
+    public void OnStart()
+    {
+        PlayerAction("Start");
+    }
+    public void OnLB()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("LB");
+    }
+    public void OnLT()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("LT");
+    }
+    public void OnRB()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("RB");
+    }
+    public void OnRT()
+    {
+        if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+            PlayerAction("RT");
+    }
+    public void OnLeftJoy(InputValue iVal)
+    {
+        if (GameManager.Instance.PauseMenuOn || GameManager.Instance.MainMenuOn)
+            move = iVal.Get<Vector2>() * 2f;
     }
 }

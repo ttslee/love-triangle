@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d627c2243f2ea5498c8426c543bff91, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  p1Input: {fileID: -944628639613478452, guid: 9a73be69ff5e701459116f249f4c15d4, type: 3}
+  p2Input: {fileID: -944628639613478452, guid: ea50fa2f340e3d34eb0a6a25d9deca7a, type: 3}
   playerActionSprites:
   - {fileID: 6799014943801064777, guid: 8b5b9eb10f16159468fc7e659ff700f4, type: 3}
   - {fileID: -7537952596609793397, guid: 8b5b9eb10f16159468fc7e659ff700f4, type: 3}

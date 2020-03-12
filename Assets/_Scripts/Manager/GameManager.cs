@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.InputSystem;
 // Font_Input subscripts. Order matters! It matches InputOptions list so that loading the dictionary works properly. 
 // Playstation : { 3, 0, 2, 1, 17, 19, 16, 18 }
 // XBOX        : { 6, 4, 7, 5, 17, 19, 16, 18 }
 public class GameManager : MonoBehaviour
 {
+    // Player Controls
+    
     // Global Bools
     public bool GameOn { get; set; }
     public bool MainMenuOn { get; set; } = true;
