@@ -15,6 +15,7 @@ public class PlayerDialogueScript : MonoBehaviour
     private float timer = 0f;
     public bool ready = false;
     private string upcomingText = "";
+    private bool firstTime = true;
     private Animator imageListAnimator = null;
 
     void Start()
@@ -27,7 +28,13 @@ public class PlayerDialogueScript : MonoBehaviour
     {
         if (imageListAnimator == null)
             imageListAnimator = imageList;
-        StartCoroutine(DisplayWait(1f));
+        if (!firstTime)
+            StartCoroutine(DisplayWait(3f));
+        else
+        {
+            StartCoroutine(DisplayWait(.5f));
+            firstTime = false;
+        }
     }
 
     private IEnumerator DisplayWait(float delay)
