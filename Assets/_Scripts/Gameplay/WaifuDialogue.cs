@@ -39,7 +39,7 @@ public class WaifuDialogue : MonoBehaviour
     List<string> waifuResponses = new List<string>
     {
         "2Thank you!81 My arms are so tired from carrying them around all day.", //0 //1 Pause
-        "3Really player?81 Thai milk tea, half sweet, and less ice please!", //1 //1 Pause
+        "3Really player? 81Thai milk tea, half sweet, and less ice please!", //1 //1 Pause
         "2Thanks! 1I wasn't too sure about this shirt but I feel better about it now!", //2 //Takes about 4seconds to say //0 Pause
         "1That is definitely the most original thing I've heard in my entire life, tell me more.", //3 //0 Pause
         "2Is that a brioche?!8 Yeah, I definitely want it if you don't mind!", //4 //1 Pause
@@ -61,7 +61,7 @@ public class WaifuDialogue : MonoBehaviour
         "5What does that have to do with anything?8 1We can do both though! Win win.", //#20 //1 Pause
         "2Haha thanks!8 I guess I have that effect on people.", //21 //1 Pause
         "4Honestly,8 I think you've just found the way to my heart.", //22 //1 Pause
-        "2I did! You noticed player?81 My hair feels way healthier now.", //23 //1 Pause
+        "2I did! You noticed player? 81My hair feels way healthier now.", //23 //1 Pause
         "5You really think so?8 There's still so much to learn about you player.", //24 //1 Pause
         "5It's the middle of July, you're so lame.8 2But it's cute, I guess.", //25 //1 Pause
         "1Is it one of those picture-taking ones? 2I'm so down for that.", //26 //0 Pause
@@ -83,10 +83,10 @@ public class WaifuDialogue : MonoBehaviour
 
     List<string> waifuFinishDialogue = new List<string>
     {
-        "3.8.8.8 I think I r-8really like you player! Do you want to go out with me?7",
-        "4.8.8.8 player, 8I think you're a really amazing person. Do you want to take our relationship a little further?7",
-        "4.8.8.8 I really love spending time with you player. Would you be mine?7",
-        "3.8.8.8 I-8I think I like you. Will you please go out with me!7",
+        "3.8.8.8 I think I r-really like you player! 8Do you want to go out with me?7",
+        "4.8.8.8 player, 8I think you're a really amazing person.8 Do you want to take our relationship a little further?7",
+        "4.8.8.8 I really love spending time with you player. 8Would you be mine?7",
+        "3.8.8.8 I-8I think I like you player. 8Will you please go out with me!7",
         "3.8.8.8 I like you player. 8Whether you're a hedgehog, a pokemon, or a frog, I don't care anymore!7",
         "4.8.8.8 Hey player, 8I'd like to try it once. That wicked love.7",
         "1.8.8.8 player, 8I'm sorry for looking at that other guy over there.8 Should I apologize..3 or should I just kiss you right now?7",
