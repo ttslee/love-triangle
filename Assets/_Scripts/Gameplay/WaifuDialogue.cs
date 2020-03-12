@@ -38,33 +38,33 @@ public class WaifuDialogue : MonoBehaviour
 
     List<string> waifuResponses = new List<string>
     {
-        "2Oh, thank you so much! I've been carrying them around all day my arms were getting tired!",
-        "1Really player? Wintermelon milk tea, half sweet, and less ice please!",
-        "2Thanks! I wasn't too sure about this shirt but I feel better about it now!",
+        "2Oh, thank you so much! 1I've been carrying them around all day and my arms were getting so tired.",
+        "3Really player? 1Thai milk tea, half sweet, and less ice please!",
+        "2Thanks! 1I wasn't too sure about this shirt but I feel better about it now!",
         "1That is definitely the most original thing I've heard in my entire life, tell me more.",
         "2Is that a danish? Yeah, I want it!",
-        "3While we what? Have a… d-date?",
+        "3While we what? Have a d-date?",
         "5You're not the first to tell me that.",
         "1Oh my gosh, yes please! I don't know anyone in that class!",
-        "1Depends, what kind of movie were you thinking of? I'm a big fan of horror!",
+        "1Depends, what kind of movie were you thinking of? 2I'm a big fan of horror!",
         "1Gosh, I've been so busy I actually haven’t. I'm down.",
-        "1Yeah? Maybe once you're done, you can lend it to me and we can talk about it.", //#10
+        "1Yeah? Maybe once you're done, 4you can lend it to me and we can talk about it.", //#10
         "5I can't believe you think I'm more beautiful than Miss Mother Nature herself.",
         "3You're such a lifesaver and I'm so stupid. Thank you!",
         "4As long as you don't mind returning the favor some other time.",
-        "1Can you get me some cucumbers? The little persian ones!",
+        "1Can you get me tiny cactus sitting outside? 3Its so cute!",
         "4You did? That's really thoughtful of you player!",
-        "5It's not my first choice of fast food, but if it's free, why not!",
+        "5It's not my first choice of fast food, 2but if it's free, why not!",
         "1I barely know my plans for next week, let alone next month, but we'll see.",
         "2Fun fact: I LOVE carne asada fries.",
         "4Thanks, it's been exhausting lately. I'm glad you understand player.",
-        "1What does that have to do with anything? We can hang out and you don't have to lose ramen. Win win.", //#20
+        "5What does that have to do with anything? 1We can hang out and you don't have to lose ramen. Win win.", //#20
         "2Thanks, I tend to have that effect on people.",
         "4I think you've found the way to my heart, honestly.",
-        "2I did! You noticed player? It was only three inches off, but my hair feels way healthier now.",
-        "5You really think so? There's still so much more for me to learn about you player.",
-        "5It's the middle of July, you're so lame. But it's cute, I guess.",
-        "1Is it one of those picture-taking ones? I'm so down for that.",
+        "2I did! You noticed player? 1It was only three inches off, but my hair feels way healthier now.",
+        "5You really think so? 3There's still so much more for me to learn about you player.",
+        "5It's the middle of July, you're so lame. 2But it's cute, I guess.",
+        "1Is it one of those picture-taking ones? 2I'm so down for that.",
         "2Really? You're a lifesaver!",
         "1Yes please, it's forty-five degrees out right now!",
         "3As if you couldn't have been any more obvious!", //#29
