@@ -42,9 +42,7 @@ public class MenuDialogue : MonoBehaviour
     private void Say() //Types out text with type writer effect.
     {
         timer += Time.deltaTime;
-        
-        
-            
+
         if (start == true && timer >= textSpeed)
         {
             if (tmpText.text.Length > tmpText.maxVisibleCharacters)

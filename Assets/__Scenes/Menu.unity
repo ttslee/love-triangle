@@ -5577,6 +5577,21 @@ PrefabInstance:
       propertyPath: textSpeed
       value: 0.0168
       objectReference: {fileID: 0}
+    - target: {fileID: 490846053369224484, guid: 9116621a8d0e34740ba99979e8327348,
+        type: 3}
+      propertyPath: m_text
+      value: <color=#ff515d>Love</color> <color=#faf9f9>Triangle</color>
+      objectReference: {fileID: 0}
+    - target: {fileID: 490846053369224484, guid: 9116621a8d0e34740ba99979e8327348,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 490846053369224484, guid: 9116621a8d0e34740ba99979e8327348,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 490846053488882660, guid: 9116621a8d0e34740ba99979e8327348,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
