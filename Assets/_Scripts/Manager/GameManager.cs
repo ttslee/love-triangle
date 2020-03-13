@@ -341,6 +341,12 @@ public class GameManager : MonoBehaviour
         GameOn = false;
     }
 
+    private IEnumerator DelayedUnpause()
+    {
+        yield return new WaitForSeconds(0.15f);
+        PauseMenuOn = false;
+    }
+
     public void Unpause()
     {
         if (player1)
@@ -348,7 +354,7 @@ public class GameManager : MonoBehaviour
         if (player2)
             player2.GetComponent<PlayerScript>().DisableMenuActions();
         GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = -1;
-        PauseMenuOn = false;
+        StartCoroutine(DelayedUnpause());
         GameOn = true;
     }
 
