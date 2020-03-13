@@ -215,11 +215,37 @@ public class GameManager : MonoBehaviour
             ShuffleList<string>(player1.GetComponent<PlayerScript>().ActionList);
     }
 
+    public void AbilityCheck(int player, int ability, int love)
+    {
+        if (player == 1 && player2)
+        {
+            PlayerScript playerScript = player1.GetComponent<PlayerScript>();
+            if (love < player2.GetComponent<PlayerScript>().LoveBar)
+            {
+                StartCoroutine(playerScript.abilityChange(6));
+            } else
+            {
+                StartCoroutine(playerScript.abilityChange(ability + 2));
+            }
+        } else if (player == 2 && player1)
+        {
+            PlayerScript playerScript = player2.GetComponent<PlayerScript>();
+            if (love < player1.GetComponent<PlayerScript>().LoveBar)
+            {
+                StartCoroutine(playerScript.abilityChange(6));
+            }
+            else
+            {
+                StartCoroutine(playerScript.abilityChange(ability + 2));
+            }
+        }
+    }
+
     public void ActionListComplete(int player, string message)
     {
-        GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, playerMessageDictionary[message], 0);
+        GameObject.FindGameObjectWithTag("WaifuText").GetComponent<WaifuDialogue>().Reply(player, playerMessageDictionary[message], 0);
         if (GameFinished)
-            GameObject.Find("WaifuText").GetComponent<WaifuDialogue>().Reply(player, 0, 1);
+            GameObject.FindGameObjectWithTag("WaifuText").GetComponent<WaifuDialogue>().Reply(player, 0, 1);
         SetActionList(player);
     }
 
@@ -336,7 +362,7 @@ public class GameManager : MonoBehaviour
             player1.GetComponent<PlayerScript>().EnableMenuActions();
         if(player2)
             player2.GetComponent<PlayerScript>().EnableMenuActions();
-        GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = 1;
+        GameObject.FindGameObjectWithTag("Pause").GetComponent<Canvas>().sortingOrder = 1;
         PauseMenuOn = true;
         GameOn = false;
     }
@@ -353,7 +379,7 @@ public class GameManager : MonoBehaviour
             player1.GetComponent<PlayerScript>().DisableMenuActions();
         if (player2)
             player2.GetComponent<PlayerScript>().DisableMenuActions();
-        GameObject.Find("PauseMenu").GetComponent<Canvas>().sortingOrder = -1;
+        GameObject.FindGameObjectWithTag("Pause").GetComponent<Canvas>().sortingOrder = -1;
         StartCoroutine(DelayedUnpause());
         GameOn = true;
     }
@@ -361,7 +387,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator DelayedNewGame()
     {
         yield return new WaitForSeconds(.01f);
-        MenuManager menuManager = GameObject.Find("Canvas").GetComponent<MenuManager>();
+        MenuManager menuManager = GameObject.FindGameObjectWithTag("Canvas").GetComponent<MenuManager>();
         menuManager.playerLeft.sprite = player1Character.Item1;
         menuManager.playerRight.sprite = player2Character.Item1;
         menuManager.indexLeft = indexLeftInfo;

@@ -352,6 +352,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 909837600916140715, guid: cb485b86fdca60942acd8bc9d0babc69,
+        type: 3}
+      propertyPath: m_TagString
+      value: Pause
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb485b86fdca60942acd8bc9d0babc69, type: 3}
 --- !u!1001 &1486260506
@@ -5340,6 +5345,11 @@ PrefabInstance:
       propertyPath: particles
       value: 
       objectReference: {fileID: 1932692837}
+    - target: {fileID: 4688644541367646799, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_TagString
+      value: InputListRight
+      objectReference: {fileID: 0}
     - target: {fileID: 7212715248020503812, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -5359,6 +5369,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212715248725691369, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_TagString
+      value: WaifuText
       objectReference: {fileID: 0}
     - target: {fileID: 7212715248725691371, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
@@ -5388,6 +5403,11 @@ PrefabInstance:
     - target: {fileID: 7212715249247064773, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}
       propertyPath: m_Name
+      value: Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 7212715249247064773, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_TagString
       value: Canvas
       objectReference: {fileID: 0}
     - target: {fileID: 7212715249247064774, guid: f5c52384d76597c488cb195f36f0c230,
@@ -5524,6 +5544,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_textInfo.pageCount
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8147137344792571057, guid: f5c52384d76597c488cb195f36f0c230,
+        type: 3}
+      propertyPath: m_TagString
+      value: InputListLeft
       objectReference: {fileID: 0}
     - target: {fileID: 8564097842170490467, guid: f5c52384d76597c488cb195f36f0c230,
         type: 3}

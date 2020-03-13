@@ -107,6 +107,28 @@ public class PlayerScript : MonoBehaviour
     //    controls.Gameplay.LeftJoy.canceled += ctx => move = Vector2.zero;
     //}
 
+    public IEnumerator abilityChange(int amt)
+    {
+        if (amt < abilityBar)
+        {
+            for (int i = abilityBar; i >= amt; i--)
+            {
+                abilityBar = i;
+                source.clip = errorSound;
+                source.Play();
+                GameManager.Instance.AbilityCast(player);
+                yield return new WaitForSeconds(.1f);
+            }
+        } else if (amt > abilityBar && amt < 7)
+        {
+            for (int i = abilityBar; i <= amt; i++)
+            {
+                abilityBar = i;
+                yield return new WaitForSeconds(.1f);
+            }
+        }
+    }
+
     private void PlayerAction(string action)
     {
         switch(action)
@@ -119,13 +141,12 @@ public class PlayerScript : MonoBehaviour
                     break;
                 if(abilityBar == 6)
                 {
-                    GameManager.Instance.AbilityCast(player);
-                    AbilityBar = 0;
+                    StartCoroutine(abilityChange(0));
                 }
                 break;
             case "Start":
                 if (!GameManager.Instance.GameOn && GameManager.Instance.MainMenuOn)
-                    GameObject.Find("Canvas").GetComponent<MenuManager>().StartGame();
+                    GameObject.FindGameObjectWithTag("Canvas").GetComponent<MenuManager>().StartGame();
                 else if (GameManager.Instance.GameOn && !GameManager.Instance.PauseMenuOn)
                     GameManager.Instance.Pause();
                 else if (!GameManager.Instance.GameOn && GameManager.Instance.PauseMenuOn)
@@ -167,8 +188,8 @@ public class PlayerScript : MonoBehaviour
                     source.Play();
                     if(history.Count != 0)
                     {
-                        if(AbilityBar < 6)
-                            AbilityBar+=3;
+                        //if(AbilityBar < 6)
+                            //AbilityBar+=3;
                         switch (player)
                         {
                             case 1:
@@ -195,7 +216,8 @@ public class PlayerScript : MonoBehaviour
             source.Play(); 
             history.Clear(); 
             hasActionList = false;
-            imageListAnimator.SetTrigger("Hide"); //Hides text right after it resets
+            imageListAnimator.SetTrigger("Hide"); //Hides inputlist right after it resets
+            GameManager.Instance.AbilityCheck(player, abilityBar, loveBar);
             LoveBar++;
             if (LoveBar == 4)
             {
@@ -212,10 +234,10 @@ public class PlayerScript : MonoBehaviour
         switch (p)
         {
             case 1:
-                inputImageList = GameObject.Find("InputListLeft");
+                inputImageList = GameObject.FindGameObjectWithTag("InputListLeft");
                 break;
             case 2:
-                inputImageList = GameObject.Find("InputListRight");
+                inputImageList = GameObject.FindGameObjectWithTag("InputListRight");
                 break;
         }
         if(inputImageList != null)

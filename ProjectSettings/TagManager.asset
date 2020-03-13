@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Mouse
   - Particle
+  - Canvas
+  - WaifuText
+  - Pause
+  - InputListLeft
+  - InputListRight
   layers:
   - Default
   - TransparentFX
