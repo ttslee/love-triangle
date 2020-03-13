@@ -336,11 +336,22 @@ public class PlayerScript : MonoBehaviour
         if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
             PlayerAction("RT");
     }
+
+    private IEnumerator DelayedLeftJoy(InputValue iVal)
+    {
+        yield return new WaitForSeconds(1.5f);
+        if (!GameManager.Instance.PauseMenuOn || !GameManager.Instance.MainMenuOn)
+            move = Vector2.zero;
+    }
+
     public void OnLeftJoy(InputValue iVal)
     {
         if (GameManager.Instance.PauseMenuOn || GameManager.Instance.MainMenuOn)
             move = iVal.Get<Vector2>() * 2f;
         else
             move = Vector2.zero;
+        StopAllCoroutines();
+        StartCoroutine(DelayedLeftJoy(iVal));
+
     }
 }
