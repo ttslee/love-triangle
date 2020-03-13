@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     //-------------------Player messages & data--------------------
     public Tuple<Sprite, string> player1Character { get; set; } = null;
     public Tuple<Sprite, string> player2Character { get; set; } = null;
+    public int indexLeftInfo { get; set; } = 0;
+    public int indexRightInfo { get; set; } = 2;
     public GameObject DialogueBoxP1 { get; set; } = null;
     public GameObject DialogueBoxP2 { get; set; } = null;
     private int currentMessage = 0;
@@ -350,6 +352,17 @@ public class GameManager : MonoBehaviour
         GameOn = true;
     }
 
+    private IEnumerator DelayedNewGame()
+    {
+        yield return new WaitForSeconds(.01f);
+        MenuManager menuManager = GameObject.Find("Canvas").GetComponent<MenuManager>();
+        menuManager.playerLeft.sprite = player1Character.Item1;
+        menuManager.playerRight.sprite = player2Character.Item1;
+        menuManager.indexLeft = indexLeftInfo;
+        menuManager.indexRight = indexRightInfo;
+
+    }
+
     public void NewGame()
     {
         GameOn = false;
@@ -363,6 +376,7 @@ public class GameManager : MonoBehaviour
         if (player2)
             player2.GetComponent<PlayerScript>().NewGame();
         SceneManager.LoadScene("Menu");
+        StartCoroutine(DelayedNewGame());
     }
 
     //----------------------------Menu Options End-------------------------------

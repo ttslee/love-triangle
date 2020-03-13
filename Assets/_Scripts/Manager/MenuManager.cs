@@ -10,8 +10,8 @@ public class MenuManager : MonoBehaviour
     List<Tuple<Sprite, string>> playerIcons = new List<Tuple<Sprite, string>>();
     public Image playerLeft;
     public Image playerRight;
-    private int indexLeft = 0;
-    private int indexRight = 2;
+    public int indexLeft = 0;
+    public int indexRight = 2;
     public GameObject dialogueBox;
     public GameObject buttons;
     private TextMeshProUGUI textBox;
@@ -37,6 +37,8 @@ public class MenuManager : MonoBehaviour
         {
             GameManager.Instance.player1Character = playerIcons[(indexLeft % playerIcons.Count)];
             GameManager.Instance.player2Character = playerIcons[(indexRight % playerIcons.Count)];
+            GameManager.Instance.indexLeftInfo = indexLeft;
+            GameManager.Instance.indexRightInfo = indexRight;
             GameManager.Instance.StartGame();
         } else
         {
