@@ -340,5 +340,7 @@ public class PlayerScript : MonoBehaviour
     {
         if (GameManager.Instance.PauseMenuOn || GameManager.Instance.MainMenuOn)
             move = iVal.Get<Vector2>() * 2f;
+        else
+            move = Vector2.zero;
     }
 }
