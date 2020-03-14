@@ -34,6 +34,9 @@ public class WaifuDialogue : MonoBehaviour
     //End with Particles
     public GameObject particles;
 
+    //Debug
+    public bool debugMode = false;
+
     #endregion
 
     List<string> waifuResponses = new List<string>
@@ -47,7 +50,7 @@ public class WaifuDialogue : MonoBehaviour
         "5You're not the first to tell me that. That guy over there said the same thing.", //6 //0 Pause
         "1Oh my gosh, yes please! I don't know anyone in that class!", //7 //0 Pause
         "1Depends,8 what movie were you thinking of? 2I'm a big horror fan!", //8 //1 Pause
-        "1Gosh, I've been so busy I actually haven’t. I'm down for some California Gogi!", //9
+        "1Gosh, I've been so busy I actually haven't. I'm down for some California Gogi!", //9
         "1Yeah?84 If you lend it to me, maybe we can talk about it.", //#10 //1 Pause
         "5I can't believe you think I'm more beautiful than Miss Mother Nature herself.", //11 //0 Pause
         "3You are such a lifesaver and I'm so stupid.8 Thank you so much!", //12 //1 Pause
@@ -88,7 +91,6 @@ public class WaifuDialogue : MonoBehaviour
         "4.8.8.8 I really love spending time with you player. 8Would you be mine?7",
         "3.8.8.8 I-8I think I like you player. 8Will you please go out with me!7",
         "3.8.8.8 I like you player. 8Whether you're a hedgehog, a pokemon, or a frog, I don't care anymore!7",
-        "4.8.8.8 Hey player, 8I'd like to try it once. That wicked love.7",
         "1.8.8.8 player, 8I'm sorry for looking at that other guy over there.8 Should I apologize..3 or should I just kiss you right now?7",
         "1.8.8.8 player, 8I'm not going to lie.8 After hearing you talk four sentences,3 I fell in love with you.7"
     };
@@ -109,7 +111,14 @@ public class WaifuDialogue : MonoBehaviour
         foreach (Sprite s in sprites)
             waifuSprites.Add(s);
         //StartGame Dialogue
-        QueueText(waifuStartDialogue[Random.Range(0,waifuStartDialogue.Count)]);
+        if (!debugMode)
+            QueueText(waifuStartDialogue[Random.Range(0,waifuStartDialogue.Count)]);
+        else //DEBUG STUFF HERE
+        {
+            QueueText("Here there");
+            QueueText("Here <color=#1e4d25>there</color>");
+            QueueText("Here there");
+        }
     }
 
     private void Update()
