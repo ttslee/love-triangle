@@ -118,10 +118,10 @@ public class WaifuDialogue : MonoBehaviour
             QueueText("Here there");
             QueueText("Here <color=#1e4d25>there</color>");
             QueueText("Here there");
-        }
-        for (int i = 0; i < texts.Count; i++)
-        {
-            Debug.Log(texts[i]);
+            for (int i = 0; i < texts.Count; i++)
+            {
+                Debug.Log(texts[i]);
+            }
         }
     }
 

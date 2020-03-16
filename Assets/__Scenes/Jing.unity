@@ -660,7 +660,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Here there
+  m_text: "Here<color=#1e4d25> <alpha=#99>player.</a> </color> okay\nHere <color=#1e4d25>player.</color>
+    how.\nHere <color=#1e4d25>player.</color>\nHere<color=#1e4d25> player. </color>\n\nHere
+    pla\nyer how.\n\nHere \nplayer how.\n\n\nHere four.\n\n\n\n\n\n\n\n\n\n\nHere
+    <color=#1e4d25>there</color>\n\n\n\n\n\n\n\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8c84d20ab27d43f40b774a1c1380092b, type: 2}
   m_sharedMaterial: {fileID: 1018267622288530728, guid: 8c84d20ab27d43f40b774a1c1380092b,
@@ -730,12 +733,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1453835587384680525}
-    characterCount: 10
+    characterCount: 144
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 46
+    wordCount: 21
     linkCount: 0
-    lineCount: 1
+    lineCount: 32
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

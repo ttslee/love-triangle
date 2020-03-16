@@ -116,15 +116,15 @@ public class WaifuDialogue2 : MonoBehaviour
             QueueText(waifuStartDialogue[Random.Range(0, waifuStartDialogue.Count)]);
         else //DEBUG
         {
-            QueueText("a very long word. averylongword");
-            QueueText("Here <color=#1e4d25>there</color>");
-            //QueueText("Here there");
-            //QueueText("Here there");
+            //QueueText("averylongword. averylongword");
+            //QueueText("Here <color=#1e4d25>there</color> <color=#1e4d25>there</color> <color=#1e4d25>toobiggo</color>");
+            QueueText("Here there");
+            QueueText("Here there");
             //QueueText("Behold!");
-            QueueText("Here there Here there Here thereHere there Here there Here there");
-            QueueText("Here there Here there Here thereHere there Here there Here there");
-            QueueText("Here there Here there Here thereHere there Here there Here there");
-            QueueText("Here there Here there Here thereHere there Here there Here there");
+            //QueueText("Here there Here there Here thereHere there Here there Here there");
+            //QueueText("Here there Here there Here thereHere there Here there Here there");
+            //QueueText("Here there Here there Here thereHere there Here there Here there");
+            //QueueText("Here there Here there Here thereHere there Here there Here there");
         }
     }
 
@@ -161,7 +161,7 @@ public class WaifuDialogue2 : MonoBehaviour
         //Timer for typewriter effect and sound effect
         timer += Time.deltaTime;
         //soundTimer += Time.deltaTime;
-        CheckMaxLines();
+        //CheckMaxLines();
         if (timer >= textSpeed)
         {
             //if (sayCount != totalChars && soundTimer >= .056f)
@@ -172,7 +172,7 @@ public class WaifuDialogue2 : MonoBehaviour
             if (sayCount != totalChars)
             {
                 //Line Handler
-                //CheckMaxLines();
+                CheckMaxLines();
 
                 //Color Handler
                 if (texts[sayCount] == '<' && !colored)
@@ -180,19 +180,23 @@ public class WaifuDialogue2 : MonoBehaviour
                     tmpText.text += texts.Substring(sayCount, 15);
                     sayCount += 15;
                     colored = true;
-                } else if (texts[sayCount] == '<' && colored)
+                }
+                else if (texts[sayCount] == '<' && colored)
                 {
-                    tmpText.text += "</color>";
+                    tmpText.text += "</color>"; //sayCount lands on '>'
                     sayCount += 8;
                     colored = false;
-                } //Essentially skips <> and onto the next character
-                tmpText.text += texts[sayCount]; 
-                //Debug.Log(texts[sayCount]);
-                //tmpText.ForceMeshUpdate();
-                //Debug.Log(tmpText.textInfo.lineCount);
-                //Debug.Log(tmpText.textInfo.characterInfo[sayCount - 1].lineNumber);
-                sayCount++;
-                timer = 0f;
+                }
+                else if (texts[sayCount] == ' ')
+                {
+                    CheckSpace();
+                }
+                else
+                {
+                    tmpText.text += texts[sayCount];
+                    sayCount++;
+                    timer = 0f;
+                }
             }
             //Debug.Log(sayCount);
             //Debug.Log(totalChars);
@@ -201,7 +205,57 @@ public class WaifuDialogue2 : MonoBehaviour
 
     private void CheckSpace()
     {
-
+        tmpText.ForceMeshUpdate();
+        int lineCount = tmpText.textInfo.lineCount;
+        Debug.Log(tmpText.textInfo.lineCount);
+        bool tempColored = false;
+        bool needSpace = false;
+        string tempTexts = tmpText.text;
+        tmpText.text += "<alpha=#00>";
+        for (int i = sayCount + 1; i < totalChars; i++)
+        {
+            //Color Handler
+            if (texts[i] == '<' && !tempColored)
+            {
+                tmpText.text += texts.Substring(i, 15);
+                i += 15;
+                tempColored = true;
+            }
+            else if (texts[i] == '<' && tempColored)
+            {
+                tmpText.text += "</color>"; //sayCount lands after '>'
+                i += 8;
+                tempColored = false;
+                if (sayCount == totalChars)
+                    break;
+            }
+            if (i >= totalChars || texts[i] == ' ') //If onto next word before next line
+                break;
+            //Check Space
+            tmpText.text += texts[i]; //Add to original text to check
+            tmpText.ForceMeshUpdate(); //Update textInfo
+            if (lineCount != tmpText.textInfo.lineCount) //Check if adding this one character moved the text to new line
+            {
+                tmpText.text = tmpText.text.Substring(0, tmpText.text.Length - 1); //If it did revert text back by one character
+                needSpace = true;
+                break;
+            }
+        }
+        //Debug.Log(needSpace);
+        if (needSpace) //Apply adjustments
+        {
+            tmpText.text = tempTexts + "\n";
+            sayCount++;
+            timer = 0f;
+            return;
+        }
+        else
+        { //Revert adjustments
+            tmpText.text = tempTexts; //Back to original as if nothing happened.
+            tmpText.text += texts[sayCount];
+            sayCount++;
+            timer = 0f;
+        }
     }
 
     private void CheckMaxLines() //Removes first line if true
