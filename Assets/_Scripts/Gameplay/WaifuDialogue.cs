@@ -21,7 +21,7 @@ public class WaifuDialogue : MonoBehaviour
     private int typeCount = 0; //Counts how many Letters has been iterated so far per line
     private int totalChars = 0; //Total chars
     private int sayCount = 0; //Chars that have actually been said
-
+    private bool firstsentence = true;
     //Expressions
     public Image waifu;
     private List<Sprite> waifuSprites = new List<Sprite>(); 
@@ -119,6 +119,10 @@ public class WaifuDialogue : MonoBehaviour
             QueueText("Here <color=#1e4d25>there</color>");
             QueueText("Here there");
         }
+        for (int i = 0; i < texts.Count; i++)
+        {
+            Debug.Log(texts[i]);
+        }
     }
 
     private void Update()
@@ -132,8 +136,18 @@ public class WaifuDialogue : MonoBehaviour
     {
         int recordingInt = 0;
         string textCopy = text; 
-        string line = ""; 
+        string line = "";
+        
+        if (firstsentence == false)
+        {
+            texts.Add("");//add a newline when it is first 
+        }
+        if (firstsentence == true) 
+        {
+            firstsentence = false;
+        }
 
+        
         while (textCopy.Length > charsPerLine)
         {
             for (int i = 0; i <= charsPerLine; i++)
@@ -182,8 +196,11 @@ public class WaifuDialogue : MonoBehaviour
             line = "";
         }
         line = textCopy;
-        totalChars += textCopy.Length;
-        texts.Add(line);
+        if (line != "") 
+        {
+            totalChars += textCopy.Length;
+            texts.Add(line);
+        }
     }
 
     #region QueueText Helper Functions
