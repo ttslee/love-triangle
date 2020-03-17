@@ -105,7 +105,67 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9258e6ba-d262-4a95-8783-61bc5a6404ee
+    m_ActionName: Gameplay/X[/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1e2b0127-4216-40e4-9472-3b1157664740
+    m_ActionName: Gameplay/T[/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5f74578c-f129-4411-95b4-e3fc3f041caf
+    m_ActionName: Gameplay/O[/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a84c13e0-508f-472b-a00d-949859b58e3e
+    m_ActionName: Gameplay/S[/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 83dfc872-f2e2-4c04-a7c8-45ee923dad9e
+    m_ActionName: Gameplay/Up[/XInputControllerWindows/dpad/up]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 15825e90-6ca1-4cc6-817b-55ab8dc4682d
+    m_ActionName: Gameplay/Down[/XInputControllerWindows/dpad/down]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 025cb2d8-19df-461a-9495-5380f1babfb9
+    m_ActionName: Gameplay/Left[/XInputControllerWindows/dpad/left]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1fbb3b13-7f6b-4034-89d1-8cde6d43f613
+    m_ActionName: Gameplay/Right[/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3403b7d0-8eed-4517-904f-6d59e41ec487
+    m_ActionName: Gameplay/Start[/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c8561312-cbe7-4f83-88ff-9a9ced138821
+    m_ActionName: Gameplay/LT[/XInputControllerWindows/leftTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 3f43583d-471a-42e1-82cf-4baaccccca2b
+    m_ActionName: Gameplay/LB[/XInputControllerWindows/leftShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c5face2b-b758-477b-9fcd-4a284648f028
+    m_ActionName: Gameplay/RT[/XInputControllerWindows/rightTrigger]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fc36a780-b714-4e46-94a7-9a2a44c03dae
+    m_ActionName: Gameplay/RB[/XInputControllerWindows/rightShoulder]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f8cad211-d6c6-45f1-ba0d-6fd966146ebb
+    m_ActionName: Gameplay/LeftJoy[/XInputControllerWindows/leftStick]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d6fef973-debf-4222-ad7f-46ac1b10d943
+    m_ActionName: Gameplay/RightJoy[/XInputControllerWindows/rightStick]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay

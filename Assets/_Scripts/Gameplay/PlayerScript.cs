@@ -22,8 +22,10 @@ public class PlayerScript : MonoBehaviour
     Vector2 move;
     // PlayerControls
     //public PlayerControls controls { get; set; }
-    
+
     // Input stream and String Info
+    int gamepadType = 0;
+
     private Stack<string> history;
     private bool hasActionList = false;
     public bool HasActionList{ get{ return hasActionList; } set{ hasActionList = value; } }
@@ -48,6 +50,8 @@ public class PlayerScript : MonoBehaviour
         //controls = new PlayerControls();
         history = new Stack<string>();
         actionList = new List<string>();
+        if (Gamepad.current.displayName.ToLower().Contains("xbox"))
+            gamepadType = 1;
         GameManager.Instance.NotifyGM(gameObject);
     }
 
@@ -279,7 +283,12 @@ public class PlayerScript : MonoBehaviour
                 if (actionList.Count <= i)
                     inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = null;
                 else
-                    inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = GameManager.Instance.playerActionDictionary[ActionList[i]];
+                {
+                    if (gamepadType == 0)
+                        inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = GameManager.Instance.playerActionDictionary[ActionList[i]];
+                    else
+                        inputImageList.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite = GameManager.Instance.playerActionDictionary2[ActionList[i]];
+                }
             }
     }
 

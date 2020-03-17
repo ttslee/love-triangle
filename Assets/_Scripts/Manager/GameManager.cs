@@ -118,6 +118,7 @@ public class GameManager : MonoBehaviour
 
     //-----------------Input Options------------------
     public List<Sprite> playerActionSprites;
+    private List<Sprite> playerActionSprites2;
     private List<string> inputOptions = 
         new List<string>
         {
@@ -153,11 +154,21 @@ public class GameManager : MonoBehaviour
     // -----------------Input Options End-----------------
 
     public Dictionary<string, Sprite> playerActionDictionary;
+    public Dictionary<string, Sprite> playerActionDictionary2;
+
     public void Start()
     {
         playerActionDictionary = new Dictionary<string, Sprite>();
         for (int i = 0; i < 8; i++)    
             playerActionDictionary.Add(playerActionInputList[i], playerActionSprites[i]);
+        playerActionDictionary2 = new Dictionary<string, Sprite>();
+        for (int i = 0; i < 8; i++)
+        {
+            int x = i;
+            if (i < 4)
+                x += 8;
+            playerActionDictionary2.Add(playerActionInputList[i], playerActionSprites[x]);
+        }
         ShuffleList<string>(playerMessages);
     }
     private void Awake()
