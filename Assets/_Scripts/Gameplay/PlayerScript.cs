@@ -50,7 +50,7 @@ public class PlayerScript : MonoBehaviour
         //controls = new PlayerControls();
         history = new Stack<string>();
         actionList = new List<string>();
-        if (Gamepad.current.displayName.ToLower().Contains("xbox"))
+        if (gameObject.GetComponent<PlayerInput>().currentControlScheme == "Xbox")
             gamepadType = 1;
         GameManager.Instance.NotifyGM(gameObject);
     }
