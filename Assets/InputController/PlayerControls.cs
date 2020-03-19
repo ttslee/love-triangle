@@ -56,7 +56,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""83dfc872-f2e2-4c04-a7c8-45ee923dad9e"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": ""Press(pressPoint=0.8)""
                 },
                 {
                     ""name"": ""Down"",
@@ -64,7 +64,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""15825e90-6ca1-4cc6-817b-55ab8dc4682d"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": ""Press(pressPoint=0.8)""
                 },
                 {
                     ""name"": ""Left"",
@@ -72,7 +72,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""025cb2d8-19df-461a-9495-5380f1babfb9"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": ""Press(pressPoint=0.8)""
                 },
                 {
                     ""name"": ""Right"",
@@ -80,7 +80,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""1fbb3b13-7f6b-4034-89d1-8cde6d43f613"",
                     ""expectedControlType"": """",
                     ""processors"": """",
-                    ""interactions"": ""Press""
+                    ""interactions"": ""Press(pressPoint=0.8)""
                 },
                 {
                     ""name"": ""Start"",
