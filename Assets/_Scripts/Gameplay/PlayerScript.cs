@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 public class PlayerScript : MonoBehaviour
 {
     // Mouse Object Info
     public GameObject mouse;
     public Color32 mouseColor1;
     public Color32 mouseColor2;
+    private EventSystem eventSystem;
 
     // Message Info
     public string Message { get; set; }
@@ -83,6 +85,10 @@ public class PlayerScript : MonoBehaviour
     public void SetPlayer(int i)
     {
         player = i;
+        if (i == 1)
+            eventSystem = GameObject.FindGameObjectWithTag("EventP1").GetComponent<EventSystem>();
+        else
+            eventSystem = GameObject.FindGameObjectWithTag("EventP2").GetComponent<EventSystem>();
     }
 
     public IEnumerator abilityChange(int amt)
@@ -278,7 +284,12 @@ public class PlayerScript : MonoBehaviour
   
     public void OnX()
     {
-        if(!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
+        if (GameManager.Instance.PauseMenuOn || GameManager.Instance.MainMenuOn)
+        {
+            if (eventSystem.currentSelectedGameObject != null)
+                ExecuteEvents.Execute(eventSystem.currentSelectedGameObject, null, ExecuteEvents.submitHandler);
+        }
+        else if (!GameManager.Instance.PauseMenuOn && !GameManager.Instance.GameFinished)
             PlayerAction("X");              // X button
     }
 
