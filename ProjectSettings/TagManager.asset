@@ -11,6 +11,9 @@ TagManager:
   - Pause
   - InputListLeft
   - InputListRight
+  - EventP1
+  - EventP2
+  - Event
   layers:
   - Default
   - TransparentFX

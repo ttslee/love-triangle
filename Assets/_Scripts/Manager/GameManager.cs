@@ -25,6 +25,8 @@ public class GameManager : MonoBehaviour
     public GameObject DialogueBoxP2 { get; set; } = null;
     private int currentMessage = 0;
 
+    #region Dialogue
+
     List<string> playerMessages = new List<string>
     {
         "Here, let me help you with your bags, they look really heavy!",
@@ -108,6 +110,8 @@ public class GameManager : MonoBehaviour
         //{"testing7", 7 }
     };
     //--------------------Player Message Data End----------------------
+
+#endregion
 
     // Singleton
     public static GameManager Instance = null;

@@ -19,9 +19,8 @@ public class PlayerScript : MonoBehaviour
     // Player
     private int player = 0;
     public int Player { get { return player; } set { player = value; } }
+
     Vector2 move;
-    // PlayerControls
-    //public PlayerControls controls { get; set; }
 
     // Input stream and String Info
     int gamepadType = 0;
@@ -47,7 +46,6 @@ public class PlayerScript : MonoBehaviour
     public AudioSource source;
     void Start()
     {
-        //controls = new PlayerControls();
         history = new Stack<string>();
         actionList = new List<string>();
         if (gameObject.GetComponent<PlayerInput>().currentControlScheme == "Xbox")
@@ -57,7 +55,6 @@ public class PlayerScript : MonoBehaviour
 
     private void Awake()
     {
-        //InputControlBindings();
         DontDestroyOnLoad(gameObject);
     }
 
@@ -80,36 +77,13 @@ public class PlayerScript : MonoBehaviour
                 SetActionImages();
             }
         }
-        keyBoardInput();
         MoveMouse();
     }
-    private void keyBoardInput()
-    {
-        //if (Input.GetKeyDown(KeyCode.Return))
-        //    GameManager.Instance.NewGame();
-    }
+
     public void SetPlayer(int i)
     {
         player = i;
     }
-    //private void InputControlBindings()
-    //{
-    //    controls.Gameplay.X.performed += ctx => PlayerAction("X");              // X button
-    //    controls.Gameplay.O.performed += ctx => PlayerAction("O");              // circle
-    //    controls.Gameplay.S.performed += ctx => PlayerAction("S");              // square
-    //    controls.Gameplay.T.performed += ctx => PlayerAction("T");              // triangle
-    //    controls.Gameplay.Down.performed += ctx => PlayerAction("Down");        // Down D-PAD
-    //    controls.Gameplay.Left.performed += ctx => PlayerAction("Left");        // Left D-PAD
-    //    controls.Gameplay.Right.performed += ctx => PlayerAction("Right");      // Right D-PAD
-    //    controls.Gameplay.Up.performed += ctx => PlayerAction("Up");            // UP D-PAD
-    //    controls.Gameplay.Start.performed += ctx => PlayerAction("Start");      // Options/Start
-    //    controls.Gameplay.RT.performed += ctx => PlayerAction("RT");            // Right trigger
-    //    controls.Gameplay.RB.performed += ctx => PlayerAction("RB");            // Right Bumper
-    //    controls.Gameplay.LT.performed += ctx => PlayerAction("LT");            // Left Trigger
-    //    controls.Gameplay.LB.performed += ctx => PlayerAction("LB");            // Left Bumper
-    //    controls.Gameplay.LeftJoy.performed += ctx => move = ctx.ReadValue<Vector2>() * 2f;  // LeftJoy
-    //    controls.Gameplay.LeftJoy.canceled += ctx => move = Vector2.zero;
-    //}
 
     public IEnumerator abilityChange(int amt)
     {
@@ -193,7 +167,7 @@ public class PlayerScript : MonoBehaviour
                     if(history.Count != 0)
                     {
                         //if(AbilityBar < 6)
-                            //AbilityBar+=3;
+                            //AbilityBar++;
                         switch (player)
                         {
                             case 1:

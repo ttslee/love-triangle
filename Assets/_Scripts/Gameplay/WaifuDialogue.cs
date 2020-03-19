@@ -39,6 +39,8 @@ public class WaifuDialogue : MonoBehaviour
 
     #endregion
 
+    #region Dialogue
+
     List<string> waifuResponses = new List<string>
     {
         "2Thank you!81 My arms are so tired from carrying them around all day.", //0 //1 Pause
@@ -53,7 +55,7 @@ public class WaifuDialogue : MonoBehaviour
         "1Gosh, I've been so busy I actually haven't. I'm down for some California Gogi!", //9
         "1Yeah?84 If you lend it to me, maybe we can talk about it.", //#10 //1 Pause
         "5I can't believe you think I'm more beautiful than Miss Mother Nature herself.", //11 //0 Pause
-        "3You are such a lifesaver and I'm so stupid.8 Thank you so much!", //12 //1 Pause
+        "3You are such a lifesaver and I'm so stupid.82 Thank you so much!", //12 //1 Pause
         "4As long as you don't mind returning the favor some other time.", //13 //0 Pause
         "1Can you get me that tiny cactus sitting outside?8 3It's so cute!", //14 //1 Pause
         "4Did you really?8 Wow, that's really thoughtful of you player!", //15 //1 Pause
@@ -101,6 +103,9 @@ public class WaifuDialogue : MonoBehaviour
         {"Pika",  "<color=#fff624>"},
         {"Pepe", "<color=#1e4d25>" }
     };
+
+    #endregion
+
     void Start()
     {
         //Initialization

@@ -13,43 +13,88 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
     TextMeshProUGUI tmpText = null;
 
     // META
-    public bool player1Allowed = true;
-    public bool player2Allowed = true;
-
     private bool p1Inside = false;
     private bool p2Inside = false;
+    private bool cursorInside = false;
+
+    //Event Systems
+    private EventSystem eventSystemP1;
+    private EventSystem eventSystemP2;
 
     void Start()
     {
         if(hasText)
             tmpText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        eventSystemP1 = GameObject.FindGameObjectWithTag("EventP1").GetComponent<EventSystem>();
+        eventSystemP2 = GameObject.FindGameObjectWithTag("EventP2").GetComponent<EventSystem>();
     }
 
-    private bool HoveringMice()
+    #region Standalone Mouse
+
+    private void OnMouseEnter()
     {
-        return p1Inside || p2Inside;
+        if (GameManager.Instance.MainMenuOn || GameManager.Instance.PauseMenuOn)
+        {
+            cursorInside = true;
+            if (hasText)
+                tmpText.transform.localPosition = new Vector3(0, 2, 0);
+        }
+    }
+
+    private void OnMouseDown()
+    {
+        if (GameManager.Instance.MainMenuOn || GameManager.Instance.PauseMenuOn)
+        {
+            if (hasText)
+                tmpText.transform.localPosition = new Vector3(0, 0, 0);
+        }
+    }
+
+    private void OnMouseUp()
+    {
+        if (GameManager.Instance.MainMenuOn || GameManager.Instance.PauseMenuOn)
+        {
+            if (hasText)
+                tmpText.transform.localPosition = new Vector3(0, 2, 0);
+        }
+    }
+    private void OnMouseExit()
+    {
+        cursorInside = false;
+        if (!HoveringMice()) //If theres no other mice inside, unselect the button
+        {
+            if (GameManager.Instance.MainMenuOn || GameManager.Instance.PauseMenuOn)
+            {
+                if (hasText)
+                    tmpText.transform.localPosition = new Vector3(0, 0, 0);
+            }
+        }
+    }
+
+    #endregion
+
+    private bool HoveringMice() //Checks if any Mouse is hovering over the buttons
+    {
+        return p1Inside || p2Inside || cursorInside;
     }
 
     public void OnTriggerStay2D(Collider2D other)
     {
         if (GameManager.Instance.MainMenuOn || GameManager.Instance.PauseMenuOn)
         {
-            if (other.gameObject.CompareTag("Mouse"))
+            if (other.gameObject.CompareTag("Mouse")) //checks if collision is Controller Mouse
             {
-                switch (other.gameObject.GetComponent<MouseScript>().Player)
+                switch (other.gameObject.GetComponent<MouseScript>().Player) //If Controller Mouse enters, update bools
                 {
                     case 1:
-                        if (!player1Allowed)
-                            return;
                         p1Inside = true;
+                        eventSystemP1.SetSelectedGameObject(gameObject);
                         break;
                     case 2:
-                        if (!player2Allowed)
-                            return;
                         p2Inside = true;
+                        eventSystemP2.SetSelectedGameObject(gameObject);
                         break;
                 }
-                EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(gameObject);
             }
         }
     }
@@ -57,18 +102,16 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
         if (GameManager.Instance.MainMenuOn || GameManager.Instance.PauseMenuOn)
         {
-            switch (other.gameObject.GetComponent<MouseScript>().Player)
+            switch (other.gameObject.GetComponent<MouseScript>().Player) //If Controller Mouse leaves, update bools
             {
                 case 1:
                     p1Inside = false;
+                    eventSystemP1.SetSelectedGameObject(null);
                     break;
                 case 2:
                     p2Inside = false;
+                    eventSystemP2.SetSelectedGameObject(null);
                     break;
-            }
-            if (!HoveringMice())
-            {
-                EventSystem.current.GetComponent<EventSystem>().SetSelectedGameObject(null);
             }
         }
     }
@@ -80,14 +123,12 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
             if (hasText)
                 tmpText.transform.localPosition = new Vector3(0, 2, 0);
         }
-        
     }
-
     public void OnDeselect(BaseEventData data)
     {
         if (GameManager.Instance.MainMenuOn || GameManager.Instance.PauseMenuOn)
         {
-            if (hasText)
+            if (hasText && !HoveringMice())
                 tmpText.transform.localPosition = new Vector3(0, 0, 0);
         }
     }
@@ -95,7 +136,6 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
         StartCoroutine(Delay());
     }
-
     private IEnumerator Delay()
     {
         if (hasText)
