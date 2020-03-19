@@ -107,10 +107,20 @@ public class ButtonScript : MonoBehaviour, ISelectHandler, IDeselectHandler
                 case 1:
                     p1Inside = false;
                     eventSystemP1.SetSelectedGameObject(null);
+                    if (p2Inside) //Solves a bug where button image sprite becomes unselected
+                    {
+                        eventSystemP2.SetSelectedGameObject(null);
+                        eventSystemP2.SetSelectedGameObject(gameObject);
+                    }
                     break;
                 case 2:
                     p2Inside = false;
                     eventSystemP2.SetSelectedGameObject(null);
+                    if (p1Inside)
+                    {
+                        eventSystemP1.SetSelectedGameObject(null);
+                        eventSystemP1.SetSelectedGameObject(gameObject);
+                    }
                     break;
             }
         }
