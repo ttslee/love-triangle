@@ -115,7 +115,6 @@ public class PlayerScript : MonoBehaviour
 
     private void PlayerAction(string action)
     {
-        Debug.Log(action);
         switch(action)
         {
             case "RT":

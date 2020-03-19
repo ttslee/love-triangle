@@ -449,7 +449,7 @@ GameObject:
   - component: {fileID: 1932692840}
   - component: {fileID: 1932692839}
   - component: {fileID: 1932692838}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ParticleSystem
   m_TagString: Particle
   m_Icon: {fileID: 0}
@@ -493,9 +493,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1792575289
-  m_SortingLayer: -2
-  m_SortingOrder: 1
+  m_SortingLayerID: -442058067
+  m_SortingLayer: -1
+  m_SortingOrder: 10
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0
@@ -5327,3 +5327,28 @@ PrefabInstance:
       objectReference: {fileID: 1932692837}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 816b6bd7ae85e1d41900c516c481e9d7, type: 3}
+--- !u!1 &5851497627291665494 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7452312392150184781, guid: 816b6bd7ae85e1d41900c516c481e9d7,
+    type: 3}
+  m_PrefabInstance: {fileID: 5851497627291665493}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &5851497627291665495
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5851497627291665494}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7a7f8f216178c1f488cb585cf7eb577b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
